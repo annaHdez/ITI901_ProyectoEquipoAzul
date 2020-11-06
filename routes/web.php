@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +16,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+Route::get('/cache', function () {
+    Artisan::call('config:clear');
+    Artisan::call('view:clear');
+    Artisan::call('route:clear');
+    Artisan::call('cache:claer');
+    return "Caché limpio";
+})->name('cache');
+
+Route::resource('Login', 'LoginController');
