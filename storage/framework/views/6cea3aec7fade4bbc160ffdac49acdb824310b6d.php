@@ -62,7 +62,7 @@
                 <?php endif; ?>             
             </nav>
         </div>
-	<div style="margin-top: 19vh;">
+	<div style="margin-top: 10vh;">
 		<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
 			<ol class="carousel-indicators">
 				<li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
@@ -71,23 +71,21 @@
 			</ol>
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img src="../images/stand.jpg" class="d-block w-100" style="height: 80vh;" alt="...">
+					<img src="../public/images/stand.jpg" class="d-block w-100" style="height: 80vh;" alt="...">
 					<div class="carousel-caption d-none d-md-block">
 						<h5>First slide label</h5>
 						<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
 					</div>
 				</div>
 				<div class="carousel-item">
-					<img src="../Images/breakfast-690128_1280.jpg" class="d-block w-100" style="height: 80vh;"
-						alt="...">
+					<img src="../public/images/amarillo.jpg" class="d-block w-100" style="height: 80vh;" alt="...">
 					<div class="carousel-caption d-none d-md-block">
 						<h5>Second slide label</h5>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 					</div>
 				</div>
 				<div class="carousel-item">
-					<img src="../Images/architecture-1837150_1280.jpg" class="d-block w-100" style="height: 80vh;"
-						alt="...">
+					<img src="../public/images/rojo.jpg" class="d-block w-100" style="height: 80vh;" alt="...">
 					<div class="carousel-caption d-none d-md-block">
 						<h5>Third slide label</h5>
 						<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
@@ -127,7 +125,7 @@
 	<div class="row">
 		<div class="col text-center">
 			<hr class="d-inline p-2">
-			<h2 class="text-muted d-inline p-2">Restaurantes destacados</h2>
+			<h2 class="text-muted d-inline p-2">Productos destacados</h2>
 			<hr class="d-inline p-2">
 		</div>
 	</div>
@@ -143,10 +141,10 @@
 				<div class="container">
 					<div class="card-deck">
 						<div class="card">
-							<img src="../Images/Destacados/Restaurantes/bistro-498504_640.jpg" class="card-img-top"
+							<img src="../public/images/camping.jpg" class="card-img-top"
 								alt="...">
 							<div class="card-body">
-								<h5 class="card-title">Restaurante 1</h5>
+								<h5 class="card-title">Botas para acampar</h5>
 								<p class="card-text">This is a longer card with supporting text below as a natural
 									lead-in to additional content. This content is a little bit longer.</p>
 								<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
@@ -156,10 +154,10 @@
 
 						<!--Restaurante 2-->
 						<div class="card">
-							<img src="../Images/Destacados/Restaurantes/brick-wall-1834784_640.jpg" class="card-img-top"
+							<img src="../public/images/brown.jpg" class="card-img-top"
 								alt="...">
 							<div class="card-body">
-								<h5 class="card-title">Restaurante 2</h5>
+								<h5 class="card-title">Botas casuales</h5>
 								<p class="card-text">This card has supporting text below as a natural lead-in to
 									additional content.</p>
 								<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
@@ -168,10 +166,10 @@
 						</div>
 						< <!--Restaurante 3-->
 							<div class="card">
-								<img src="../Images/Destacados/Restaurantes/cafe-789635_640.jpg" class="card-img-top"
+								<img src="../public/images/trabajo.jpg" class="card-img-top"
 									alt="...">
 								<div class="card-body">
-									<h5 class="card-title">Restaurante 3</h5>
+									<h5 class="card-title">Botas de trabajo</h5>
 									<p class="card-text">This is a wider card with supporting text below as a natural
 										lead-in to additional content. This card has even longer content than the first
 										to show that equal height action.</p>
@@ -189,10 +187,10 @@
 				<div class="container">
 					<div class="card-deck">
 						<div class="card">
-							<img src="../Images/Destacados/Restaurantes/croatia-1578437_640.jpg" class="card-img-top"
+							<img src="../public/images/cafe.jpg" class="card-img-top"
 								alt="...">
 							<div class="card-body">
-								<h5 class="card-title">Restaurante 4</h5>
+								<h5 class="card-title">Zapatos casuales</h5>
 								<p class="card-text">This is a longer card with supporting text below as a natural
 									lead-in to additional content. This content is a little bit longer.</p>
 								<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
@@ -202,22 +200,22 @@
 
 						<!--Restaurante 2-->
 						<div class="card">
-							<img src="../Images/Destacados/Restaurantes/restaurant-1090136_640.jpg" class="card-img-top"
+							<img src="../public/images/tenis.jpg" class="card-img-top"
 								alt="...">
 							<div class="card-body">
-								<h5 class="card-title">Restaurante 5</h5>
+								<h5 class="card-title">Tenis</h5>
 								<p class="card-text">This card has supporting text below as a natural lead-in to
 									additional content.</p>
 								<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 								<a href="Lista Platillos.html" class="btn btn-primary">Conocer</a>
 							</div>
 						</div>
-						< <!--Restaurante 3-->
+						<!--Restaurante 3-->
 							<div class="card">
-								<img src="../Images/Destacados/Restaurantes/restaurant-3597677_640.jpg"
+								<img src="../public/images/heels.jpg"
 									class="card-img-top" alt="...">
 								<div class="card-body">
-									<h5 class="card-title">Restaurante 6</h5>
+									<h5 class="card-title">Zapatos de tacón</h5>
 									<p class="card-text">This is a wider card with supporting text below as a natural
 										lead-in to additional content. This card has even longer content than the first
 										to show that equal height action.</p>
@@ -230,7 +228,7 @@
 				</div>
 			</div>
 			<div class="carousel-item">
-				<!--3 Destacados 3-->
+				<!--3 Destacados 3
 				<div class="container">
 					<div class="card-deck">
 						<div class="card">
@@ -243,9 +241,9 @@
 								<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 								<a href="Lista Platillos.html" class="btn btn-primary">Conocer</a>
 							</div>
-						</div>
+						</div>-->
 
-						<!--Restaurante 2-->
+						<!--Restaurante 2
 						<div class="card">
 							<img src="../Images/Destacados/Restaurantes/table-791167_640.jpg" style="height: 240px;"
 								clrestaurant-690569_640ass="card-img-top" alt="...">
@@ -256,8 +254,8 @@
 								<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 								<a href="Lista Platillos.html" class="btn btn-primary">Conocer</a>
 							</div>
-						</div>
-						< <!--Restaurante 3-->
+						</div>-->
+						< <!--Restaurante 3
 							<div class="card">
 								<img src="../Images/Destacados/Restaurantes/urban-2004494_640.jpg" class="card-img-top"
 									alt="...">
@@ -269,7 +267,7 @@
 									<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 									<a href="Lista Platillos.html" class="btn btn-primary">Conocer</a>
 								</div>
-							</div>
+							</div>-->
 
 					</div>
 				</div>
@@ -300,7 +298,7 @@
 	<!--Comida popular-->
 	<div class="container">
 		<hr class="d-line text-center">
-		<h2 class="d-line text-center">Comida Popular</h2>
+		<h2 class="d-line text-center">Los más vendidos</h2>
 		<hr class="d-line text-center">
 	</div>
 	<!---->
@@ -312,10 +310,10 @@
 				<div class="container">
 					<div class="card-deck">
 						<div class="card">
-							<img src="../Images/Destacados/Comida/asparagus-2169305_640.jpg" class="card-img-top"
+							<img src="../public/images/top1.jpg" class="card-img-top"
 								alt="...">
 							<div class="card-body">
-								<h5 class="card-title">Card title</h5>
+								<h5 class="card-title">Top 1</h5>
 								<p class="card-text">This is a longer card with supporting text below as a natural
 									lead-in to additional content. This content is a little bit longer.</p>
 								<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
@@ -325,22 +323,22 @@
 
 						<!--Restaurante 2-->
 						<div class="card">
-							<img src="../Images/Destacados/Comida/burger-1140824_640.jpg" class="card-img-top"
+							<img src="../public//images/top2.jpg" class="card-img-top"
 								alt="...">
 							<div class="card-body">
-								<h5 class="card-title">Card title</h5>
+								<h5 class="card-title">Top 2</h5>
 								<p class="card-text">This card has supporting text below as a natural lead-in to
 									additional content.</p>
 								<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 								<a href="Info_Platillo.html" class="btn btn-primary">Leer más</a>
 							</div>
 						</div>
-						< <!--Restaurante 3-->
+						 <!--Restaurante 3-->
 							<div class="card">
-								<img src="../Images/Destacados/Comida/cake-1971552_640.jpg" class="card-img-top"
+								<img src="../public/images/top3.jpg" class="card-img-top"
 									alt="...">
 								<div class="card-body">
-									<h5 class="card-title">Card title</h5>
+									<h5 class="card-title">Top 3</h5>
 									<p class="card-text">This is a wider card with supporting text below as a natural
 										lead-in to additional content. This card has even longer content than the first
 										to show that equal height action.</p>
@@ -351,62 +349,16 @@
 
 					</div>
 				</div>
-			</div>
-
-			<div class="carousel-item">
-				<!--3 Destacados 2-->
-				<div class="container">
-					<div class="card-deck">
-						<div class="card">
-							<img src="../Images/Destacados/Comida/churros-2188871_640.jpg" class="card-img-top"
-								alt="...">
-							<div class="card-body">
-								<h5 class="card-title">Card title</h5>
-								<p class="card-text">This is a longer card with supporting text below as a natural
-									lead-in to additional content. This content is a little bit longer.</p>
-								<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-								<a href="Info_Platillo.html" class="btn btn-primary">Leer más</a>
-							</div>
-						</div>
-
-						<!--Restaurante 2-->
-						<div class="card">
-							<img src="../Images/Destacados/Comida/hamburger-494706_640.jpg" class="card-img-top"
-								alt="...">
-							<div class="card-body">
-								<h5 class="card-title">Card title</h5>
-								<p class="card-text">This card has supporting text below as a natural lead-in to
-									additional content.</p>
-								<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-								<a href="Info_Platillo.html" class="btn btn-primary">Leer más</a>
-							</div>
-						</div>
-						< <!--Restaurante 3-->
-							<div class="card">
-								<img src="../Images/Destacados/Comida/mexican-2456038_640.jpg" class="card-img-top"
-									alt="...">
-								<div class="card-body">
-									<h5 class="card-title">Card title</h5>
-									<p class="card-text">This is a wider card with supporting text below as a natural
-										lead-in to additional content. This card has even longer content than the first
-										to show that equal height action.</p>
-									<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-									<a href="Info_Platillo.html" class="btn btn-primary">Leer más</a>
-								</div>
-							</div>
-
-					</div>
-				</div>
-			</div>
+			</div>								
 			<div class="carousel-item">
 				<!--3 Destacados 3-->
 				<div class="container">
 					<div class="card-deck">
 						<div class="card">
-							<img src="../Images/Destacados/Comida/pancakes-2291908_640.jpg" class="card-img-top"
+							<img src="../public/images/top4.jpg" class="card-img-top"
 								alt="...">
 							<div class="card-body">
-								<h5 class="card-title">Card title</h5>
+								<h5 class="card-title">Top 4</h5>
 								<p class="card-text">This is a longer card with supporting text below as a natural
 									lead-in to additional content. This content is a little bit longer.</p>
 								<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
@@ -416,9 +368,9 @@
 
 						<!--Restaurante 2-->
 						<div class="card">
-							<img src="../Images/Destacados/Comida/piza-3010062_640.jpg" class="card-img-top" alt="...">
+							<img src="../public/images/top5.jpg" class="card-img-top" alt="...">
 							<div class="card-body">
-								<h5 class="card-title">Card title</h5>
+								<h5 class="card-title">Top 5</h5>
 								<p class="card-text">This card has supporting text below as a natural lead-in to
 									additional content.</p>
 								<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
@@ -427,10 +379,10 @@
 						</div>
 						< <!--Restaurante 3-->
 							<div class="card">
-								<img src="../Images/Destacados/Comida/shish-kebab-417994_640.jpg" class="card-img-top"
+								<img src="../public/images/top6.jpg" class="card-img-top"
 									alt="...">
 								<div class="card-body">
-									<h5 class="card-title">Card title</h5>
+									<h5 class="card-title">Top 6</h5>
 									<p class="card-text">This is a wider card with supporting text below as a natural
 										lead-in to additional content. This card has even longer content than the first
 										to show that equal height action.</p>
