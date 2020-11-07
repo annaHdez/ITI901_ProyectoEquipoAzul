@@ -1,11 +1,8 @@
 <footer class="navbar sticky-bottom navbar-expand-sm navbar-dark bg-dark" style="width: 100%;">
-    <img src="../Images/imagen1.png" alt="" style="height: 40vh; width: 20vw;" />
-    <div class="navbar-brand" style="word-wrap: break-word;height: 10hv; margin-left: 10%">
-        <div class="collapse navbar-collapse text-wrap">
-            <h3>¿Te gusta nuestro servicio?</h3>
-            <br><br>
-        </div>
+    <img src="../public/images/log.png" alt="" style="height: 60px; width: 60px;"/>
+    <div class="navbar-brand" style="word-wrap: break-word; height: 10hv; ">       
         <div>
+            <p>@MpShoes 2020 - Todos los derechos reservados</p>
             <button type="button" class="btn text-white" data-toggle="modal" data-target="#AcercaDe">
                 Acerca de
             </button>
