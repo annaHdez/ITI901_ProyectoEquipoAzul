@@ -27,3 +27,7 @@ Route::get('/cache', function () {
 })->name('cache');
 
 Route::resource('Login', 'LoginController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

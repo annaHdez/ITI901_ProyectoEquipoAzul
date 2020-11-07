@@ -3,7 +3,7 @@
 
 <head>
 	<link rel="stylesheet" type="text/css" href="Styles/Bootstrap/dist/css/bootstap.css">
-	<title lang="es" dir="ltr">Yummy Easy</title>
+	<title lang="es" dir="ltr">MP Shoes</title>
 	<meta charset="utf-8">
 	<meta name="description" content="Sitio Oficial de Yummy Easy">
 	<meta name=viewport content="width=device-width, initial-scale=1">
