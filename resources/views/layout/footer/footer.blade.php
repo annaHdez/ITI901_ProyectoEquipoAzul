@@ -1,5 +1,6 @@
-<footer class="navbar sticky-bottom navbar-expand-sm navbar-dark bg-dark" style="width: 100%;">
-    <img src="../public/images/log.png" alt="" style="height: 60px; width: 60px;"/>
+<br>
+<footer class="navbar sticky-bottom navbar-expand-sm navbar-dark bg-dark" style="width:100%;">
+    <img src="{{asset('images/log.png')}}" alt="" style="height: 60px; width: 60px;"/>
     <div class="navbar-brand" style="word-wrap: break-word; height: 10hv; ">       
         <div>
             <p>@MpShoes 2020 - Todos los derechos reservados</p>

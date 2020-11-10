@@ -17,15 +17,15 @@
                 </div>
             @endif-->
 
-            <nav class="navbar navbar-dark bg-dark fixed-top" style="height: 10.5vh; width: 100%; opacity: 1;" >
+            <nav class="navbar navbar-dark bg-dark fixed-top" style="height: 10.5vh; width:100%; opacity: 1;" >
             <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">                
                 <ul class="navbar-nav mr-auto">
-                    <a href="index.html" class="btn text-white nav-item table table-dark">
+                    <a href="" class="btn text-white nav-item table table-dark">
                         <h2><strong>MpShoes</strong></h2>
                     </a>
                 </ul>     
-                <ul class="navbar-nav mr-auto" style="margin-left: -67%;">
-                    <img src="{{asset('icons/log.png')}}" alt="" style="width: 60px; height: 60px; padding-bottom: 10px ">
+                <ul class="navbar-nav mr-auto" style="margin-left: -60%;">
+                    <img src="{{asset('icons/log.png')}}" alt="logo" style="width: 60px; height: 60px; padding-bottom: 10px; ">
                 </ul>                             
                 @guest
                     <ul class="nav-item">
@@ -36,29 +36,6 @@
                             <a class="nav-link" href="{{ route('register') }}" >{{ __('Registrarse') }}</a>
                         </ul>
                     @endif         
-                    
-               <!-- <form class="form-inline my-2 my-lg-0">
-                    <a href="{{URL::to('Login')}}" type="button" class="btn btn-outline-success my-2 my-sm-0 text-success"
-                            type="submit" style="margin-left: 15px">Ingresar</a>
-                    </form>-->
-
-                <!-- <ul>
-                   <div class="container" style="text-align:center;padding:1em 0;font-size: 0.5em;">
-                        <div class="d-line">
-                            <h4>
-                                <p class style="text-decoration:none;" href="">
-                                    <span style="color:gray;">Hora actual en</span>
-                                    <br />
-                                <p class="text-light">León, Guanajuato, México</p>
-                                </p>
-                            </h4>
-                        </div>
-                        <div class="d-inline">
-                            <iframe class="d-inline"
-                                src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=es&size=small&timezone=America%2FMexico_City"
-                                width="100%" height="90" frameborder="0" seamless></iframe> </div>
-                    </div>                     
-                </ul> -->  
                 @endguest             
             </nav>
         </div>
@@ -71,35 +48,23 @@
 			</ol>
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img src="../public/images/stand.jpg" class="d-block w-100" style="height: 80vh;" alt="...">
+					<img src="{{asset('images/trabajo.jpg')}}" class="d-block w-100" style="height: 80vh;" alt="...">
 					<div class="carousel-caption d-none d-md-block">
 						<h5>First slide label</h5>
 						<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
 					</div>
 				</div>
-				<div class="carousel-item">
-					<img src="../public/images/amarillo.jpg" class="d-block w-100" style="height: 80vh;" alt="...">
-					<div class="carousel-caption d-none d-md-block">
-						<h5>Second slide label</h5>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+				{{-- @foreach ($imagenes as $imagen)
+					<div class="carousel-item">
+					<img src="{{asset('images/'.$imagen)}}" alt="" class="d-block w-100" style="height: 80vh;" alt="...">
+						<div class="carousel-caption d-none d-md-block">
+							<h5></h5>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est tenetur, facere eligendi aliquid quaerat non velit voluptate a totam nesciunt reiciendis, nam laudantium minus commodi dolorum? Facere dignissimos soluta doloribus?</p>
+						</div>
 					</div>
-				</div>
-				<div class="carousel-item">
-					<img src="../public/images/rojo.jpg" class="d-block w-100" style="height: 80vh;" alt="...">
-					<div class="carousel-caption d-none d-md-block">
-						<h5>Third slide label</h5>
-						<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-					</div>
-				</div>
+				@endforeach
+				 --}}
 			</div>
-			<!--<a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a>
-			<a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>-->
 		</div>
 	</div>
 
@@ -227,51 +192,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="carousel-item">
-				<!--3 Destacados 3
-				<div class="container">
-					<div class="card-deck">
-						<div class="card">
-							<img src="../Images/Destacados/Restaurantes/restaurant-690569_640.jpg" class="card-img-top"
-								alt="...">
-							<div class="card-body">
-								<h5 class="card-title">Restaurante 7</h5>
-								<p class="card-text">This is a longer card with supporting text below as a natural
-									lead-in to additional content. This content is a little bit longer.</p>
-								<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-								<a href="Lista Platillos.html" class="btn btn-primary">Conocer</a>
-							</div>
-						</div>-->
-
-						<!--Restaurante 2
-						<div class="card">
-							<img src="../Images/Destacados/Restaurantes/table-791167_640.jpg" style="height: 240px;"
-								clrestaurant-690569_640ass="card-img-top" alt="...">
-							<div class="card-body">
-								<h5 class="card-title">Restaurante 8</h5>
-								<p class="card-text">This card has supporting text below as a natural lead-in to
-									additional content.</p>
-								<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-								<a href="Lista Platillos.html" class="btn btn-primary">Conocer</a>
-							</div>
-						</div>-->
-						< <!--Restaurante 3
-							<div class="card">
-								<img src="../Images/Destacados/Restaurantes/urban-2004494_640.jpg" class="card-img-top"
-									alt="...">
-								<div class="card-body">
-									<h5 class="card-title">Restaurante 9</h5>
-									<p class="card-text">This is a wider card with supporting text below as a natural
-										lead-in to additional content. This card has even longer content than the first
-										to show that equal height action.</p>
-									<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-									<a href="Lista Platillos.html" class="btn btn-primary">Conocer</a>
-								</div>
-							</div>-->
-
-					</div>
-				</div>
-			</div>
+			
 		</div>
 		<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
 			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
