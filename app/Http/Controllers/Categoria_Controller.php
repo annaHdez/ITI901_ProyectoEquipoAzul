@@ -70,7 +70,8 @@ class Categoria_Controller extends Controller
      */
     public function show($id)
     {
-        //
+        $modelo = Categoria_Model::find($id);
+        return view('Categorias.index#VerCategoria',["modelo"=>$modelo]);
     }
 
     /**
@@ -81,7 +82,9 @@ class Categoria_Controller extends Controller
      */
     public function edit($id)
     {
-        //
+        $modelo = Categoria_Model::find($id);
+        $table_categorias = Categoria_Model::orderBy('nombre')->get()->pluck('nombre','id');
+        return view('Categorias.index#Editar_Categoria'.$id,["modelo"=>$modelo, "table_categorias"=>$table_categorias]);
     }
 
     /**
@@ -93,7 +96,24 @@ class Categoria_Controller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validateData = $request->validate([
+            'nombre'  => 'required|min:2|max:30'
+        ]);
+
+        $categoria = Categoria_Model::find($id);
+        $categoria->fill($request->all());
+        if($request->estatus)
+        {
+            $categoria->estatus = true;
+        }
+        else
+        {
+            $categoria->estatus = false;
+        }
+        $categoria->save();
+
+        $request->session()->flash('message','Categoría actualizada');
+        return Redirect::to('Categorias');
     }
 
     /**
@@ -104,6 +124,8 @@ class Categoria_Controller extends Controller
      */
     public function destroy($id)
     {
-        //
+        $categoria = Categoria_Model::find($id);
+        $categoria->delete();
+        return Redirect::to('Categorias');
     }
 }

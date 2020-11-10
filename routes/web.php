@@ -27,7 +27,19 @@ Route::get('/cache', function () {
 })->name('cache');
 
 Route::resource('Login', 'LoginController');
+Route::resource('Usuarios', 'UserController');
+Route::resource('Producto', 'Producto_Controller');
+Route::resource('Categoria', 'Categoria_Controller');
+Route::resource('Rol', 'Rol_Controller');
+
 
 Auth::routes();
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::resource('Usuarios', 'UserController');
+    Route::resource('Producto', 'Producto_Controller');
+    Route::resource('Categoria', 'Categoria_Controller');
+    Route::resource('Rol', 'Rol_Controller');
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
