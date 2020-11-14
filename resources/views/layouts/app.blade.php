@@ -64,6 +64,9 @@
                             @endif
                         @else
                             @if(\Auth::user()->rol_id==1)
+                            <li class="nav-item">
+                            <a href="{{route('Productos.index')}}" class="nav-link">Productos</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -94,7 +97,7 @@
                 </div>
             </div>
         </nav>
-
+        <br><br><br><br>
         <main class="py-4">
             @yield('content')
         </main>
