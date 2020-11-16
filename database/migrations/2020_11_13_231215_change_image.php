@@ -28,7 +28,7 @@ class ChangeImage extends Migration
     public function down()
     {
         Schema::table('producto', function (Blueprint $table) {
-            $table->dropColumn('imagen');
+            $table->binary('imagen');
             $table->dropColumn('nombre_virtual');
             $table->dropColumn('nombre_fisico');
         });

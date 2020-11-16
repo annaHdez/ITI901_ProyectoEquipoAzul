@@ -14,7 +14,7 @@ class AddRolIdToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('rol_id');
+            $table->unsignedBigInteger('rol_id')->nullable();
         });
     }
 
