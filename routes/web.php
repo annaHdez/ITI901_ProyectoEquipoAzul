@@ -31,6 +31,7 @@ Route::resource('Usuarios', 'UserController');
 Route::resource('Producto', 'Producto_Controller');
 Route::resource('Categoria', 'Categoria_Controller');
 Route::resource('Rol', 'Rol_Controller');
+Route::resource('Detalle_Venta','Detalle_Venta_Controller');
 
 
 Auth::routes();
@@ -40,5 +41,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('Productos', 'Producto_Controller');
     Route::resource('Categorias', 'Categoria_Controller');
     Route::resource('Rol', 'Rol_Controller');
+    Route::resource('Detalle_Venta','Detalle_Venta_Controller');
 });
     Route::get('/home', 'HomeController@index')->name('home');    
