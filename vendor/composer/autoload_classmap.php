@@ -20,6 +20,10 @@ return array(
     'App\\Http\\Controllers\\LoginController' => $baseDir . '/app/Http/Controllers/LoginController.php',
     'App\\Http\\Controllers\\Producto_Controller' => $baseDir . '/app/Http/Controllers/Producto_Controller.php',
     'App\\Http\\Controllers\\Rol_Controller' => $baseDir . '/app/Http/Controllers/Rol_Controller.php',
+<<<<<<< HEAD
+=======
+    'App\\Http\\Controllers\\UserController' => $baseDir . '/app/Http/Controllers/UserController.php',
+>>>>>>> 705ac22a017d7e1eeb23ff68e350d7725041580d
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
@@ -33,6 +37,7 @@ return array(
     'App\\Models\\Producto_Model' => $baseDir . '/app/Models/Producto_Model.php',
     'App\\Models\\Rol_Model' => $baseDir . '/app/Models/Rol_Model.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
+    'App\\Models\\UserEloquent' => $baseDir . '/app/Models/UserEloquent.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',

@@ -20,8 +20,8 @@ class Producto_Controller extends Controller
     public function index()
     {
         $table_productos = DB::table('producto')
-        ->join('categoria','producto.categoria_id','=','categoria.id')
-        ->select('producto.*','cateogia.nombre as cateoria_producto')
+        ->join('categoria','producto.id_categoria','=','categoria.id')
+        ->select('producto.*','categoria.nombre as cateoria_producto')
         ->get();
 
         return view('Productos.index',['table_productos'=>$table_productos]);
@@ -65,6 +65,24 @@ class Producto_Controller extends Controller
             $modelo->activo = false;
         }
         $modelo->save();
+         //Almacena la imagen en ruta ftp
+        $file = $request->file('imagen');
+        if($file)
+        {
+            //Extraemos el tipo de imagen
+            $typeImg     = $_FILES["imagen"]["type"];
+            //Extraemos el tamaño de la imagen
+            $sizeImg     = $_FILES["imagen"]["size"];
+            //Extraemos el nombre de la imagen
+            $nameImg     = $_FILES["imagen"]["name"];
+            //Abre la imagen en modo de lectura
+            $uploadedImg = fopen($_FILES["imagen"]["tmp_name"],'r');
+            //Lee los atributos como el tipo de imagen subida y su tamaño para después añadirla a la base
+            $binaryImg   = fread($uploadedImg,$sizeImg);
+            $modelo->imagen = $binaryImg;
+            $modelo->save();
+        }
+
         $request->session()->flash('message', 'Producto Creado');
         return Redirect::to('Productos');
     }
@@ -124,6 +142,15 @@ class Producto_Controller extends Controller
             $modelo->activo = false;
         }
         $modelo->save();
+
+        //Almacena la imagen en ruta ftp
+        $file = $request->file('imagen');
+        if($file)
+        {
+            $modelo->imagen = base64_encode($file);
+            $modelo->save();
+        }
+
         $request->session()->flash('message', 'Producto Actualizado');
         return Redirect::to('Productos');
     }
