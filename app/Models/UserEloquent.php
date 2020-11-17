@@ -9,11 +9,11 @@ class UserEloquent extends Model
 {
     use HasFactory;
     protected $table = 'users';
-    protected $fillable = ['name', 'email', 'password','rol'];
+    protected $fillable = ['name', 'email', 'password','rol_id'];
 
     public function getRol()
     {
                             // Modelo de referencia, campo local, campo foráneo 
-        return $this->belongsTo('App\Models\Rol_Model','rol','id','nombre');
+        return $this->belongsTo('App\Models\Rol_Model','rol_id','id','nombre');
     }
 }

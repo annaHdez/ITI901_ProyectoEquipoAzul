@@ -91,14 +91,24 @@
                                                 @csrf
                                         </form>
                                     </div>
-                                    </li>
+                                </li>
                             </ul>
                             
                             @else 
-                                Usuario
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none bg-black">
-                                    @csrf
-                                </form>
+                            <li class="nav-item dropdown d-inline" style="margin-right: 5rem;">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-white d-inline" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->name }}
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right bg-black" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                    </a>
+    
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none bg-black">
+                                            @csrf
+                                    </form>
+                                </div>
+                            </li>
                             @endif
                         @endguest
                     </ul>

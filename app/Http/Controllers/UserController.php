@@ -32,14 +32,17 @@ class UserController extends Controller
         }
         else
         {
+            //Ya que trabajamos con modals, en la misma página 
+            //Requiere todas las referencias a la vez
             $table_users = UserEloquent::all();
+            $table_rol   = Rol_Model::orderBy('nombre')->get()->pluck('nombre','id');
             $whereClause = [];
             if($request->nombre)
             {
                 array_push($whereClause, [ "name" ,'like', '%'.$request->nombre.'%' ]);
             }
             $table_users = UserEloquent::orderBy('name')->where($whereClause)->get();
-            return view('Usuarios.index',["table_users"=>$table_users,"filtroNombre"=>$request->nombre]);
+            return view('Usuarios.index',["table_users"=>$table_users,"table_rol"=>$table_rol,"filtroNombre"=>$request->nombre]);
         }
         
     }
@@ -51,8 +54,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        $table_users = Rol_Model::orderBy('nombre')->get()->pluck('nombre','id');
-        return view('Usuarios.index#Crear_Usuario',["table_users"=>$table_users]);
+        $table_rol = Rol_Model::orderBy('nombre')->get()->pluck('nombre','id');
+        return view('Usuarios.index#Crear_Usuario',["table_rol"=>$table_rol]);
     }
 
     /**
@@ -63,7 +66,27 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name'     => 'required|min:5|max:30',
+            'password' => 'required|min:5|max:30',
+            'email'    => 'required|email|unique:users',
+            'rol_id'   => 'required'
+        ]);
+
+        $usrExistente = UserEloquent::where('email', $request->email)->first(); 
+        
+        if($usrExistente){
+            return Redirect()->route('users.create')->withErrors(['email' => 'Mi error'])->withInput();
+        }
+
+        $mUser = new UserEloquent();
+        $mUser->fill($request->all());
+        $mUser->password = bcrypt($mUser->password);
+        $mUser->save();
+
+        // Regresa a lista de usuario
+        //Session::flash('message', 'Usuario creado!');
+        return Redirect::to('Usuarios');
     }
 
     /**
@@ -86,7 +109,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $modelo = UserEloquent::find($id);
+        $table_rol = Rol_Model::orderBy('nombre')->get()->pluck('nombre','id');
+        return view('Usuarios.index#Editar_Usuario'.$id,["modelo"=>$modelo,"table_rol"=>$table_rol]);
     }
 
     /**
@@ -96,9 +121,20 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id, Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name'     => 'required|min:5|max:30',
+            'email'    => 'required|email|unique:users',
+            'rol_id'   => 'required|exists:rol_id,id'
+        ]);
+        $modelo = UserEloquent::find($id);
+        $modelo->name          = $request->name;
+        $modelo->email         = $request->email;
+        $modelo->updated_at    = date('Y-m-d H:i:s');
+        $modelo->rol_id        = $request->rol_id;
+        $modelo->save();
+        return Redirect::to('Usuarios');
     }
 
     /**
@@ -109,6 +145,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $modelo = UserEloquent::find($id);
+        $modelo->delete();
+        return Redirect::to('Usuarios');
     }
 }

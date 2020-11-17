@@ -7,12 +7,13 @@
         </div>
         <div class="modal-body">
             <strong>Tipo de Usuario</strong><br>
-            @if(($usuario->rol_id)==1)Administrador @else Usuario @endif 
-            <br>
+            {{$usuario->getRol->nombre}}<br>
             <strong>Correo</strong><br>
             {{$usuario->email}}<br>
             <strong>Fecha de creación</strong><br>
-            {{$usuario->created_at}}
+            {{$usuario->created_at}}<br>
+            <strong>Fecha de modificación</strong><br>
+            {{$usuario->updated_at}}
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

@@ -59,5 +59,5 @@
 <div class="modal fade" id="Crear_Producto" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     @include('Productos.helper.modal_new')
 </div>
-@include('layout.footer.footer')
+    @include('layout.footer.footer')
 @endsection
