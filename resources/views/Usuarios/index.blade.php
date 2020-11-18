@@ -49,16 +49,18 @@
                                 <div class="modal fade" id="Ver_Usuario{{$usuario->id}}" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                     @include('Usuarios.helper.modal_show')
                                 </div>
+                            <!--Boton de actualizar-->
                                 <button type="button" data-toggle="modal" data-target="#Editar_Usuario{{$usuario->id}}" class="btn btn-success">Actualizar</button>
                                 <div class="modal fade" id="Editar_Usuario{{$usuario->id}}" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                     @include('Usuarios.helper.modal_edit')
                                 </div>
+                                <!--Boton de borrar-->
                                 <!--Evita que el administrador principal sea borrado-->
                                 @if(($usuario->id)!=1)
                                 <div class="d-inline-flex">
                                     {{ Form::open(array('url' => route('Usuarios.destroy', $usuario->id), 'class' => 'pull-right')) }}
                                     {{ Form::hidden('_method', 'DELETE') }}
-                                    {{ Form::submit('Borrar', array('class' => 'btn btn-danger')) }}
+                                    {{ Form::submit('Borrar', array('class' => 'btn btn-danger','onclick'=>"return confirm('Eliminar usuario')") }}
                                     {{ Form::close() }}
                                 </div>
                                 @endif

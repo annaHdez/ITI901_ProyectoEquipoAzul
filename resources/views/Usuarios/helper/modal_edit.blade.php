@@ -11,7 +11,6 @@
         </div>
         <div class="modal-body">
             <div class="container">
-                <div class="">
 
                     <div class="form-group col-md-4">
                         {{ Form::label('nombre', 'Nombre') }}
@@ -31,7 +30,6 @@
                         {{ Form::select('rol',$table_rol,$usuario->rol_id,array('class' => 'form-control')) }}
                     </div>
                     @endif
-                </div>             
             </div>
             <br>
         </div>

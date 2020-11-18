@@ -11,10 +11,10 @@ class Producto_Model extends Model
     #Tabla a la cual hará referencia
     protected $table    = 'producto';
     #Los campos que llenará de la tabla
-    protected $fillable = ['nombre','descripcion','precio','stock','numeros_disponibles','color','estatus','categoria_id'];
+    protected $fillable = ['nombre','descripcion','precio','stock','numeros_disponibles','color','estatus','id_categoria'];
     #Referencia local como foráneo
     public function getCategoria()
     {
-        return $this->belongsTo('App\Models\Categoria_Model','categoria_id','id');
+        return $this->belongsTo('App\Models\Categoria_Model','id_categoria','id','nombre');
     }
 }
