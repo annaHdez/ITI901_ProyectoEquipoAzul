@@ -62,7 +62,7 @@
                                 <div class="d-inline-flex">
                                     {{ Form::open(array('url' => route('Usuarios.destroy', $usuario->id), 'class' => 'pull-right')) }}
                                     {{ Form::hidden('_method', 'DELETE') }}
-                                    {{ Form::submit('Borrar', array('class' => 'btn btn-danger','onclick'=>"return confirm('Eliminar usuario')") }}
+                                    {{ Form::submit('Borrar', array('class' => 'btn btn-danger','onclick'=>"return confirm('Eliminar usuario')")) }}
                                     {{ Form::close() }}
                                 </div>
                                 @endif

@@ -139,8 +139,7 @@ class UserController extends Controller
         $modelo->updated_at    = date('Y-m-d H:i:s');
         $modelo->rol_id        = $request->rol_id;
         $modelo->save();
-        echo $modelo->name;
-       // return Redirect::to('Usuarios');
+        return Redirect::to('Usuarios');
     }
 
     /**
