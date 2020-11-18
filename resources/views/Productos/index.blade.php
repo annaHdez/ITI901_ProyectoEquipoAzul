@@ -24,29 +24,6 @@
     </div>
 </div>
 <hr>
-<div class="container">
-    @foreach ($table_productos as $producto)
-    <div class="card container d-table selector-for-some-widget text-break" id="Producto{{$producto->id}}" style="min-width: 18rem; padding: abstract;margin-top: 1.1rem;">
-        <div style="margin-bottom: -2rem;">
-           <img src="" alt="">
-        </div>
-        <div class="card-body " style="min-width: 100%;">
-            <h5 class="card-title">{{$producto->nombre}}</h5>
-            <div class="contiainer d-sm-inline-row">
-                <button type="button" data-toggle="modal" data-target="#Ver_Producto{{$producto->id}}" class="btn btn-primary">Ver</button>
-                <div class="modal fade" id="Ver_Producto{{$producto->id}}" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    @include('Productos.helper.modal_show')
-                </div>
-                {{ Form::submit('Borrar', array('class' => 'btn btn-danger')) }}
-                <button type="button" data-toggle="modal" data-target="#Editar_Producto{{$producto->id}}" class="btn btn-success">Actualizar</button>
-                <div class="modal fade" id="Editar_Producto{{$producto->id}}" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    @include('Productos.helper.modal_edit')
-                </div>
-            </div>
-        </div>
-    </div>
-    @endforeach
-</div>
 <div class="d-inline-block" style="margin-left: 3%; margin-bottom: 1%; width:100%;">
     <a type="button" class="btn btn-success text-white sticky-bottom" data-toggle="modal" data-target="#Crear_Producto">Agregar Calzado
         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -58,6 +35,31 @@
 </div>
 <div class="modal fade" id="Crear_Producto" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     @include('Productos.helper.modal_new')
+</div>
+
+<div class="container">
+    @foreach ($modelo_producto as $producto)
+    <div class="card-deck">
+        <div class="card container d-table selector-for-some-widget text-break" id="Producto{{$producto->id}}" style="max-width: 19rem; padding: abstract;margin-top: 1.1rem;">
+            <img src="{{'images/'.$producto->nombre_fisico}}" class="card-img-top" alt="Esparragos"title="Esparragos" />
+            <div class="card-body " style="min-width: 100%;">    
+                <h5 class="card-title text-center">{{$producto->nombre}}</h5>
+                <div class="contiainer d-inine-flex">
+                    <button type="button" data-toggle="modal" data-target="#Ver_Producto{{$producto->id}}" class="btn btn-primary d-inline-flex">Ver</button>
+                    <div class="modal fade" id="Ver_Producto{{$producto->id}}" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        @include('Productos.helper.modal_show')
+                    </div>
+                    {{ Form::submit('Borrar', array('class' => 'btn btn-danger d-inline-flex')) }}
+                    <button type="button" data-toggle="modal" data-target="#Editar_Producto{{$producto->id}}" class="btn btn-success d-inline-flex">Actualizar</button>
+                    <div class="modal fade" id="Editar_Producto{{$producto->id}}" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        @include('Productos.helper.modal_edit')
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+    <br>
 </div>
     @include('layout.footer.footer')
 @endsection

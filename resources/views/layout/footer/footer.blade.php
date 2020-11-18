@@ -1,7 +1,6 @@
-<br>
-<footer class="navbar sticky-bottom navbar-expand-sm navbar-dark bg-dark" style="width: 100%;">
-    <img src="{{asset('images/log.png')}}" alt="" style="height: 60px; width: 60px;"/>
+<footer class="navbar sticky-bottom navbar-expand-sm navbar-dark bg-dark" style="width: 100vw;">
     <div class="navbar-brand" style="word-wrap: break-word;height: 10hv; margin-left: 10%">
+        <img src="{{asset('images/log.png')}}" alt="" style="height: 60px; width: 60px;" />
         <div class="collapse navbar-collapse text-wrap">
             <h3>¿Te gusta nuestro servicio?</h3>
             <br><br>
@@ -72,7 +71,7 @@
                             </button>
                         </div>
                         <div class="modal-body container text-wrap text-body">
-                            @include('layout.footer.terminos_condiciones')                   
+                            @include('layout.footer.terminos_condiciones')
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

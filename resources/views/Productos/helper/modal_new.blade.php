@@ -56,8 +56,8 @@
                     <div>
                         <strong><h5>{{Form::label('id_categoria','Categoria',['class'=>'form text-black'])}}</h5></strong>
                         <div class="input-group mb-3" style="width: 80%;">
-                            <div class="input-group-prepend"><label class="input-group-text" for="inputGroupSelect01">Categoría</label></div>
-                            {{ Form::select('cproducto_id', $table_productos, Request::old('id_categoria'), array('class' => 'form-control')) }}
+                            <div class="input-group-prepend"><label class="input-group-text" for="inputGroupSelect01">Categoría</label></div><br>
+                            {{ Form::select('cproducto_id', $table_categoria, array('class' => 'form-control')) }}
                         </div>
 
                         <strong><h5>{{Form::label('estatus','Disponible')}}</h5></strong>

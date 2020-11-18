@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Detalle_Venta_Model;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
 
 class Detalle_Venta_Controller extends Controller
 {
@@ -14,7 +18,7 @@ class Detalle_Venta_Controller extends Controller
      */
     public function index()
     {
-        //
+        return view('Detalle_Venta.index',[]);
     }
 
     /**

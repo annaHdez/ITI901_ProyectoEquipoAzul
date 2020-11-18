@@ -10,7 +10,6 @@
 
         <div class="modal-body">
             <div class="container">
-                <div class="">
 
                     <div class="form-group col-md-4">
                         {{ Form::label('nombre', 'Nombre') }}
@@ -32,7 +31,6 @@
                     @else
                     {{ Form::hidden('rol_id', $usuario->rol_id) }}
                     @endif
-                </div>             
             </div>
             <br>
         </div>

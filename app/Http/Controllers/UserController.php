@@ -41,8 +41,12 @@ class UserController extends Controller
             {
                 array_push($whereClause, [ "name" ,'like', '%'.$request->nombre.'%' ]);
             }
+            //Filtrado de Usuarios
             $table_users = UserEloquent::orderBy('name')->where($whereClause)->get();
-            return view('Usuarios.index',["table_users"=>$table_users,"table_rol"=>$table_rol,"filtroNombre"=>$request->nombre]);
+
+            //Limite de vista
+            $table_limit_user = UserEloquent::orderBy('name')->skip(1)->take(2)->get();
+            return view('Usuarios.index',["table_users"=>$table_users,"table_rol"=>$table_rol,"filtroNombre"=>$request->nombre,"table_limit_user"=>$table_limit_user]);
         }
         
     }
@@ -135,7 +139,8 @@ class UserController extends Controller
         $modelo->updated_at    = date('Y-m-d H:i:s');
         $modelo->rol_id        = $request->rol_id;
         $modelo->save();
-        return Redirect::to('Usuarios');
+        echo $modelo->name;
+       // return Redirect::to('Usuarios');
     }
 
     /**

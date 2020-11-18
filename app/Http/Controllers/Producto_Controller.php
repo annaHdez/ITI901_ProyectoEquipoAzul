@@ -21,10 +21,11 @@ class Producto_Controller extends Controller
     {
         $table_productos = DB::table('producto')
         ->join('categoria','producto.id_categoria','=','categoria.id')
-        ->select('producto.*','categoria.nombre as cateoria_producto')
+        ->select('producto.*','categoria.nombre as categoria_producto')
         ->get();
-
-        return view('Productos.index',['table_productos'=>$table_productos]);
+        $modelo_producto = Producto_Model::all();
+        $table_categoria = Categoria_Model::orderBy('nombre')->get()->pluck('nombre','id');
+        return view('Productos.index',['table_productos'=>$table_productos,"table_categoria"=>$table_categoria,"modelo_producto"=>$modelo_producto]);
     }
 
     /**
@@ -46,40 +47,38 @@ class Producto_Controller extends Controller
      */
     public function store(Request $request)
     {
-        $validatedDate = $request->validate([
+        $validatedData = $request->validate([
             'nombre'              => 'required|min:5|max:30',
             'descripcion'         => 'requiered|min:5',
             'precio'              => 'required|step:0.01|min:0|max:1000',
             'stock'               => 'required|step:1|min:0',
-            'numeros_disponibles' => 'required|min:1',
-            'color'               => 'required|min:1',
+
+            //'numeros_disponibles' => 'required|min:1',
+            //'color'               => 'required|min:1',
         ]);
 
         $modelo = new Producto_Model($request->all());
-        if($request->activo)
+        if($request->estatus)
         {
-            $modelo->activo = true;
+            $modelo->estatus = true;
         }
         else
         {
-            $modelo->activo = false;
+            $modelo->estatus = false;
         }
         $modelo->save();
          //Almacena la imagen en ruta ftp
         $file = $request->file('imagen');
         if($file)
         {
-            //Extraemos el tipo de imagen
-            $typeImg     = $_FILES["imagen"]["type"];
-            //Extraemos el tamaño de la imagen
-            $sizeImg     = $_FILES["imagen"]["size"];
-            //Extraemos el nombre de la imagen
-            $nameImg     = $_FILES["imagen"]["name"];
-            //Abre la imagen en modo de lectura
-            $uploadedImg = fopen($_FILES["imagen"]["tmp_name"],'r');
-            //Lee los atributos como el tipo de imagen subida y su tamaño para después añadirla a la base
-            $binaryImg   = fread($uploadedImg,$sizeImg);
-            $modelo->imagen = $binaryImg;
+            $imgNombreVirtual = $file->getClientOriginalName();
+            $imgNombreFisico  = $modelo->id. '-'. $imgNombreVirtual;
+            \Storage::disk('local')->put(
+                $imgNombreFisico, 
+                \File::get($file)
+            );
+            $modelo->nombre_virtual = $imgNombreVirtual;
+            $modelo->nombre_fisico  = $imgNombreFisico;
             $modelo->save();
         }
 
