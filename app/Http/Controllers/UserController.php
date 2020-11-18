@@ -122,12 +122,13 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update($id, Request $request)
-    {
+    {   
         $validatedData = $request->validate([
             'name'     => 'required|min:5|max:30',
-            'email'    => 'required|email|unique:users',
-            'rol_id'   => 'required|exists:rol_id,id'
+            // 'email'    => 'required|email|unique:users',
+            'rol_id'   => 'required|exists:rol,id'
         ]);
+
         $modelo = UserEloquent::find($id);
         $modelo->name          = $request->name;
         $modelo->email         = $request->email;

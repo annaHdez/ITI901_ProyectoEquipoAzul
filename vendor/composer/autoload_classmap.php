@@ -16,14 +16,12 @@ return array(
     'App\\Http\\Controllers\\Auth\\VerificationController' => $baseDir . '/app/Http/Controllers/Auth/VerificationController.php',
     'App\\Http\\Controllers\\Categoria_Controller' => $baseDir . '/app/Http/Controllers/Categoria_Controller.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\Detalle_Venta_Controller' => $baseDir . '/app/Http/Controllers/Detalle_Venta_Controller.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\LoginController' => $baseDir . '/app/Http/Controllers/LoginController.php',
     'App\\Http\\Controllers\\Producto_Controller' => $baseDir . '/app/Http/Controllers/Producto_Controller.php',
     'App\\Http\\Controllers\\Rol_Controller' => $baseDir . '/app/Http/Controllers/Rol_Controller.php',
-<<<<<<< HEAD
-=======
     'App\\Http\\Controllers\\UserController' => $baseDir . '/app/Http/Controllers/UserController.php',
->>>>>>> 705ac22a017d7e1eeb23ff68e350d7725041580d
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
@@ -34,6 +32,7 @@ return array(
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Models\\Categoria_Model' => $baseDir . '/app/Models/Categoria_Model.php',
+    'App\\Models\\Detalle_Venta_Model' => $baseDir . '/app/Models/Detalle_Venta_Model.php',
     'App\\Models\\Producto_Model' => $baseDir . '/app/Models/Producto_Model.php',
     'App\\Models\\Rol_Model' => $baseDir . '/app/Models/Rol_Model.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',

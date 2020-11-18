@@ -1,6 +1,3 @@
-{{ HTML::ul($errors->all()) }}
-{{ Form::model($usuario, array('route'=>array('Usuarios.update',$usuario->id),'method'=>'PUT')) }}
-
 <div class="modal-dialog modal-dialog-scrollable modal-lg">
     <div class="modal-content">
         <div class="modal-header">
@@ -9,6 +6,8 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
+        {{ Form::model($usuario, array('route'=>array('Usuarios.update',$usuario->id),'method'=>'PUT')) }}
+
         <div class="modal-body">
             <div class="container">
                 <div class="">
@@ -27,9 +26,11 @@
                     <!--Aseguramos que siempre exista un super administrador a fin de tener disponibilidad en todo momento de cambios--->
                     @if(($usuario->id)!=1)
                     <div class="form-group col-md-4">
-                        {{ Form::label('rol', 'Rol') }}<br>
-                        {{ Form::select('rol',$table_rol,$usuario->rol_id,array('class' => 'form-control')) }}
+                        {{ Form::label('rol_id', 'Rol') }}<br>
+                        {{ Form::select('rol_id',$table_rol,$usuario->rol_id,array('class' => 'form-control')) }}
                     </div>
+                    @else
+                    {{ Form::hidden('rol_id', $usuario->rol_id) }}
                     @endif
                 </div>             
             </div>
@@ -39,6 +40,7 @@
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
             {{ Form::submit('Actualizar Usuario', array('class'=>'btn btn-primary')) }}            
         </div>
+        {{Form::close()}}
+
     </div>
 </div>
-{{Form::close()}}

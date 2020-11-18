@@ -28,6 +28,8 @@
     </div>
     <br>
     <div class="content" style="width: 80%; margin-left: 10%;">
+        {{ HTML::ul($errors->all()) }}
+
         <table class="table table-stiped">
             <thead>
                 <tr>
