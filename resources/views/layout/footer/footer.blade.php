@@ -1,19 +1,19 @@
-<footer class="navbar sticky-bottom navbar-expand-sm navbar-dark bg-dark" style="width: 100vw;">
-    <div class="navbar-brand" style="word-wrap: break-word;height: 10hv; margin-left: 10%">
-        <img src="{{asset('images/log.png')}}" alt="" style="height: 60px; width: 60px;" />
+<footer class="navbar sticky-bottom navbar-expand-sm navbar-dark bg-dark" style="width: 100%;">
+    <div class="navbar-brand" style="word-wrap: break-word; display: flex; height: 100px; ">
+        <img src="{{asset('images/logo.png')}}" alt="" style="height: 100px; width: 170px;" />
         <div class="collapse navbar-collapse text-wrap">
-            <h3>¿Te gusta nuestro servicio?</h3>
+            <h3 style="padding-left:120px; ">¿Te gusta nuestro servicio?</h3>
             <br><br>
         </div>
-        <div>
+        <div style="padding-left:120px; padding-top: 60px">
             <button type="button" class="btn text-white" data-toggle="modal" data-target="#AcercaDe">
                 Acerca de
             </button>
 
-            <button type="button" class="btn text-white" data-toggle="modal" data-target="#Politcas_Privacidad">
+            <button style="padding-left:40px;" type="button" class="btn text-white" data-toggle="modal" data-target="#Politcas_Privacidad">
                 Políticas de Privacidad
             </button>
-            <button type="button" class="btn text-white" data-toggle="modal" data-target="#Terminos_Condiciones">
+            <button style="padding-left:40px;" type="button" class="btn text-white" data-toggle="modal" data-target="#Terminos_Condiciones">
                 Términos y condiciones
             </button>
 

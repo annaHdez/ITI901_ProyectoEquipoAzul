@@ -24,8 +24,8 @@
                         <h2><strong>MpShoes</strong></h2>
                     </a>
                 </ul>     
-                <ul class="navbar-nav mr-auto" style="margin-left: -60%;">
-                    <img src="<?php echo e(asset('icons/log.png')); ?>" alt="logo" style="width: 60px; height: 60px; padding-bottom: 10px; ">
+                <ul class="navbar-nav mr-auto" style="margin-left: -82%;">
+                    <img src="<?php echo e(asset('icons/logo1.png')); ?>" alt="logo" style="width: 100px; height: 100px; padding-bottom: 30px; ">
                 </ul>                             
                 <?php if(auth()->guard()->guest()): ?>
                     <ul class="nav-item">
@@ -48,13 +48,36 @@
 			</ol>
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img src="<?php echo e(asset('images/trabajo.jpg')); ?>" class="d-block w-100" style="height: 80vh;" alt="...">
+					<img src="<?php echo e(asset('images/stand.jpg')); ?>" class="d-block w-100" style="height: 80vh;" alt="...">
 					<div class="carousel-caption d-none d-md-block">
 						<h5>First slide label</h5>
 						<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
 					</div>
 				</div>
-				
+				<div class="carousel-item">
+					<img src="../public/images/rojo.jpg" class="d-block w-100" style="height: 80vh;"
+						alt="...">
+					<div class="carousel-caption d-none d-md-block">
+						<h5>Second slide label</h5>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img src="../public/images/amarillo.jpg" class="d-block w-100" style="height: 80vh;"
+						alt="...">
+					<div class="carousel-caption d-none d-md-block">
+						<h5>Third slide label</h5>
+						<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+					</div>
+				</div>
+				<a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
 			</div>
 		</div>
 	</div>
@@ -103,7 +126,6 @@
 								<h5 class="card-title">Botas para acampar</h5>
 								<p class="card-text">This is a longer card with supporting text below as a natural
 									lead-in to additional content. This content is a little bit longer.</p>
-								<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 								<a href="Lista Platillos.html" class="btn btn-primary">Conocer</a>
 							</div>
 						</div>
@@ -116,11 +138,10 @@
 								<h5 class="card-title">Botas casuales</h5>
 								<p class="card-text">This card has supporting text below as a natural lead-in to
 									additional content.</p>
-								<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 								<a href="Lista Platillos.html" class="btn btn-primary">Conocer</a>
 							</div>
 						</div>
-						< <!--Restaurante 3-->
+						<!--Restaurante 3-->
 							<div class="card">
 								<img src="../public/images/trabajo.jpg" class="card-img-top"
 									alt="...">
@@ -129,7 +150,6 @@
 									<p class="card-text">This is a wider card with supporting text below as a natural
 										lead-in to additional content. This card has even longer content than the first
 										to show that equal height action.</p>
-									<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 									<a href="Lista Platillos.html" class="btn btn-primary">Conocer</a>
 								</div>
 							</div>
@@ -149,7 +169,6 @@
 								<h5 class="card-title">Zapatos casuales</h5>
 								<p class="card-text">This is a longer card with supporting text below as a natural
 									lead-in to additional content. This content is a little bit longer.</p>
-								<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 								<a href="Lista Platillos.html" class="btn btn-primary">Conocer</a>
 							</div>
 						</div>
@@ -162,7 +181,6 @@
 								<h5 class="card-title">Tenis</h5>
 								<p class="card-text">This card has supporting text below as a natural lead-in to
 									additional content.</p>
-								<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 								<a href="Lista Platillos.html" class="btn btn-primary">Conocer</a>
 							</div>
 						</div>
@@ -175,7 +193,6 @@
 									<p class="card-text">This is a wider card with supporting text below as a natural
 										lead-in to additional content. This card has even longer content than the first
 										to show that equal height action.</p>
-									<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 									<a href="Lista Platillos.html" class="btn btn-primary">Conocer</a>
 								</div>
 							</div>
@@ -228,7 +245,6 @@
 								<h5 class="card-title">Top 1</h5>
 								<p class="card-text">This is a longer card with supporting text below as a natural
 									lead-in to additional content. This content is a little bit longer.</p>
-								<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 								<a href="Info_Platillo.html" class="btn btn-primary">Leer más</a>
 							</div>
 						</div>
@@ -241,7 +257,6 @@
 								<h5 class="card-title">Top 2</h5>
 								<p class="card-text">This card has supporting text below as a natural lead-in to
 									additional content.</p>
-								<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 								<a href="Info_Platillo.html" class="btn btn-primary">Leer más</a>
 							</div>
 						</div>
@@ -254,7 +269,7 @@
 									<p class="card-text">This is a wider card with supporting text below as a natural
 										lead-in to additional content. This card has even longer content than the first
 										to show that equal height action.</p>
-									<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+
 									<a href="Info_Platillo.html" class="btn btn-primary">Leer más</a>
 								</div>
 							</div>
@@ -273,7 +288,6 @@
 								<h5 class="card-title">Top 4</h5>
 								<p class="card-text">This is a longer card with supporting text below as a natural
 									lead-in to additional content. This content is a little bit longer.</p>
-								<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 								<a href="Info_Platillo.html" class="btn btn-primary">Leer más</a>
 							</div>
 						</div>
@@ -285,7 +299,6 @@
 								<h5 class="card-title">Top 5</h5>
 								<p class="card-text">This card has supporting text below as a natural lead-in to
 									additional content.</p>
-								<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 								<a href="Info_Platillo.html" class="btn btn-primary">Leer más</a>
 							</div>
 						</div>
@@ -298,7 +311,7 @@
 									<p class="card-text">This is a wider card with supporting text below as a natural
 										lead-in to additional content. This card has even longer content than the first
 										to show that equal height action.</p>
-									<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+
 									<a href="Info_Platillo.html" class="btn btn-primary">Leer más</a>
 								</div>
 							</div>
