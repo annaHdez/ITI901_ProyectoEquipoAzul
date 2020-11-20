@@ -17,10 +17,17 @@ class Categoria_Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $table_categorias = Categoria_Model::all();
-        return view('Categorias.index',["table_categorias"=>$table_categorias]);
+        $whereClause      = [];
+        if($request->categoria_buscar)
+        {
+            array_push($whereClause, [ "nombre" ,'like', '%'.$request->categoria_buscar.'%' ]);
+        }
+        $table_categorias       = Categoria_Model::orderBy('nombre')->where($whereClause)->get();
+        $table_categorias_limit = Categoria_Model::orderBy('nombre')->skip(1)->take(2)->get();
+        return view('Categorias.index',["table_categorias"=>$table_categorias,"filtro_categoria"=>$request->categoria_buscar,"table_limit_categoria"=>$table_categorias_limit]);
     }
 
     /**

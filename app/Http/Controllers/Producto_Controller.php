@@ -17,7 +17,7 @@ class Producto_Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $table_productos = DB::table('producto')
         ->join('categoria','producto.id_categoria','=','categoria.id')
@@ -25,7 +25,15 @@ class Producto_Controller extends Controller
         ->get();
         $modelo_producto = Producto_Model::all();
         $table_categoria = Categoria_Model::orderBy('nombre')->get()->pluck('nombre','id');
-        return view('Productos.index',['table_productos'=>$table_productos,"table_categoria"=>$table_categoria,"modelo_producto"=>$modelo_producto]);
+        $whereClause     = [];
+        if($request->nombre)
+        {
+            array_push($whereClause, [ "name" ,'like', '%'.$request->nombre.'%' ]);
+        }
+        $table_productos       = Producto_Model::orderBy('nombre')->where($whereClause)->get();
+        $table_limit_productos = Producto_Model::orderBy('nombre')->skip(1)->take(2)->get();
+
+        return view('Productos.index',['table_productos'=>$table_productos,"table_categoria"=>$table_categoria,"modelo_producto"=>$modelo_producto,"filtro_producto"=>$request->nombre,"table_limit_productos"=>$table_limit_productos]);
     }
 
     /**

@@ -8,7 +8,6 @@ use App\Models\User;
 use App\Models\UserEloquent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use Symfony\Component\HttpFoundation\Session\Session;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
