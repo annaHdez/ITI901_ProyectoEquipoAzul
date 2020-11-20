@@ -11,8 +11,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<!--Icono del sitio web-->
-	<link rel="icon" href="../icons/log.png" type="image/x-ico" />
-	<link rel="shortcut icon" type="image/x-icon" href="../icons/log.ico" />
+	<link rel="icon" href="..public/icons/logo1.png" type="image/x-ico" />
+	<link rel="shortcut icon" type="image/x-icon" href="..public/icons/logo1.png" />
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
@@ -28,6 +28,6 @@
 		crossorigin="anonymous"></script>
 		
         <!--Icono del sitio web-->
-	<link rel="icon" href="{{asset('icons/log.png')}}" type="image/x-ico" />
-	<link rel="shortcut icon" type="image/x-icon" href="{{asset('icons/log.ico')}}" />
+	<link rel="icon" href="{{asset('icons/logo1.png')}}" type="image/x-ico" />
+	<link rel="shortcut icon" type="image/x-icon" href="{{asset('icons/logo1.png')}}" />
 </head>

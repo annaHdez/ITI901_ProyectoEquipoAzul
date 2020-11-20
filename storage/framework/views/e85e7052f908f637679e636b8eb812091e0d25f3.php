@@ -1,17 +1,19 @@
-<br>
-<footer class="navbar sticky-bottom navbar-expand-sm navbar-dark bg-dark" style="width:100%;">
-    <img src="<?php echo e(asset('images/log.png')); ?>" alt="" style="height: 60px; width: 60px;"/>
-    <div class="navbar-brand" style="word-wrap: break-word; height: 10hv; ">       
-        <div>
-            <p>@MpShoes  2020 - Todos los derechos reservados</p>
+<footer class="navbar sticky-bottom navbar-expand-sm navbar-dark bg-dark" style="width: 100%;">
+    <div class="navbar-brand" style="word-wrap: break-word; display: flex; height: 100px; ">
+        <img src="<?php echo e(asset('images/logo.png')); ?>" alt="" style="height: 100px; width: 170px;" />
+        <div class="collapse navbar-collapse text-wrap">
+            <h3 style="padding-left:120px; ">¿Te gusta nuestro servicio?</h3>
+            <br><br>
+        </div>
+        <div style="padding-left:120px; padding-top: 60px">
             <button type="button" class="btn text-white" data-toggle="modal" data-target="#AcercaDe">
                 Acerca de
             </button>
 
-            <button type="button" class="btn text-white" data-toggle="modal" data-target="#Politcas_Privacidad">
+            <button style="padding-left:40px;" type="button" class="btn text-white" data-toggle="modal" data-target="#Politcas_Privacidad">
                 Políticas de Privacidad
             </button>
-            <button type="button" class="btn text-white" data-toggle="modal" data-target="#Terminos_Condiciones">
+            <button style="padding-left:40px;" type="button" class="btn text-white" data-toggle="modal" data-target="#Terminos_Condiciones">
                 Términos y condiciones
             </button>
 
@@ -27,12 +29,7 @@
                             </button>
                         </div>
                         <div class="modal-body container text-wrap text-body">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Fugiat quasi, enim iure voluptates numquam nulla corrupti maxime voluptatum incidunt
-                            recusandae omnis ipsa non quos officia perspiciatis quas. Obcaecati, veritatis quae!
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi illum sit mollitia
-                            repellat. Cum iure quam, in suscipit soluta quasi maxime voluptatibus aut itaque, nobis
-                            libero mollitia animi atque numquam.
+                            <?php echo $__env->make('layout.footer.acerca_de', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -53,12 +50,7 @@
                             </button>
                         </div>
                         <div class="modal-body container text-wrap text-body">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.Fugiat quasi, enim iure
-                            voluptates numquam nulla corrupti maxime voluptatum incidunt recusandae omnis ipsa non
-                            quos officia perspiciatis quas. Obcaecati, veritatis quae!
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae placeat quo suscipit
-                            sint, reiciendis deserunt esse cupiditate delectus quam, tempore eius velit non fugiat
-                            aliquam vel atque provident saepe veritatis?
+                            <?php echo $__env->make('layout.footer.politicas_privacidad', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -79,15 +71,7 @@
                             </button>
                         </div>
                         <div class="modal-body container text-wrap text-body">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.Fugiat quasi, enim iure
-                            voluptates numquam nulla corrupti maxime voluptatum incidunt recusandae omnis ipsa non
-                            quos officia perspiciatis quas. Obcaecati, veritatis quae!
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio ipsum modi
-                            debitis quod error minus voluptatem expedita temporibus, qui, laborum sint id fugit
-                            deleniti molestiae? Deleniti ipsum laborum maxime!
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos consectetur itaque
-                            laboriosam architecto ipsa totam alias sapiente accusantium sit eos! Ad eligendi
-                            expedita excepturi assumenda, nostrum fugit veritatis eos eum?
+                            <?php echo $__env->make('layout.footer.terminos_condiciones', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

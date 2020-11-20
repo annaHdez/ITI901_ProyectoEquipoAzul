@@ -44,7 +44,7 @@
                 </h4>
             </strong>
             <legend>
-                <p class="tex-primary"><a href="Registrar Usuario.html" class="text-decoration-none">Registrate</a>
+                <p class="tex-primary"><a href="Registrar Usuario.html" class="text-decoration-none">Regístrate</a>
                 </p>
             </legend>
         </div>

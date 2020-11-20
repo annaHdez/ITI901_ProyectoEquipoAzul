@@ -22,7 +22,7 @@ Route::get('/cache', function () {
     Artisan::call('config:clear');
     Artisan::call('view:clear'  );
     Artisan::call('route:clear' );
-    Artisan::call('cache:claer' );
+    Artisan::call('cache:clear' );
     return "Caché limpio";
 })->name('cache');
 
