@@ -12,11 +12,11 @@
 		</ul>                    
 			@guest
 				<ul class="nav-item" style="padding-bottom: 38px; padding-right:30px">
-						<a class="nav-link" href="{{ route('login') }}">{{ __('Acceder') }}</a>
+						<a class="btn btn-outline-primary" href="{{ route('login') }}">{{ __('Acceder') }}</a>
 				</ul>
 				@if (Route::has('register'))
 					<ul class="nav-item" style="padding-bottom: 38px; padding-right:30px">
-						<a class="nav-link" href="{{ route('register') }}" >{{ __('Registrarse') }}</a>
+						<a class="btn btn-outline-success" href="{{ route('register') }}" >{{ __('Registrarse') }}</a>
 					</ul>
 				@endif         
 			@endguest             
