@@ -44,7 +44,7 @@
                     <tr>
                         <td><strong>{{$usuario->name}}</strong></td>
                         <td>{{$usuario->email}}</td>
-                        <td>{{$usuario->getRol->nombre}}</td>
+                        <td>@if($usuario->getRol){​​​​​​{​​​​​​$usuario->getRol->nombre}​​​​​​}​​​​​​ @endif</td>
                         <td>
                             <div class="contiainer d-inline-row">
                                 <button type="button" data-toggle="modal" data-target="#Ver_Usuario{{$usuario->id}}" class="btn btn-primary">Ver</button>

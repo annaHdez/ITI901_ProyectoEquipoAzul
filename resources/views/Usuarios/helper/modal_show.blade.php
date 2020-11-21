@@ -7,7 +7,7 @@
         </div>
         <div class="modal-body">
             <strong>Tipo de Usuario</strong><br>
-            {{$usuario->getRol->nombre}}<br>
+            @if($usuario->getRol){​​​​​​{​​​​​​$usuario->getRol->nombre}​​​​​​}​​​​​​ @endif
             <strong>Correo</strong><br>
             {{$usuario->email}}<br>
             <strong>Fecha de creación</strong><br>
