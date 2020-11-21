@@ -26,14 +26,14 @@ class Producto_Controller extends Controller
         $modelo_producto = Producto_Model::all();
         $table_categoria = Categoria_Model::orderBy('nombre')->get()->pluck('nombre','id');
         $whereClause     = [];
-        if($request->nombre)
+        if($request->producto_buscar)
         {
-            array_push($whereClause, [ "name" ,'like', '%'.$request->nombre.'%' ]);
+            array_push($whereClause, [ "nombre" ,'like', '%'.$request->producto_buscar.'%' ]);
         }
         $table_productos       = Producto_Model::orderBy('nombre')->where($whereClause)->get();
         $table_limit_productos = Producto_Model::orderBy('nombre')->skip(1)->take(2)->get();
 
-        return view('Productos.index',['table_productos'=>$table_productos,"table_categoria"=>$table_categoria,"modelo_producto"=>$modelo_producto,"filtro_producto"=>$request->nombre,"table_limit_productos"=>$table_limit_productos]);
+        return view('Productos.index',['table_productos'=>$table_productos,"table_categoria"=>$table_categoria,"modelo_producto"=>$modelo_producto,"filtro_producto"=>$request->producto_buscar,"table_limit_productos"=>$table_limit_productos]);
     }
 
     /**
@@ -57,10 +57,9 @@ class Producto_Controller extends Controller
     {
         $validatedData = $request->validate([
             'nombre'              => 'required|min:5|max:30',
-            'descripcion'         => 'requiered|min:5',
-            'precio'              => 'required|step:0.01|min:0|max:1000',
-            'stock'               => 'required|step:1|min:0',
-
+            'descripcion'         => 'required|min:5',
+            'precio'              => 'required|numeric|min:0|max:1000',
+            'stock'               => 'required|numeric|min:0',
             //'numeros_disponibles' => 'required|min:1',
             //'color'               => 'required|min:1',
         ]);
@@ -128,25 +127,25 @@ class Producto_Controller extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validatedDate = $request->validate([
+        $validatedData = $request->validate([
             'nombre'              => 'required|min:5|max:30',
-            'descripcion'         => 'requiered|min:5',
-            'precio'              => 'required|step:0.01|min:0|max:1000',
-            'stock'               => 'required|step:1|min:0',
-            'numeros_disponibles' => 'required|min:1',
-            'color'               => 'required|min:1',
-            'categoria_id'        => 'required|exist:categoria,id'
+            'descripcion'         => 'required|min:5',
+            'precio'              => 'required|min:0|max:1000',
+            'stock'               => 'required|min:0',
+            //'numeros_disponibles' => 'required|min:1',
+            //'color'               => 'required|min:1',
+            'categoria_id'        => 'required|exists:categoria,id'
         ]);
 
         $modelo = Producto_Model::find($id);
         $modelo->fill($request->all());
-        if($request->activo)
+        if($request->estatus)
         {
-            $modelo->activo = true;
+            $modelo->estatus = true;
         }
         else
         {
-            $modelo->activo = false;
+            $modelo->estatus = false;
         }
         $modelo->save();
 
@@ -154,7 +153,14 @@ class Producto_Controller extends Controller
         $file = $request->file('imagen');
         if($file)
         {
-            $modelo->imagen = base64_encode($file);
+            $imgNombreVirtual = $file->getClientOriginalName();
+            $imgNombreFisico  = $modelo->id. '-'. $imgNombreVirtual;
+            \Storage::disk('local')->put(
+                $imgNombreFisico, 
+                \File::get($file)
+            );
+            $modelo->nombre_virtual = $imgNombreVirtual;
+            $modelo->nombre_fisico  = $imgNombreFisico;
             $modelo->save();
         }
 

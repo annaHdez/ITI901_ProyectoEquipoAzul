@@ -7,7 +7,6 @@
             </button>
         </div>
         {{ Form::model($categoria, array('route'=>array('Categorias.update',$categoria->id),'method'=>'PUT')) }}
-
         <div class="modal-body">
             <div class="form-group md-4">
                 {{ Form::label('nombre', 'Nombre') }}

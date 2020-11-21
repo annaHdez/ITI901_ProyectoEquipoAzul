@@ -24,6 +24,18 @@
     </div>
 </div>
 <hr>
+<div class="content" style="margin-left: 3rem">
+    <form>
+        <div class="row">
+            <div class="form-group col-md-3">
+                <h3><label for="producto_buscar">Filtrar por nombre de producto</label></h3>
+                <input type="text" name="producto_buscar" value="{{$filtro_producto}}" class="form-control d-inline">
+            </div>
+        </div>
+        <button class="btn btn-success d-inline">Buscar</button>
+    </form>    
+</div>
+<hr>
 <div class="d-inline-block" style="margin-left: 3%; margin-bottom: 1%; width:100%;">
     <a type="button" class="btn btn-success text-white sticky-bottom" data-toggle="modal" data-target="#Crear_Producto">Agregar Calzado
         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -39,9 +51,14 @@
 
 <div class="container">
     @foreach ($modelo_producto as $producto)
-    <div class="card-deck">
+    <div class="card-deck d-inline-flex">
         <div class="card container d-table selector-for-some-widget text-break" id="Producto{{$producto->id}}" style="max-width: 19rem; padding: abstract;margin-top: 1.1rem;">
-            <img src="{{'images/'.$producto->nombre_fisico}}" class="card-img-top" alt="Esparragos"title="Esparragos" />
+            @if(($producto->estatus==1))
+                <img src="{{asset('images/'.$producto->nombre_fisico)}}" class="card-img-top w-100" alt="{{$producto->nombre}}"title="{{$producto->nombre}}" />
+            @else
+                <strong><legend class="text-danger position-absolute" style="transform: rotate(-40deg); z-index: 50">No Disponible</legend></strong>
+                <img src="{{asset('images/'.$producto->nombre_fisico)}}" class="card-img-top w-100" alt="{{$producto->nombre}}"title="{{$producto->nombre}}" style="filter: grayscale(1)"/>
+            @endif
             <div class="card-body " style="min-width: 100%;">    
                 <h5 class="card-title text-center">{{$producto->nombre}}</h5>
                 <div class="contiainer d-inine-flex">
@@ -59,7 +76,7 @@
         </div>
     </div>
     @endforeach
-    <br>
+    <br><br>
 </div>
     @include('layout.footer.footer')
 @endsection

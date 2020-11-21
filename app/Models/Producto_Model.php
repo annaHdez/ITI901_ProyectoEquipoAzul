@@ -15,6 +15,6 @@ class Producto_Model extends Model
     #Referencia local como foráneo
     public function getCategoria()
     {
-        return $this->belongsTo('App\Models\Categoria_Model','id_categoria','id','nombre');
+        return $this->belongsTo('App\Models\Categoria_Model','id_categoria','id','nombre','estatus');
     }
 }

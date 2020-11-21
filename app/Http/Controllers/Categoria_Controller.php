@@ -37,7 +37,7 @@ class Categoria_Controller extends Controller
      */
     public function create()
     {
-        return view('Categorias.index#crear_categoria',[]);
+        return view('Categorias.index#Crear_Categoria',[]);
     }
 
     /**
@@ -78,7 +78,7 @@ class Categoria_Controller extends Controller
     public function show($id)
     {
         $modelo = Categoria_Model::find($id);
-        return view('Categorias.index#VerCategoria',["modelo"=>$modelo]);
+        return view('Categorias.index#Ver_Categoria',["modelo"=>$modelo]);
     }
 
     /**
