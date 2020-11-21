@@ -17,27 +17,7 @@
                 </div>
             @endif-->
 
-            <nav class="navbar navbar-dark bg-dark fixed-top" style="height: 10.5vh; width:100%; opacity: 1;" >
-            <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">                
-                <ul class="navbar-nav mr-auto">
-                    <a href="" class="btn text-white nav-item table table-dark">
-                        <h2><strong>MpShoes</strong></h2>
-                    </a>
-                </ul>     
-                <ul class="navbar-nav mr-auto" style="margin-left: -82%;">
-                    <img src="{{asset('icons/logo1.png')}}" alt="logo" style="width: 100px; height: 100px; padding-bottom: 30px; ">
-                </ul>                             
-                @guest
-                    <ul class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Acceder') }}</a>
-                    </ul>
-                    @if (Route::has('register'))
-                        <ul class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}" >{{ __('Registrarse') }}</a>
-                        </ul>
-                    @endif         
-                @endguest             
-            </nav>
+            
         </div>
 	<div style="margin-top: 10vh;">
 		<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
