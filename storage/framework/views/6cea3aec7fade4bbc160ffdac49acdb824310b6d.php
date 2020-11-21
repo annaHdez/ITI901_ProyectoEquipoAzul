@@ -17,27 +17,7 @@
                 </div>
             <?php endif; ?>-->
 
-            <nav class="navbar navbar-dark bg-dark fixed-top" style="height: 10.5vh; width:100%; opacity: 1;" >
-            <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">                
-                <ul class="navbar-nav mr-auto">
-                    <a href="" class="btn text-white nav-item table table-dark">
-                        <h2><strong>MpShoes</strong></h2>
-                    </a>
-                </ul>     
-                <ul class="navbar-nav mr-auto" style="margin-left: -82%;">
-                    <img src="<?php echo e(asset('icons/logo1.png')); ?>" alt="logo" style="width: 100px; height: 100px; padding-bottom: 30px; ">
-                </ul>                             
-                <?php if(auth()->guard()->guest()): ?>
-                    <ul class="nav-item">
-                            <a class="nav-link" href="<?php echo e(route('login')); ?>"><?php echo e(__('Acceder')); ?></a>
-                    </ul>
-                    <?php if(Route::has('register')): ?>
-                        <ul class="nav-item">
-                            <a class="nav-link" href="<?php echo e(route('register')); ?>" ><?php echo e(__('Registrarse')); ?></a>
-                        </ul>
-                    <?php endif; ?>         
-                <?php endif; ?>             
-            </nav>
+            
         </div>
 	<div style="margin-top: 10vh;">
 		<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
@@ -332,6 +312,5 @@
 	</div>	
     </body>
 </html>
-
 <?php echo $__env->make('layout.footer.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->make('layout.header.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\DAW_ITI901_HernandezRomero\ITI901_ProyectoEquipoAzul\resources\views/index.blade.php ENDPATH**/ ?>

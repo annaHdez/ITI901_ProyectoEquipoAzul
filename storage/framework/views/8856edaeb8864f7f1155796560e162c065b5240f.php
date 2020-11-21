@@ -1,7 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
+	<nav class="navbar navbar-dark bg-dark fixed-top" style="height: 10.5vh; width:100%; opacity: 1;" >
+		<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">                
+		<ul class="navbar-nav mr-auto">
+			<a href="" class="btn text-white nav-item table table-dark">
+				<h2><strong>MpShoes</strong></h2>
+			</a>
+		</ul>     
+		<ul class="navbar-nav mr-auto" style="margin-left: -57%;">
+			<img src="<?php echo e(asset('icons/logo1.png')); ?>" alt="logo" style="width: 80px; height: 100px; padding-bottom: 45px; ">
+		</ul>                    
+			<?php if(auth()->guard()->guest()): ?>
+				<ul class="nav-item" style="padding-bottom: 38px; padding-right:30px">
+						<a class="nav-link" href="<?php echo e(route('login')); ?>"><?php echo e(__('Acceder')); ?></a>
+				</ul>
+				<?php if(Route::has('register')): ?>
+					<ul class="nav-item" style="padding-bottom: 38px; padding-right:30px">
+						<a class="nav-link" href="<?php echo e(route('register')); ?>" ><?php echo e(__('Registrarse')); ?></a>
+					</ul>
+				<?php endif; ?>         
+			<?php endif; ?>             
+	</nav>
+<head>	
+	
+	
 
-<head>
 	<link rel="stylesheet" type="text/css" href="Styles/Bootstrap/dist/css/bootstap.css">
 	<title lang="es" dir="ltr">MP Shoes</title>
 	<meta charset="utf-8">
@@ -30,4 +53,6 @@
         <!--Icono del sitio web-->
 	<link rel="icon" href="<?php echo e(asset('icons/logo1.png')); ?>" type="image/x-ico" />
 	<link rel="shortcut icon" type="image/x-icon" href="<?php echo e(asset('icons/logo1.png')); ?>" />
-</head><?php /**PATH C:\xampp\htdocs\DAW_ITI901_HernandezRomero\ITI901_ProyectoEquipoAzul\resources\views/layout/header/header.blade.php ENDPATH**/ ?>
+</head>
+
+<?php /**PATH C:\xampp\htdocs\DAW_ITI901_HernandezRomero\ITI901_ProyectoEquipoAzul\resources\views/layout/header/header.blade.php ENDPATH**/ ?>
