@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Session;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
-use App\Models\User;
 use App\Models\Rol_Model;
 
 class Rol_Controller extends Controller
@@ -17,10 +16,18 @@ class Rol_Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $table_rol = Rol_Model::all();
-        return view('Rol.index',["table_rol"=>$table_rol]);
+        $table_rol   = Rol_Model::all();
+        $whereClause = [];
+        if($request->nombre_buscar)
+        {
+            array_push($whereClause, [ "nombre" ,'like', '%'.$request->nombre_buscar.'%' ]);
+        }
+        $table_rol = Rol_Model::orderBy('nombre')->where($whereClause)->get();
+
+        $table_rol_limit = Rol_Model::orderBy('nombre')->skip(1)->take(2)->get();
+        return view('Rol.index',["table_rol"=>$table_rol,"filtro_rol"=>$request->nombre_buscar,"table_limit_rol"=>$table_rol_limit]);
     }
 
     /**
@@ -53,6 +60,7 @@ class Rol_Controller extends Controller
         {
             $model_rol->estatus = false;
         }
+    
         $model_rol->save();
         $request->session()->flash('message', 'Rol creado');
         return Redirect::to('Rol');
@@ -105,7 +113,7 @@ class Rol_Controller extends Controller
         {
             $modelo->estatus = false;
         }
-        $request->save();
+        $modelo->save();
         $request->session()->flash('message','Rol Actualizado');
         return Redirect::to('Rol');
     }

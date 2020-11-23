@@ -64,10 +64,17 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
+                        
+                        <div class="form-group row">
+                            <label for="rol_id" class="col-md-4 col-form-label text-md-right">{{__('')}}</label>
+                            <div class="col-md-6">
+                                <input id="rol_id" type="hidden" class="form-control" value="2"  name="rol_id" required readonly>
+                            </div>
+                        </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" onclick =" alertify.success('Registrado con éxito');">
                                     {{ __('Registrarse') }}
                                 </button>
                             </div>

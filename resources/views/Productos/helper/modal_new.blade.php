@@ -1,6 +1,6 @@
 {{ HTML::ul($errors->all()) }}
 
-{{ Form::open(array('url' => 'Productos','enctype'=>'multipart/form-data')) }}
+{{ Form::open(array('url' => 'Productos','enctype'=>'multipart/form-data','autocomplete'=>'off')) }}
 
     <div class="modal-dialog modal-dialog-scrollable modal-lg">
         <div class="modal-content">
@@ -31,7 +31,7 @@
                 <div class="container">
                     <div class="">
                         <strong><h5>{{Form::label('nombre','Nombre',['class'=>'form text-black'])}}</h5></strong>
-                        <input type="text" name="nombrePlatillo" class="form-control d-flex justify-content-center" placeholder="Nombre del Platillo" style="width: 80%;" required />
+                        {{Form::text('nombre', Request::old('nombre'), ["class"=>"form-control"])}}
                     </div>
 
                     <strong><h5>{{Form::label('descripcion','Descripción',['class'=>'form text-black'])}}</h5></strong>
@@ -49,27 +49,25 @@
                         <strong><h5>{{Form::label('precio','Precio',['class'=>'form text-black'])}}</h5></strong>
                         <div class="input-group" style="width: 80%;">
                             <div class="input-group-prepend"><span class="input-group-text">$</span></div>
-                            {{ Form::number('precio', Request::old('precio'), array('class' => 'form-control', 'required'=>true, 'step'=>'0.01','min'=>'0.01','placeholder'=>'Precio de venta unitario')) }}
+                            {{ Form::number('precio', Request::old('precio'), array('class' => 'form-control', 'required'=>true, 'step'=>'0.01','min'=>'0.01','max'=>'1000','placeholder'=>'Precio de venta unitario')) }}
                         </div>
                     </div>
 
                     <div>
                         <strong><h5>{{Form::label('id_categoria','Categoria',['class'=>'form text-black'])}}</h5></strong>
                         <div class="input-group mb-3" style="width: 80%;">
-                            <div class="input-group-prepend"><label class="input-group-text" for="inputGroupSelect01">Categoría</label></div>
-                            {{ Form::select('cproducto_id', $table_productos, Request::old('id_categoria'), array('class' => 'form-control')) }}
+                            <div class="input-group-prepend"><label class="input-group-text" for="inputGroupSelect01">Categoría</label></div><br>
+                            {{ Form::select('id_categoria', $table_categoria, array('class' => 'form-control')) }}
                         </div>
 
                         <strong><h5>{{Form::label('estatus','Disponible')}}</h5></strong>
-                        <input type="checkbox" value="1" class="d-inline" name="estatus" id="estatus" />
-                        <p class="d-inline">Seleccione si está disponible a la venta.</p><br>
-
+                        {{ Form::checkbox('activo', Request::old('activo'), true,  array('class' => 'form-control')) }}
                     </div>
-                    {{ Form::submit('Registrar producto', ['class' => 'btn btn-primary'] ) }}
                 </div>
                 <!---->
             </div>
             <div class="modal-footer">
+                {{ Form::submit('Registrar producto', ['class' => 'btn btn-primary','onclick'=>" alertify.success('Registrado con éxito');"] ) }}
                 <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
             </div>
         </div>

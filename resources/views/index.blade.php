@@ -1,6 +1,7 @@
 @extends('layout.header.header')
 
 <!DOCTYPE html>    
+	@include('layouts.html.alertify')
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
             <!--@if (Route::has('login'))
@@ -17,27 +18,7 @@
                 </div>
             @endif-->
 
-            <nav class="navbar navbar-dark bg-dark fixed-top" style="height: 10.5vh; width:100%; opacity: 1;" >
-            <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">                
-                <ul class="navbar-nav mr-auto">
-                    <a href="" class="btn text-white nav-item table table-dark">
-                        <h2><strong>MpShoes</strong></h2>
-                    </a>
-                </ul>     
-                <ul class="navbar-nav mr-auto" style="margin-left: -60%;">
-                    <img src="{{asset('icons/log.png')}}" alt="logo" style="width: 60px; height: 60px; padding-bottom: 10px; ">
-                </ul>                             
-                @guest
-                    <ul class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Acceder') }}</a>
-                    </ul>
-                    @if (Route::has('register'))
-                        <ul class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}" >{{ __('Registrarse') }}</a>
-                        </ul>
-                    @endif         
-                @endguest             
-            </nav>
+            
         </div>
 	<div style="margin-top: 10vh;">
 		<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
@@ -48,22 +29,40 @@
 			</ol>
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img src="{{asset('images/trabajo.jpg')}}" class="d-block w-100" style="height: 80vh;" alt="...">
+					<img src="{{asset('images/stand.jpg')}}" class="d-block w-100" style="height: 80vh;" alt="...">
 					<div class="carousel-caption d-none d-md-block">
-						<h5>First slide label</h5>
-						<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+						<h5>Bienvenido</h5>
+						<p>Esperamos que obtenga la mejor experiencia en su compra.</p>
 					</div>
 				</div>
-				{{-- @foreach ($imagenes as $imagen)
-					<div class="carousel-item">
-					<img src="{{asset('images/'.$imagen)}}" alt="" class="d-block w-100" style="height: 80vh;" alt="...">
-						<div class="carousel-caption d-none d-md-block">
-							<h5></h5>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est tenetur, facere eligendi aliquid quaerat non velit voluptate a totam nesciunt reiciendis, nam laudantium minus commodi dolorum? Facere dignissimos soluta doloribus?</p>
+				@foreach($table_producto as $producto)
+					@if(($producto->estatus==1)&&($producto->stock>0))
+						<div class="carousel-item">
+							<img src="{{asset('images/'.$producto->nombre_fisico)}}" class="d-block w-100" style="height: 80vh;" alt="{{$producto->nombre}}">
+								<div class="carousel-caption d-none d-md-block" style="background-color: darkgrey">
+									<h4>{{$producto->nombre}}</h4>
+									<strong><label class="text-dark">{{$producto->descripcion}}</label></strong>
+								</div>
 						</div>
-					</div>
+					@else 
+						<div class="carousel-item" style="background-color: darkgrey">
+							<div src="" class="d-block w-100" style="height: 80vh;" alt="" style="background-color: darkgrey"></div>
+							<div class="carousel-caption d-none d-md-block">
+								<strong><h1 class="position-absolute text-danger" style="transform: rotate(0deg)">No hay productos disponibles por el momento</h1></strong>
+								<br>
+							</div>
+						</div>
+					@endif
 				@endforeach
-				 --}}
+
+				<a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
 			</div>
 		</div>
 	</div>
@@ -72,15 +71,13 @@
 	<div class="container">
 		<div class="">
 			<strong class="d-block text-center">
-				<h2>Lorem ipsum</h2>
+				<h2>Productos Destacado</h2>
 			</strong>
 			<br>
 			<p class="text-justify ">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore possimus, minima vero, iure blanditiis
-				aperiam necessitatibus sunt error beatae ex consectetur quod temporibus distinctio non. Recusandae velit
-				aut, eius natus! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab suscipit tempora fugit
-				possimus excepturi molestiae veniam in. Soluta id, labore explicabo enim magnam consequatur itaque natus
-				deleniti at nemo? Facere.
+				Los productos que se muestran a continuación se han destacado por su calidad. Además,
+				de ser los mejor recibidos por nuestros clientes, con ello, aseguramos que su compra
+				sea una experiencia inigualable y sorprendente que lo hará sentirse especial.
 			</p>
 		</div>
 	</div>
@@ -97,7 +94,7 @@
 	<br>
 
 
-	<!--Carrusel de Restaurantes destacados-->
+	<!--Carrusel de Productos destacados-->
 	<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner">
 			<div class="carousel-item active">
@@ -112,8 +109,7 @@
 								<h5 class="card-title">Botas para acampar</h5>
 								<p class="card-text">This is a longer card with supporting text below as a natural
 									lead-in to additional content. This content is a little bit longer.</p>
-								<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-								<a href="Lista Platillos.html" class="btn btn-primary">Conocer</a>
+								<button class="btn btn-primary" onclick="alertify.alert('Aviso','Debes de iniciar sesión primero');">Leer más</button>
 							</div>
 						</div>
 
@@ -125,11 +121,10 @@
 								<h5 class="card-title">Botas casuales</h5>
 								<p class="card-text">This card has supporting text below as a natural lead-in to
 									additional content.</p>
-								<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-								<a href="Lista Platillos.html" class="btn btn-primary">Conocer</a>
+								<button class="btn btn-primary" onclick="alertify.alert('Aviso','Debes de iniciar sesión primero');">Leer más</button>
 							</div>
 						</div>
-						< <!--Restaurante 3-->
+						<!--Restaurante 3-->
 							<div class="card">
 								<img src="../public/images/trabajo.jpg" class="card-img-top"
 									alt="...">
@@ -138,8 +133,7 @@
 									<p class="card-text">This is a wider card with supporting text below as a natural
 										lead-in to additional content. This card has even longer content than the first
 										to show that equal height action.</p>
-									<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-									<a href="Lista Platillos.html" class="btn btn-primary">Conocer</a>
+									<button class="btn btn-primary" onclick="alertify.alert('Aviso','Debes de iniciar sesión primero');">Leer más</button>
 								</div>
 							</div>
 
@@ -158,8 +152,7 @@
 								<h5 class="card-title">Zapatos casuales</h5>
 								<p class="card-text">This is a longer card with supporting text below as a natural
 									lead-in to additional content. This content is a little bit longer.</p>
-								<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-								<a href="Lista Platillos.html" class="btn btn-primary">Conocer</a>
+								<button class="btn btn-primary" onclick="alertify.alert('Aviso','Debes de iniciar sesión primero');">Leer más</button>
 							</div>
 						</div>
 
@@ -171,8 +164,7 @@
 								<h5 class="card-title">Tenis</h5>
 								<p class="card-text">This card has supporting text below as a natural lead-in to
 									additional content.</p>
-								<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-								<a href="Lista Platillos.html" class="btn btn-primary">Conocer</a>
+								<button class="btn btn-primary" onclick="alertify.alert('Aviso','Debes de iniciar sesión primero');">Leer más</button>
 							</div>
 						</div>
 						<!--Restaurante 3-->
@@ -184,8 +176,7 @@
 									<p class="card-text">This is a wider card with supporting text below as a natural
 										lead-in to additional content. This card has even longer content than the first
 										to show that equal height action.</p>
-									<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-									<a href="Lista Platillos.html" class="btn btn-primary">Conocer</a>
+									<button class="btn btn-primary" onclick="alertify.alert('Aviso','Debes de iniciar sesión primero');">Leer más</button>
 								</div>
 							</div>
 
@@ -194,29 +185,26 @@
 			</div>
 			
 		</div>
-		<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span class="sr-only">Previous</span>
+		<a class="carousel-control-prev text-dark" href="#carouselExampleControls" role="button" data-slide="prev" >
+			<span class="carousel-control-prev-icon text-dark" aria-hidden="true"></span>
+			<span class="sr-only text-dark">Previous</span>
 		</a>
-		<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
+		<a class="carousel-control-next text-dark" href="#carouselExampleControls" role="button" data-slide="next">
+			<span class="carousel-control-next-icon text-dark" aria-hidden="true"></span>
+			<span class="sr-only text-dark">Next</span>
 		</a>
 	</div>
 	<!---->
 	<br>
 	<div class="container">
-		<h1 class="text-center">Lorem ipsum</h1>
+		<h1 class="text-center">Los más vendidos.</h1>
 		<p class="text-justify">
-			Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste placeat nemo impedit a blanditiis tempora
-			facere possimus, sint repellat quae et dolores quaerat natus fugit doloribus tenetur minima doloremque quam!
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa dolores adipisci sequi odit placeat! Aliquam
-			ipsam aliquid alias quo nisi officia doloremque. Odio ab quidem deleniti quis facere eveniet architecto.
-			<br><br>
-			<small class="d-flex" style="float: right;">Lorem ipsum</small>
+			Nuestros productos se destacan por ser uno de los más aclamados por los usuarios, si no 
+			lo cree compre un par y compruebe su experiencia de compra. Los productos a continuación
+			se destacan por ser los más vendidos por nuestra plataforma.
 		</p>
 	</div>
-	<!--Comida popular-->
+	<!--Productos populares-->
 	<div class="container">
 		<hr class="d-line text-center">
 		<h2 class="d-line text-center">Los más vendidos</h2>
@@ -237,8 +225,7 @@
 								<h5 class="card-title">Top 1</h5>
 								<p class="card-text">This is a longer card with supporting text below as a natural
 									lead-in to additional content. This content is a little bit longer.</p>
-								<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-								<a href="Info_Platillo.html" class="btn btn-primary">Leer más</a>
+								<button class="btn btn-primary" onclick="alertify.alert('Aviso','Debes de iniciar sesión primero');">Leer más</button>
 							</div>
 						</div>
 
@@ -250,8 +237,7 @@
 								<h5 class="card-title">Top 2</h5>
 								<p class="card-text">This card has supporting text below as a natural lead-in to
 									additional content.</p>
-								<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-								<a href="Info_Platillo.html" class="btn btn-primary">Leer más</a>
+								<button class="btn btn-primary" onclick="alertify.alert('Aviso','Debes de iniciar sesión primero');">Leer más</button>
 							</div>
 						</div>
 						 <!--Restaurante 3-->
@@ -263,8 +249,8 @@
 									<p class="card-text">This is a wider card with supporting text below as a natural
 										lead-in to additional content. This card has even longer content than the first
 										to show that equal height action.</p>
-									<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-									<a href="Info_Platillo.html" class="btn btn-primary">Leer más</a>
+
+									<button class="btn btn-primary" onclick="alertify.alert('Aviso','Debes de iniciar sesión primero');">Leer más</button>
 								</div>
 							</div>
 
@@ -282,8 +268,7 @@
 								<h5 class="card-title">Top 4</h5>
 								<p class="card-text">This is a longer card with supporting text below as a natural
 									lead-in to additional content. This content is a little bit longer.</p>
-								<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-								<a href="Info_Platillo.html" class="btn btn-primary">Leer más</a>
+									<button class="btn btn-primary" onclick="alertify.alert('Aviso','Debes de iniciar sesión primero');">Leer más</button>
 							</div>
 						</div>
 
@@ -291,11 +276,10 @@
 						<div class="card">
 							<img src="../public/images/top5.jpg" class="card-img-top" alt="...">
 							<div class="card-body">
-								<h5 class="card-title">Top 5</h5>
+								<h5 class="card-title">Top alertify</h5>
 								<p class="card-text">This card has supporting text below as a natural lead-in to
 									additional content.</p>
-								<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-								<a href="Info_Platillo.html" class="btn btn-primary">Leer más</a>
+									<button class="btn btn-primary" onclick="alertify.alert('Aviso','Debes de iniciar sesión primero');">Leer más</button>
 							</div>
 						</div>
 						< <!--Restaurante 3-->
@@ -307,8 +291,8 @@
 									<p class="card-text">This is a wider card with supporting text below as a natural
 										lead-in to additional content. This card has even longer content than the first
 										to show that equal height action.</p>
-									<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-									<a href="Info_Platillo.html" class="btn btn-primary">Leer más</a>
+
+									<button class="btn btn-primary" onclick="alertify.alert('Aviso','Debes de iniciar sesión primero');">Leer más</button>
 								</div>
 							</div>
 
@@ -323,7 +307,8 @@
 		<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
 			<span class="carousel-control-next-icon" aria-hidden="true"></span>
 			<span class="sr-only">Next</span>
-        </a>
+		</a>
+		<br>
         @extends('layout.footer.footer')
 	</div>	
     </body>
