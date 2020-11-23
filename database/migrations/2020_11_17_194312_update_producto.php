@@ -3,22 +3,18 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
 
-class AlterProducto extends Migration
+class UpdateProducto extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
+        //
         Schema::table('producto', function (Blueprint $table) {
-            //
+            $table->string('descripcion');
+            $table->dropForeign(['user_id']);
+            $table->dropColumn('user_id');
         });
-        //Modificamos el tipo de dato de blob a longblob
-        DB::statement("ALTER TABLE producto MODIFY imagen LONGBLOB");
     }
 
     /**
@@ -28,8 +24,11 @@ class AlterProducto extends Migration
      */
     public function down()
     {
+        //
         Schema::table('producto', function (Blueprint $table) {
-            //
+            $table->dropColumn('descripcion');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 }

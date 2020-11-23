@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CrearProducto extends Migration
+class CreateProducto extends Migration
 {
     /**
      * Run the migrations.
@@ -15,13 +15,11 @@ class CrearProducto extends Migration
     {
         Schema::create('producto', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre')->unique();
-            $table->text('descripcion');
-            $table->binary('imagen');
-            $table->integer('stock');
-            $table->unsignedDecimal('precio');
-            $table->unsignedBigInteger('id_categoria');
-            $table->integer('estatus');
+            $table->string('nombre',100);
+            $table->integer('stock')->default(0);
+            $table->decimal('precio',13,2)->default(0);
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

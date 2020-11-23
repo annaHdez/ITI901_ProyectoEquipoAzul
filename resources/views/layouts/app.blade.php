@@ -65,15 +65,16 @@
                         @else
                             @if(\Auth::user()->rol_id==1)
                             <li class="nav-item">
-                            <a href="{{route('Productos.index')}}" class="nav-link">Productos</a>
+                            <a href="{{route('productos.index')}}" class="nav-link">CALZADO</a>
+                            </li>
+                            <li class="nav-item">
+                            <a href="{{route('cproductos.index')}}" class="nav-link">TIPOS DE CALZADO</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
-                                <a id="navbarDropdown" class="nav-link" href="#">
-                                    <h5>Productos</h5>
-                                </a>
+
                                 <div class="dropdown-menu dropdown-menu-right bg-black" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -98,7 +99,7 @@
             </div>
         </nav>
         <br><br><br><br>
-        <main class="py-4">
+        <main class="p-5">
             @yield('content')
         </main>
     </div>
