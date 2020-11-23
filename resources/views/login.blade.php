@@ -31,7 +31,7 @@
             </strong>
             <input type="password" class="form-control d-flex justify-content-center" style="width: 70%;"
                 name="password" id="password" placeholder="Tu contraseña" pattern="^[A-Za-z][A-Za-z0-9]*$"
-                minlength="10" maxlength="20" required />
+                minlength="8" maxlength="20" required />
             <input type="hidden" name="SesionCliente" value="Client" />
             <br>
             <button type="submit" class="btn btn-success btn-lg text-white" name="LoginButton" id="LoginButton"

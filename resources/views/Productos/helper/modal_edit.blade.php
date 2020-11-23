@@ -1,7 +1,7 @@
 {{ HTML::ul($errors->all()) }}
 
 {{ Form::model( $producto, array('route' => array('Productos.update', $producto->id), 'method' => 'PUT','enctype'=>'multipart/form-data') ) }}
-
+<script src="{{asset('Productos/helper/image_upload.js')}}"></script>
 <div class="modal-dialog modal-dialog-scrollable modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -18,25 +18,19 @@
 
 									<!-- Upload image input-->
 									<div class="input-group mb-3 px-2 py-2 rounded-pill bg-dark shadow-sm">
-										<input id="upload" type="file" onchange="readURL(this);"
-											class="form-control border-0 text-secondary" name="imagen">
-										<label id="upload-label" for="upload"
-											class="font-weight-light text-white">Elegir
-											Imagen</label>
+										<input id="uploadNew" type="file" onchange="readURLNew(this);"class="form-control border-0 text-secondary" name="imagen">
+										<label id="upload-labelNew" for="uploadNew" class="font-weight-light text-white">Elegir Imagen</label>
 										<div class="input-group-append">
-											<label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i
-													class="fa fa-cloud-upload mr-2 text-muted"></i><small
-													class="text-uppercase font-weight-bold text-muted">Choose
-													file</small></label>
+											<label for="uploadNew" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Elegir Archivo</small></label>
 										</div>
 									</div>
 
 									<!-- Uploaded image area-->
-									<div class="image-area mt-4"><img id="imageResult" src="#" alt=""
-											class="img-fluid rounded shadow-sm mx-auto d-block">
-                                    </div>
-                                    <div class="img-area mt-4">
-                                        <img src="{{asset('images/'.$producto->nombre_fisico)}}" alt="{{$producto->nombre}}">
+									<div class="image-area mt-4">
+										<img id="imageResultNew" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block">
+									</div>
+                                    <div class="img-area mt-4" id="imagen_anterior">
+                                        <!--img class="" id="img_anterior"  src="{{asset('images/'.$producto->nombre_fisico)}}" alt="{{$producto->nombre}}" width="300"-->
                                     </div>
 								</div>
 							</div>
@@ -77,7 +71,7 @@
 						<div class="form-group col-md-8">
 							<strong><h5>{{ Form::label('categoria_id', 'Categoría') }}</h5></strong>
 							<div class="input-group mb-3" style="width: 80%;">
-								{{ Form::select('categoria_id', $table_categoria, $producto->getCategoria->nombre,  array('class' => 'form-control')) }}
+								{{ Form::select('id_categoria', $table_categoria, $producto->id_categoria,  array('class' => 'form-control')) }}
 							</div>
 						</div>
 						<div>

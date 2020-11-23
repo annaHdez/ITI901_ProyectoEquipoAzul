@@ -10,7 +10,7 @@
                 <div class="card-body">
                     @if (session('resent'))
                         <div class="alert alert-success" role="alert">
-                            {{ __('Un link de verifiación ha sido enviado a tu dirección de correo.') }}
+                            {{ __('Un link de verificación ha sido enviado a tu dirección de correo.') }}
                         </div>
                     @endif
 

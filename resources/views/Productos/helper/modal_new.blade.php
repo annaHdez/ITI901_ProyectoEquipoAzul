@@ -67,7 +67,7 @@
                 <!---->
             </div>
             <div class="modal-footer">
-                {{ Form::submit('Registrar producto', ['class' => 'btn btn-primary'] ) }}
+                {{ Form::submit('Registrar producto', ['class' => 'btn btn-primary','onclick'=>" alertify.success('Registrado con éxito');"] ) }}
                 <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
             </div>
         </div>

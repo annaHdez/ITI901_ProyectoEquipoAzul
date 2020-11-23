@@ -113,9 +113,9 @@ class Producto_Controller extends Controller
      */
     public function edit($id)
     {
-        $modelo = Producto_Model::find($id);
-        $table_productos = Categoria_Model::orderBy('nombre')->get()->pluck('nombre','id');
-        return view('Productos.index#Editar_Producto'.$id,["modelo"=>$modelo,"table_productos"=>$table_productos]);
+        $producto = Producto_Model::find($id);
+        $table_categoria = Categoria_Model::orderBy('nombre')->get()->pluck('nombre','id');
+        return view('Productos.index#Editar_Producto'.$id,["producto"=>$producto,"table_categoria"=>$table_categoria]);
     }
 
     /**
@@ -134,7 +134,7 @@ class Producto_Controller extends Controller
             'stock'               => 'required|min:0',
             //'numeros_disponibles' => 'required|min:1',
             //'color'               => 'required|min:1',
-            'categoria_id'        => 'required|exists:categoria,id'
+            'id_categoria'        => 'required|exists:categoria,id'
         ]);
 
         $modelo = Producto_Model::find($id);

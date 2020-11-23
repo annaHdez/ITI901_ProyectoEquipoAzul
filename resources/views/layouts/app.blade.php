@@ -9,21 +9,14 @@
 	<meta name=viewport content="width=device-width, initial-scale=1">
 	<meta name="keywords" content="Zapatos, Pedir, en línea">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
-	<link rel="stylesheet" href="../Styles/fonts.css">
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-		crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-		crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-		integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-		crossorigin="anonymous"></script>
-		
-        <!--Icono del sitio web-->
+    
+    <!--Boostrap-->
+    @include('layouts.html.boostrap')
+    
+    <!--Alertify-->
+    @include('layouts.html.alertify')
+    
+    <!--Icono del sitio web-->
 	<link rel="icon" href="{{asset('icons/log.png')}}" type="image/x-ico" />
 	<link rel="shortcut icon" type="image/x-icon" href="{{asset('icons/log.ico')}}" />
 </head>
@@ -71,14 +64,16 @@
                                 <li class="nav-item d-inline" style="margin-right: 2rem;">
                                     <a href="{{route('Categorias.index')}}" class="nav-link text-white d-inline">Categorías</a>
                                 </li>
-                                <li class="nav-item d-inline" style="margin-right: 2rem;">
+                                <li class="nav-item d-inline" style="margin-right: 5rem;">
                                     <a href="{{route('Detalle_Venta.index')}}" class="nav-link text-white d-inline">Detalle de ventas</a>
                                 </li>
-                                <li class="nav-item dropdown d-inline" style="margin-right: 5rem;">
-                                    <a id="navbarDropdown" class="nav-link text-white d-inline" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <li class="nav-item d-inline" style="margin-right: 4rem;">
+                                    <a id="navbarDropdown" class="nav-link text-white d-inline" href="#" role="button" onclick="alertify.message('Usuario Actual');" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                             {{ Auth::user()->name }}
                                     </a>
-                                    <a class="btn btn-outline-danger" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                </li>
+                                <li class="nav-item d-inline">
+                                    <a class="btn btn-outline-danger" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" >
                                         {{ __('Cerrar Sesión') }}
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none btn btn-outline-danger">
@@ -88,26 +83,36 @@
                             </ul>
                             
                             @else 
-                            <li class="nav-item dropdown d-inline" style="margin-right: 5rem;">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-white d-inline" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }}
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right bg-black" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
+                            <ul>
+                                <li class="nav-item d-inline" style="margin-right: 2rem;">
+                                    <a href="" class="nav-link text-white d-inline">Productos</a>
+                                </li>
+                                <li class="nav-item d-inline" style="margin-right: 2rem;">
+                                    <a href="" class="nav-link text-white d-inline">Detalles de Compra</a>
+                                </li>
+                                <li class="nav-item d-inline" style="margin-right: 4rem;">
+                                    <a id="navbarDropdown" class="nav-link text-white d-inline" href="#" role="button" onclick="alertify.message('Usuario Actual');" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                            {{ Auth::user()->name }}
                                     </a>
-    
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none bg-black">
-                                            @csrf
+                                </li>
+                                <li class="nav-item d-inline">
+                                    <a class="btn btn-outline-danger" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" >
+                                        {{ __('Cerrar Sesión') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none btn btn-outline-danger">
+                                        @csrf
                                     </form>
-                                </div>
-                            </li>
+                                </li>
+                            </ul>
                             @endif
                         @endguest
                     </ul>
                 </div>
             </div>
         </nav>
+        @auth
+            
+        @endauth
         <br><br><br><br>
         <main class="py-4">
             @yield('content')

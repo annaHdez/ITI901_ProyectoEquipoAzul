@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-	<nav class="navbar navbar-dark bg-dark fixed-top" style="height: 10.5vh; width:100%; opacity: 1;" >
+	<nav class="navbar navbar-dark bg-dark fixed-top" style="height: 15vh; width:100%; opacity: 1;" >
 		<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">                
 		<ul class="navbar-nav mr-auto">
 			<a href="" class="btn text-white nav-item table table-dark">

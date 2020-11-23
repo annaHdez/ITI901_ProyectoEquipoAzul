@@ -19,7 +19,7 @@
         </div>
         <div class="modal-footer">
             <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-            {{ Form::submit('Registrar Rol', ['class' => 'btn btn-primary'] ) }}
+            {{ Form::submit('Registrar Rol', ['class' => 'btn btn-primary','onclick'=>" alertify.success('Registrado con éxito');"] ) }}
         </div>
     </div>
 </div>
