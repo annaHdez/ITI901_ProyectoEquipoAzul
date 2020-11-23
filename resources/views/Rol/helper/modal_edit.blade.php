@@ -21,7 +21,7 @@
 
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-            {{ Form::submit('Actualizar Rol', array('class'=>'btn btn-primary')) }}            
+            {{ Form::submit('Actualizar Rol', array('class'=>'btn btn-primary','onclick'=>" alertify.success('Actualizado con éxito');")) }}            
         </div>
         {{Form::close()}}
     </div>

@@ -53,16 +53,15 @@
     
     @foreach ($modelo_producto as $producto)
     <div class="card-deck d-inline-flex">
-        <div class="card container d-table selector-for-some-widget text-break" id="Producto{{$producto->id}}" style="max-width: 19rem; padding: abstract;margin-top: 1.1rem;">
+        <div class="card container d-table selector-for-some-widget text-break" id="Producto{{$producto->id}}" style="max-width: 19rem; padding: abstract;margin-top: 1.1rem">
                 <h4 class="card-title text-center">{{$producto->nombre}}</h4>
             @if(($producto->estatus==1)&&($producto->stock>0))
-                <img src="{{asset('images/'.$producto->nombre_fisico)}}" class="card-img-top" alt="{{$producto->nombre}}"title="{{$producto->nombre}}" />
+                <img src="{{asset('images/'.$producto->nombre_fisico)}}" class="card-img-top" alt="{{$producto->nombre}}"title="{{$producto->nombre}}" style="height: 200px;" />
             @else
                 <strong><legend class="text-danger position-absolute" style="transform: rotate(-40deg); z-index: 50">No Disponible</legend></strong>
-                <img src="{{asset('images/'.$producto->nombre_fisico)}}" class="card-img-top w-100" alt="{{$producto->nombre}}"title="{{$producto->nombre}}" style="filter: grayscale(1)"/>
+                <img src="{{asset('images/'.$producto->nombre_fisico)}}" class="card-img-top w-100" alt="{{$producto->nombre}}"title="{{$producto->nombre}}" style="height:200px;filter: grayscale(1);"/>
             @endif
-            <div class="card-body " style="min-width: 100%;">    
-                
+            <div class="card-body " style="min-width: 100%;">                    
                 <div class="contiainer d-inine-flex">
                     <button type="button" data-toggle="modal" data-target="#Ver_Producto{{$producto->id}}" class="btn btn-primary d-inline-flex">Ver</button>
                     <div class="modal fade" id="Ver_Producto{{$producto->id}}" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -78,7 +77,9 @@
         </div>
     </div>
     @endforeach
-    <br><br>
+    <br><br><br>
+    <br>
+    <br>
 </div>
     @include('layout.footer.footer')
 @endsection

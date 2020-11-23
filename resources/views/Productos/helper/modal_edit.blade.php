@@ -10,28 +10,27 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
+				<script>
+                    function QuitarImagen() {
+                        document.getElementById('SustituirImagen').style.display = 'none';
+                    }
+                </script>
 				<div class="modal-body">
 					<div class="container">
 						<div>
 							<div class="row py-4">
 								<div class="col-lg-6 mx-auto">
-
 									<!-- Upload image input-->
 									<div class="input-group mb-3 px-2 py-2 rounded-pill bg-dark shadow-sm">
-										<input id="uploadNew" type="file" onchange="readURLNew(this);"class="form-control border-0 text-secondary" name="imagen">
-										<label id="upload-labelNew" for="uploadNew" class="font-weight-light text-white">Elegir Imagen</label>
+										<input id="upload" type="file" onchange="readURL(this);" class="form-control border-0 text-secondary" onclick="QuitarImagen();" name="NuevaImagen_Up" value="{{asset('images/'.$producto->nombre_fisico)}}">
+										<label id="upload-label" for="upload" class="font-weight-light text-white">Elegir Imagen</label>
 										<div class="input-group-append">
-											<label for="uploadNew" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Elegir Archivo</small></label>
+											<label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Elegir Archivo</small></label>
 										</div>
 									</div>
-
 									<!-- Uploaded image area-->
-									<div class="image-area mt-4">
-										<img id="imageResultNew" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block">
-									</div>
-                                    <div class="img-area mt-4" id="imagen_anterior">
-                                        <!--img class="" id="img_anterior"  src="{{asset('images/'.$producto->nombre_fisico)}}" alt="{{$producto->nombre}}" width="300"-->
-                                    </div>
+									<img src="{{asset('images/'.$producto->nombre_fisico)}}" alt="{{$producto->nombre}}" title="{{$producto->nombre}}" style="height: 11rem;" id="SustituirImagen" />
+									<div class="image-area mt-4"><img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
 								</div>
 							</div>
 						</div>
@@ -83,7 +82,7 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-					{{ Form::submit('Actualizar producto', array('class' => 'btn btn-primary')) }}
+					{{ Form::submit('Actualizar producto', array('class' => 'btn btn-primary','onclick'=>" alertify.success('Actualizado con éxito');")) }}
 				</div>
 			</div>
         </div>

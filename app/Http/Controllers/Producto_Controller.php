@@ -150,7 +150,7 @@ class Producto_Controller extends Controller
         $modelo->save();
 
         //Almacena la imagen en ruta ftp
-        $file = $request->file('imagen');
+        $file = $request->file('NuevaImagen_Up');
         if($file)
         {
             $imgNombreVirtual = $file->getClientOriginalName();
