@@ -1,7 +1,7 @@
+
 @extends('layout.header.header')
 
 <!DOCTYPE html>    
-	@include('layouts.html.alertify')
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
             <!--@if (Route::has('login'))
@@ -19,65 +19,50 @@
             @endif-->
 
             
-        </div>
-	<div style="margin-top: 10vh;">
-		<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-			<ol class="carousel-indicators">
-				<li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-				<li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-				<li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-			</ol>
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<img src="{{asset('images/stand.jpg')}}" class="d-block w-100" style="height: 80vh;" alt="...">
-					<div class="carousel-caption d-none d-md-block">
-						<h5>Bienvenido</h5>
-						<p>Esperamos que obtenga la mejor experiencia en su compra.</p>
-					</div>
-				</div>
-				@foreach($table_producto as $producto)
-					@if(($producto->estatus==1)&&($producto->stock>0))
-						<div class="carousel-item">
-							<img src="{{asset('images/'.$producto->nombre_fisico)}}" class="d-block w-100" style="height: 80vh;" alt="{{$producto->nombre}}">
-								<div class="carousel-caption d-none d-md-block" style="background-color: darkgrey">
-									<h4>{{$producto->nombre}}</h4>
-									<strong><label class="text-dark">{{$producto->descripcion}}</label></strong>
-								</div>
-						</div>
-					@else 
-						<div class="carousel-item" style="background-color: darkgrey">
-							<div src="" class="d-block w-100" style="height: 80vh;" alt="" style="background-color: darkgrey"></div>
-							<div class="carousel-caption d-none d-md-block">
-								<strong><h1 class="position-absolute text-danger" style="transform: rotate(0deg)">No hay productos disponibles por el momento</h1></strong>
-								<br>
-							</div>
-						</div>
-					@endif
-				@endforeach
-
-				<a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="sr-only">Previous</span>
-				</a>
-				<a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="sr-only">Next</span>
-				</a>
-			</div>
-		</div>
+			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="{{asset('images/2G.jpg')}}" class="d-block w-100" style="height: 80vh;" alt="First slide">
 	</div>
+	<div class="carousel-caption d-none d-md-block">
+						
+						<p>La comodidad esta en tus pies, imagina lo mejor en cada paso.</p>
+					</div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="{{asset('images/1G.jpg')}}" class="d-block w-100" style="height: 80vh;" alt="Second slide">
+	</div>
+	
+    <div class="carousel-item">
+      <img class="d-block w-100" src="{{asset('images/5G.jpg')}}" class="d-block w-100" style="height: 80vh;" alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 
 	<br>
 	<div class="container">
 		<div class="">
 			<strong class="d-block text-center">
-				<h2>Productos Destacado</h2>
+				<h2>¿Quienes Somos?</h2>
 			</strong>
 			<br>
 			<p class="text-justify ">
-				Los productos que se muestran a continuación se han destacado por su calidad. Además,
-				de ser los mejor recibidos por nuestros clientes, con ello, aseguramos que su compra
-				sea una experiencia inigualable y sorprendente que lo hará sentirse especial.
+			Somos una empresa orgullosamente Mexicana con orígen en la ciudad de León, Guanajuato "Capital Nacional del Calzado".
+ MP Shoes es una empresa familiar, que en base a esfuerzo,dedicación, responsabilidad y corazón de todo su personal esta permitiendo
+que el calzado cumpla con la moda a tus pies. Estamos continuamente a la vanguardia en nuestros modelos para ofrecer
+ a usted la mejor relación en precio, calidad y moda.
 			</p>
 		</div>
 	</div>
@@ -87,14 +72,14 @@
 	<div class="row">
 		<div class="col text-center">
 			<hr class="d-inline p-2">
-			<h2 class="text-muted d-inline p-2">Productos destacados</h2>
+			<h2 class="text-muted d-inline p-2">Nuestros productos </h2>
 			<hr class="d-inline p-2">
 		</div>
 	</div>
 	<br>
 
 
-	<!--Carrusel de Productos destacados-->
+	<!--Carrusel de Restaurantes destacados-->
 	<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner">
 			<div class="carousel-item active">
@@ -103,37 +88,45 @@
 				<div class="container">
 					<div class="card-deck">
 						<div class="card">
-							<img src="../public/images/camping.jpg" class="card-img-top"
+							<img src="../public/images/14.jpg" class="card-img-top"
 								alt="...">
 							<div class="card-body">
-								<h5 class="card-title">Botas para acampar</h5>
-								<p class="card-text">This is a longer card with supporting text below as a natural
-									lead-in to additional content. This content is a little bit longer.</p>
-								<button class="btn btn-primary" onclick="alertify.alert('Aviso','Debes de iniciar sesión primero');">Leer más</button>
+								<h5 class="card-title">Coqquet</h5>
+								<p class="card-text">Modelo- CQ678</p>
+								<p class="card-text">Color- Negro </p>
+								<p class="card-text">Punto- 3 al 5</p>
+								<p class="card-text">$ 160.00</p>
+								
+								<a href="Lista Platillos.html" class="btn btn-primary">Añadir al carrito</a>
 							</div>
 						</div>
 
 						<!--Restaurante 2-->
 						<div class="card">
-							<img src="../public/images/brown.jpg" class="card-img-top"
+							<img src="../public/images/13.png" class="card-img-top"
 								alt="...">
 							<div class="card-body">
-								<h5 class="card-title">Botas casuales</h5>
-								<p class="card-text">This card has supporting text below as a natural lead-in to
-									additional content.</p>
-								<button class="btn btn-primary" onclick="alertify.alert('Aviso','Debes de iniciar sesión primero');">Leer más</button>
+								<h5 class="card-title">Sandalia primavera</h5>
+								<p class="card-text">Modelo - SP123</p>
+								<p class="card-text">Color- Animal print </p>
+								<p class="card-text">Punto- 3 al 6</p>
+								<p class="card-text">$ 250.00</p>
+							
+								<a href="Lista Platillos.html" class="btn btn-primary">Añadir al carrito</a>
 							</div>
 						</div>
 						<!--Restaurante 3-->
 							<div class="card">
-								<img src="../public/images/trabajo.jpg" class="card-img-top"
+								<img src="../public/images/6C1.jpg" class="card-img-top"
 									alt="...">
 								<div class="card-body">
-									<h5 class="card-title">Botas de trabajo</h5>
-									<p class="card-text">This is a wider card with supporting text below as a natural
-										lead-in to additional content. This card has even longer content than the first
-										to show that equal height action.</p>
-									<button class="btn btn-primary" onclick="alertify.alert('Aviso','Debes de iniciar sesión primero');">Leer más</button>
+									<h5 class="card-title">Flats</h5>
+									<p class="card-text">Modelo- FS456</p>
+									<p class="card-text">Color- Animal print</p>
+									<p class="card-text">Punto- 4 al 6</p>
+									<p class="card-text">$ 200.00</p>
+									
+									<a href="Lista Platillos.html" class="btn btn-primary">Añadir al carrito</a>
 								</div>
 							</div>
 
@@ -146,37 +139,45 @@
 				<div class="container">
 					<div class="card-deck">
 						<div class="card">
-							<img src="../public/images/cafe.jpg" class="card-img-top"
+							<img src="../public/images/3G11.jpg" class="card-img-top"
 								alt="...">
 							<div class="card-body">
-								<h5 class="card-title">Zapatos casuales</h5>
-								<p class="card-text">This is a longer card with supporting text below as a natural
-									lead-in to additional content. This content is a little bit longer.</p>
-								<button class="btn btn-primary" onclick="alertify.alert('Aviso','Debes de iniciar sesión primero');">Leer más</button>
+								<h5 class="card-title">Huarache</h5>
+								<p class="card-text">Modelo- VF4621</p>
+								<p class="card-text">Color- Mostaza</p>
+								<p class="card-text">Punto- 3 al 5</p>
+								<p class="card-text">$ 220.00</p>
+								
+								<a href="Lista Platillos.html" class="btn btn-primary">Añadir al carrito</a>
 							</div>
 						</div>
 
 						<!--Restaurante 2-->
 						<div class="card">
-							<img src="../public/images/tenis.jpg" class="card-img-top"
+							<img src="../public/images/4G.jpg" class="card-img-top"
 								alt="...">
 							<div class="card-body">
-								<h5 class="card-title">Tenis</h5>
-								<p class="card-text">This card has supporting text below as a natural lead-in to
-									additional content.</p>
-								<button class="btn btn-primary" onclick="alertify.alert('Aviso','Debes de iniciar sesión primero');">Leer más</button>
+								<h5 class="card-title">Flats amarilla</h5>
+								<p class="card-text">Modelo- FA678</p>
+								<p class="card-text">Color- Amarillo</p>
+								<p class="card-text">Punto- 3 al 6</p>
+								<p class="card-text">$ 350.00</p>
+								
+								<a href="Lista Platillos.html" class="btn btn-primary">Añadir al carrito</a>
 							</div>
 						</div>
 						<!--Restaurante 3-->
 							<div class="card">
-								<img src="../public/images/heels.jpg"
+								<img src="../public/images/11.jpg"
 									class="card-img-top" alt="...">
 								<div class="card-body">
-									<h5 class="card-title">Zapatos de tacón</h5>
-									<p class="card-text">This is a wider card with supporting text below as a natural
-										lead-in to additional content. This card has even longer content than the first
-										to show that equal height action.</p>
-									<button class="btn btn-primary" onclick="alertify.alert('Aviso','Debes de iniciar sesión primero');">Leer más</button>
+									<h5 class="card-title">Alpagatas</h5>
+									<p class="card-text">Modelo- AS9023</p>
+									<p class="card-text">Color- Rosa palo</p>
+									<p class="card-text">Punto- 3 al 8</p>
+									<p class="card-text">$ 600.00</p>
+									
+									<a href="Lista Platillos.html" class="btn btn-primary">Añadir al carrito</a>
 								</div>
 							</div>
 
@@ -185,29 +186,31 @@
 			</div>
 			
 		</div>
-		<a class="carousel-control-prev text-dark" href="#carouselExampleControls" role="button" data-slide="prev" >
-			<span class="carousel-control-prev-icon text-dark" aria-hidden="true"></span>
-			<span class="sr-only text-dark">Previous</span>
+		<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
 		</a>
-		<a class="carousel-control-next text-dark" href="#carouselExampleControls" role="button" data-slide="next">
-			<span class="carousel-control-next-icon text-dark" aria-hidden="true"></span>
-			<span class="sr-only text-dark">Next</span>
+		<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
 		</a>
 	</div>
 	<!---->
 	<br>
 	<div class="container">
-		<h1 class="text-center">Los más vendidos.</h1>
+		<h1 class="text-center"><em>La emoción de caminar con libertad</em></h1>
 		<p class="text-justify">
-			Nuestros productos se destacan por ser uno de los más aclamados por los usuarios, si no 
-			lo cree compre un par y compruebe su experiencia de compra. Los productos a continuación
-			se destacan por ser los más vendidos por nuestra plataforma.
+		Estamos interesados en ser pioneros de innovación y comodidad, por lo que en el proceso 
+		creativo de nuestros modelos, siempre consideramos los factores que brindarán a nuestro cliente originalidad,
+	    comodidad y calidad en cada paso que dé.
+			<br><br>
+			<small class="d-flex" style="float: right;">MP Shoes</small>
 		</p>
 	</div>
-	<!--Productos populares-->
+	<!--Comida popular-->
 	<div class="container">
 		<hr class="d-line text-center">
-		<h2 class="d-line text-center">Los más vendidos</h2>
+		<h2 class="d-line text-center">Ofertas </h2>
 		<hr class="d-line text-center">
 	</div>
 	<!---->
@@ -219,38 +222,45 @@
 				<div class="container">
 					<div class="card-deck">
 						<div class="card">
-							<img src="../public/images/top1.jpg" class="card-img-top"
+							<img src="../public/images/slider 1.jpg" class="card-img-top"
 								alt="...">
 							<div class="card-body">
-								<h5 class="card-title">Top 1</h5>
-								<p class="card-text">This is a longer card with supporting text below as a natural
-									lead-in to additional content. This content is a little bit longer.</p>
-								<button class="btn btn-primary" onclick="alertify.alert('Aviso','Debes de iniciar sesión primero');">Leer más</button>
+								<h5 class="card-title">Valerina moño</h5>
+								<p class="card-text">Modelo- VM0023</p>
+									<p class="card-text">Color- Negro, Mostaza, Rosa y Rojo </p>
+									<p class="card-text">Punto- 4 al 5</p>
+									<p class="card-text">$ 110.00</p>
+								
+								<a href="Info_Platillo.html" class="btn btn-primary">Añadir a carrito</a>
 							</div>
 						</div>
 
 						<!--Restaurante 2-->
 						<div class="card">
-							<img src="../public//images/top2.jpg" class="card-img-top"
+							<img src="../public//images/slider 2.jpg" class="card-img-top"
 								alt="...">
 							<div class="card-body">
-								<h5 class="card-title">Top 2</h5>
-								<p class="card-text">This card has supporting text below as a natural lead-in to
-									additional content.</p>
-								<button class="btn btn-primary" onclick="alertify.alert('Aviso','Debes de iniciar sesión primero');">Leer más</button>
+								<h5 class="card-title">Valerina Diamante</h5>
+								<p class="card-text">Modelo- VDS489</p>
+									<p class="card-text">Color- Maquillaje,Negro y Plata </p>
+									<p class="card-text">Punto- 4 al 6</p>
+									<p class="card-text">$ 80.00</p>
+									
+								<a href="Info_Platillo.html" class="btn btn-primary">Añadir al carrito</a>
 							</div>
 						</div>
 						 <!--Restaurante 3-->
 							<div class="card">
-								<img src="../public/images/top3.jpg" class="card-img-top"
+								<img src="../public/images/slider 3.jpg" class="card-img-top"
 									alt="...">
 								<div class="card-body">
-									<h5 class="card-title">Top 3</h5>
-									<p class="card-text">This is a wider card with supporting text below as a natural
-										lead-in to additional content. This card has even longer content than the first
-										to show that equal height action.</p>
-
-									<button class="btn btn-primary" onclick="alertify.alert('Aviso','Debes de iniciar sesión primero');">Leer más</button>
+									<h5 class="card-title">Huarachin</h5>
+									<p class="card-text">Modelo- HN267</p>
+									<p class="card-text">Color- Nude,Negro, Mostaza y Rosa palo </p>
+									<p class="card-text">Punto- 5</p>
+									<p class="card-text">$ 120.00</p>
+									
+									<a href="Info_Platillo.html" class="btn btn-primary">Añadir a carrito</a>
 								</div>
 							</div>
 
@@ -262,37 +272,44 @@
 				<div class="container">
 					<div class="card-deck">
 						<div class="card">
-							<img src="../public/images/top4.jpg" class="card-img-top"
+							<img src="../public/images/slider 4.jpg" class="card-img-top"
 								alt="...">
 							<div class="card-body">
-								<h5 class="card-title">Top 4</h5>
-								<p class="card-text">This is a longer card with supporting text below as a natural
-									lead-in to additional content. This content is a little bit longer.</p>
-									<button class="btn btn-primary" onclick="alertify.alert('Aviso','Debes de iniciar sesión primero');">Leer más</button>
+								<h5 class="card-title">Bordados</h5>
+								<p class="card-text">Modelo- BS4745</p>
+								<p class="card-text">Punto- 3 al 6</p>
+									<p class="card-text">$ 50.00</p>
+									
+								<a href="Info_Platillo.html" class="btn btn-primary">Añadir a carrito</a>
 							</div>
 						</div>
 
 						<!--Restaurante 2-->
 						<div class="card">
-							<img src="../public/images/top5.jpg" class="card-img-top" alt="...">
+							<img src="../public/images/slider 5.jpg" class="card-img-top" alt="...">
 							<div class="card-body">
-								<h5 class="card-title">Top alertify</h5>
-								<p class="card-text">This card has supporting text below as a natural lead-in to
-									additional content.</p>
-									<button class="btn btn-primary" onclick="alertify.alert('Aviso','Debes de iniciar sesión primero');">Leer más</button>
+								<h5 class="card-title">Sandalia plataforma</h5>
+								<p class="card-text">Modelo- SP792</p>
+									<p class="card-text">Color- Mostaza </p>
+									<p class="card-text">Punto- 4</p>
+									<p class="card-text">$ 145.00</p>
+									
+								<a href="Info_Platillo.html" class="btn btn-primary">Añadir al carrito</a>
 							</div>
 						</div>
 						< <!--Restaurante 3-->
 							<div class="card">
-								<img src="../public/images/top6.jpg" class="card-img-top"
+								<img src="../public/images/9.jpg" class="card-img-top"
 									alt="...">
 								<div class="card-body">
-									<h5 class="card-title">Top 6</h5>
-									<p class="card-text">This is a wider card with supporting text below as a natural
-										lead-in to additional content. This card has even longer content than the first
-										to show that equal height action.</p>
+									<h5 class="card-title">Sandalia Diamante</h5>
+									<p class="card-text">Modelo- VF4621</p>
+									<p class="card-text">Color- Plata </p>
+									<p class="card-text">Punto- 4 - 5</p>
+									<p class="card-text">$ 100.00</p>
+									
 
-									<button class="btn btn-primary" onclick="alertify.alert('Aviso','Debes de iniciar sesión primero');">Leer más</button>
+									<a href="Info_Platillo.html" class="btn btn-primary">Añadir al carrito</a>
 								</div>
 							</div>
 
@@ -307,8 +324,7 @@
 		<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
 			<span class="carousel-control-next-icon" aria-hidden="true"></span>
 			<span class="sr-only">Next</span>
-		</a>
-		<br>
+        </a>
         @extends('layout.footer.footer')
 	</div>	
     </body>

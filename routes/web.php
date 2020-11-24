@@ -31,13 +31,13 @@ Route::get('/cache', function () {
     return "Caché limpio";
 })->name('cache');
 
-<<<<<<< HEAD
+// HEAD
 Route::resource('Login', 'LoginController');
 Route::resource('Usuarios', 'UserContoller');
 Route::resource('productos', 'ProductoController');
 Route::resource('cproductos', 'cproductoController');
 Route::resource('Rol', 'Rol_Controller');
-=======
+
 //Rutas para el Administrador
 Route::resource('Login',        'LoginController'         );
 Route::resource('Usuarios',     'UserController'          );
@@ -45,7 +45,7 @@ Route::resource('Producto',     'Producto_Controller'     );
 Route::resource('Categoria',    'Categoria_Controller'    );
 Route::resource('Rol',          'Rol_Controller'          );
 Route::resource('Detalle_Venta','Detalle_Venta_Controller');
->>>>>>> ae332f4097cb4f785e2f2950c54054633cd0b59d
+
 
 //Rutas para el cliente
 Route::resource('Cliente.Detalle_Compras', 'ForCustomer_Detalle_Compra_Controller');
@@ -55,17 +55,17 @@ Route::resource('Cliente.Usuario'        , 'ForCustomer_User_Controller'        
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function () {
-<<<<<<< HEAD
+
     Route::resource('Usuarios', 'UserController');
     Route::resource('productos', 'ProductoContoller');
     Route::resource('cproductos', 'cproductoController');
     Route::resource('Rol', 'Rol_Controller');
-=======
+
     Route::resource('Usuarios',     'UserController'          );
     Route::resource('Productos',    'Producto_Controller'     );
     Route::resource('Categorias',   'Categoria_Controller'    );
     Route::resource('Rol',          'Rol_Controller'          );
     Route::resource('Detalle_Venta','Detalle_Venta_Controller');
->>>>>>> ae332f4097cb4f785e2f2950c54054633cd0b59d
+
 });
     Route::get('/home', 'HomeController@index')->name('home');    
