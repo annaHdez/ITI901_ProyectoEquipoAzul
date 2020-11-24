@@ -88,7 +88,7 @@ que el calzado cumpla con la moda a tus pies. Estamos continuamente a la vanguar
 				<div class="container">
 					<div class="card-deck">
 						<div class="card">
-							<img src="../public/images/14.jpg" class="card-img-top"
+							<img src="../public/images/15.webp" class="card-img-top"
 								alt="...">
 							<div class="card-body">
 								<h5 class="card-title">Coqquet</h5>
@@ -103,12 +103,12 @@ que el calzado cumpla con la moda a tus pies. Estamos continuamente a la vanguar
 
 						<!--Restaurante 2-->
 						<div class="card">
-							<img src="../public/images/13.png" class="card-img-top"
+							<img src="../public/images/12.webp" class="card-img-top"
 								alt="...">
 							<div class="card-body">
 								<h5 class="card-title">Sandalia primavera</h5>
 								<p class="card-text">Modelo - SP123</p>
-								<p class="card-text">Color- Animal print </p>
+								<p class="card-text">Color- Menta </p>
 								<p class="card-text">Punto- 3 al 6</p>
 								<p class="card-text">$ 250.00</p>
 							
@@ -117,12 +117,12 @@ que el calzado cumpla con la moda a tus pies. Estamos continuamente a la vanguar
 						</div>
 						<!--Restaurante 3-->
 							<div class="card">
-								<img src="../public/images/6C1.jpg" class="card-img-top"
+								<img src="../public/images/17.jpg" class="card-img-top"
 									alt="...">
 								<div class="card-body">
-									<h5 class="card-title">Flats</h5>
+									<h5 class="card-title">Huarache Lazo</h5>
 									<p class="card-text">Modelo- FS456</p>
-									<p class="card-text">Color- Animal print</p>
+									<p class="card-text">Color- Biege</p>
 									<p class="card-text">Punto- 4 al 6</p>
 									<p class="card-text">$ 200.00</p>
 									
@@ -154,12 +154,11 @@ que el calzado cumpla con la moda a tus pies. Estamos continuamente a la vanguar
 
 						<!--Restaurante 2-->
 						<div class="card">
-							<img src="../public/images/4G.jpg" class="card-img-top"
+							<img src="../public/images/18.jpg" class="card-img-top"
 								alt="...">
 							<div class="card-body">
-								<h5 class="card-title">Flats amarilla</h5>
+								<h5 class="card-title">Flats </h5>
 								<p class="card-text">Modelo- FA678</p>
-								<p class="card-text">Color- Amarillo</p>
 								<p class="card-text">Punto- 3 al 6</p>
 								<p class="card-text">$ 350.00</p>
 								
