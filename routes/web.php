@@ -31,26 +31,19 @@ Route::get('/cache', function () {
     return "Caché limpio";
 })->name('cache');
 
-// HEAD
-Route::resource('Login', 'LoginController');
-Route::resource('Usuarios', 'UserContoller');
-Route::resource('productos', 'ProductoController');
-Route::resource('cproductos', 'cproductoController');
-Route::resource('Rol', 'Rol_Controller');
-
 //Rutas para el Administrador
 Route::resource('Login',        'LoginController'         );
 Route::resource('Usuarios',     'UserController'          );
-Route::resource('Producto',     'Producto_Controller'     );
+Route::resource('Productos',    'Producto_Controller'     );
 Route::resource('Categoria',    'Categoria_Controller'    );
 Route::resource('Rol',          'Rol_Controller'          );
 Route::resource('Detalle_Venta','Detalle_Venta_Controller');
 
 
 //Rutas para el cliente
-Route::resource('Cliente.Detalle_Compras', 'ForCustomer_Detalle_Compra_Controller');
-Route::resource('Cliente.Producto'       , 'ForCustomer_Producto_Controller'      );
-Route::resource('Cliente.Usuario'        , 'ForCustomer_User_Controller'          );
+Route::resource('Cliente_Detalle_Compras', 'ForCustomer_Detalle_Compra_Controller');
+Route::resource('Cliente_Producto'       , 'ForCustomer_Producto_Controller'      );
+Route::resource('Cliente_Usuario'        , 'ForCustomer_User_Controller'          );
 
 Auth::routes();
 
