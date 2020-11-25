@@ -59,7 +59,7 @@
                                     <a href="{{route('Rol.index')}}" class="nav-link text-white d-inline">Roles</a>
                                 </li>
                                 <li class="nav-item d-inline" style="margin-right: 2rem;">
-                                    <a href="{{route('Productos.index')}}" class="nav-link text-white d-inline">Productos</a>
+                                    <a href="{{route('Producto.index')}}" class="nav-link text-white d-inline">Productos</a>
                                 </li>
                                 <li class="nav-item d-inline" style="margin-right: 2rem;">
                                     <a href="{{route('Categorias.index')}}" class="nav-link text-white d-inline">Categorías</a>
@@ -70,7 +70,6 @@
                                 <li class="nav-item d-inline" style="margin-right: 4rem;">
                                     <a id="navbarDropdown" class="nav-link text-white d-inline" href="#" role="button" onclick="alertify.message('Usuario Actual');" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                             {{ Auth::user()->name }}
-
                                     </a>
                                 </li>
                                 <li class="nav-item d-inline">

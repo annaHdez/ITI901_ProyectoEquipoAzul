@@ -50,7 +50,7 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('Usuarios', 'UserController');
-    Route::resource('productos', 'ProductoContoller');
+    // Route::resource('productos', 'ProductoContoller');
     Route::resource('cproductos', 'cproductoController');
     Route::resource('Rol', 'Rol_Controller');
 
