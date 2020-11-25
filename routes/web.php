@@ -34,8 +34,8 @@ Route::get('/cache', function () {
 // HEAD
 Route::resource('Login', 'LoginController');
 Route::resource('Usuarios', 'UserContoller');
-Route::resource('productos', 'ProductoController');
-Route::resource('cproductos', 'cproductoController');
+//Route::resource('productos', 'ProductoController');
+//Route::resource('cproductos', 'cproductoController');
 Route::resource('Rol', 'Rol_Controller');
 
 //Rutas para el Administrador
@@ -57,7 +57,7 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('Usuarios', 'UserController');
-    Route::resource('productos', 'ProductoContoller');
+    // Route::resource('productos', 'ProductoContoller');
     Route::resource('cproductos', 'cproductoController');
     Route::resource('Rol', 'Rol_Controller');
 

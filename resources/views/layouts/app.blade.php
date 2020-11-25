@@ -51,24 +51,6 @@
                             @endif
                         @else
                             @if(\Auth::user()->rol_id==1)
-<<<<<<< HEAD
-                            <li class="nav-item">
-                            <a href="{{route('productos.index')}}" class="nav-link">CALZADO</a>
-                            </li>
-                            <li class="nav-item">
-                            <a href="{{route('cproductos.index')}}" class="nav-link">TIPOS DE CALZADO</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right bg-black" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-=======
                             <ul>
                                 <li class="nav-item d-inline" style="margin-right: 2rem;">
                                     <a href="{{route('Usuarios.index')}}" class="nav-link text-white d-inline">Usuarios</a>
@@ -77,7 +59,7 @@
                                     <a href="{{route('Rol.index')}}" class="nav-link text-white d-inline">Roles</a>
                                 </li>
                                 <li class="nav-item d-inline" style="margin-right: 2rem;">
-                                    <a href="{{route('Productos.index')}}" class="nav-link text-white d-inline">Productos</a>
+                                    <a href="{{route('Producto.index')}}" class="nav-link text-white d-inline">Productos</a>
                                 </li>
                                 <li class="nav-item d-inline" style="margin-right: 2rem;">
                                     <a href="{{route('Categorias.index')}}" class="nav-link text-white d-inline">Categorías</a>
@@ -88,7 +70,6 @@
                                 <li class="nav-item d-inline" style="margin-right: 4rem;">
                                     <a id="navbarDropdown" class="nav-link text-white d-inline" href="#" role="button" onclick="alertify.message('Usuario Actual');" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                             {{ Auth::user()->name }}
->>>>>>> ae332f4097cb4f785e2f2950c54054633cd0b59d
                                     </a>
                                 </li>
                                 <li class="nav-item d-inline">
