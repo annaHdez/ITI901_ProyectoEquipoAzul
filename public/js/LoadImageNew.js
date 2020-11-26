@@ -23,8 +23,9 @@ var input = document.getElementById( 'uploadNew' );
 var infoArea = document.getElementById( 'upload-labelNew' );
 
 input.addEventListener( 'change', showFileName );
-function showFileName( event ) {
-  var input = event.srcElement;
-  var fileName = input.files[0].name;
-  infoArea.textContent = 'File name: ' + fileName;
+function showFileName( event ) 
+{
+    var input = event.srcElement;
+    var fileName = input.files[0].name;
+    infoArea.textContent = 'File name: ' + fileName;
 }

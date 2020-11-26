@@ -19,10 +19,7 @@ class Producto_Controller extends Controller
      */
     public function index(Request $request)
     {
-        $table_productos = DB::table('producto')
-        ->join('categoria','producto.id_categoria','=','categoria.id')
-        ->select('producto.*','categoria.nombre as categoria_producto')
-        ->get();
+        //$table_productos = DB::table('producto')->join('categoria','producto.id_categoria','=','categoria.id')->select('producto.*','categoria.nombre as categoria_producto')->get();
         $modelo_producto = Producto_Model::all();
         $table_categoria = Categoria_Model::orderBy('nombre')->get()->pluck('nombre','id');
         $whereClause     = [];
@@ -60,8 +57,6 @@ class Producto_Controller extends Controller
             'descripcion'         => 'required|min:5',
             'precio'              => 'required|numeric|min:0|max:1000',
             'stock'               => 'required|numeric|min:0',
-            //'numeros_disponibles' => 'required|min:1',
-            //'color'               => 'required|min:1',
         ]);
 
         $modelo = new Producto_Model($request->all());
@@ -84,8 +79,8 @@ class Producto_Controller extends Controller
                 $imgNombreFisico, 
                 \File::get($file)
             );
-            $modelo->nombre_virtual = $imgNombreVirtual;
-            $modelo->nombre_fisico  = $imgNombreFisico;
+            $modelo->imgNombreVirtual = $imgNombreVirtual;
+            $modelo->imgNombreFisico  = $imgNombreFisico;
             $modelo->save();
         }
 
@@ -132,8 +127,6 @@ class Producto_Controller extends Controller
             'descripcion'         => 'required|min:5',
             'precio'              => 'required|min:0|max:1000',
             'stock'               => 'required|min:0',
-            //'numeros_disponibles' => 'required|min:1',
-            //'color'               => 'required|min:1',
             'id_categoria'        => 'required|exists:categoria,id'
         ]);
 
@@ -159,8 +152,8 @@ class Producto_Controller extends Controller
                 $imgNombreFisico, 
                 \File::get($file)
             );
-            $modelo->nombre_virtual = $imgNombreVirtual;
-            $modelo->nombre_fisico  = $imgNombreFisico;
+            $modelo->imgNombreVirtual = $imgNombreVirtual;
+            $modelo->imgNombreFisico  = $imgNombreFisico;
             $modelo->save();
         }
 

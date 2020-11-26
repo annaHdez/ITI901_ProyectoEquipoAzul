@@ -22,15 +22,15 @@
 								<div class="col-lg-6 mx-auto">
 									<!-- Upload image input-->
 									<div class="input-group mb-3 px-2 py-2 rounded-pill bg-dark shadow-sm">
-										<input id="upload" type="file" onchange="readURL(this);" class="form-control border-0 text-secondary" onclick="QuitarImagen();" name="NuevaImagen_Up" value="{{asset('images/'.$producto->nombre_fisico)}}">
-										<label id="upload-label" for="upload" class="font-weight-light text-white">Elegir Imagen</label>
+										<input id="uploadNew" type="file" onchange="readURLNew(this);" class="form-control border-0 text-secondary" onclick="QuitarImagen();" name="NuevaImagen_Up" value="{{asset('images/'.$producto->nombre_fisico)}}">
+										<label id="upload-labelNew" for="uploadNew" class="font-weight-light text-white">Elegir Imagen</label>
 										<div class="input-group-append">
-											<label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Elegir Archivo</small></label>
+											<label for="uploadNew" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Elegir Archivo</small></label>
 										</div>
 									</div>
 									<!-- Uploaded image area-->
-									<img src="{{asset('images/'.$producto->nombre_fisico)}}" alt="{{$producto->nombre}}" title="{{$producto->nombre}}" style="height: 11rem;" id="SustituirImagen" />
-									<div class="image-area mt-4"><img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
+									<img src="{{asset('images/'.$producto->imgNombreFisico)}}" alt="{{$producto->nombre}}" title="{{$producto->nombre}}" style="height: 11rem;" id="SustituirImagen" />
+									<div class="image-area mt-4"><img id="imageResultNew" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
 								</div>
 							</div>
 						</div>

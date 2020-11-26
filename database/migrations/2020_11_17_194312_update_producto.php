@@ -12,8 +12,7 @@ class UpdateProducto extends Migration
         //
         Schema::table('producto', function (Blueprint $table) {
             $table->string('descripcion');
-            $table->dropForeign(['user_id']);
-            $table->dropColumn('user_id');
+            
         });
     }
 
@@ -27,8 +26,6 @@ class UpdateProducto extends Migration
         //
         Schema::table('producto', function (Blueprint $table) {
             $table->dropColumn('descripcion');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 }

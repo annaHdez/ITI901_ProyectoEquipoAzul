@@ -1,5 +1,8 @@
 @extends('layouts.app')
-
+<link rel="stylesheet" href="{{asset('css/LoadImage.css')}}">
+<link rel="stylesheet" href="{{asset('css/LoadImageNew.css')}}">
+<script src="{{asset('js/LoadImage.js')}}"></script>
+<script src="{{asset('js/LoadImageNew.js')}}"></script>
 @section('content')
 <h1 class="text-center">Administración de Productos</h1>
 <br>
@@ -57,10 +60,10 @@
         <div class="card container d-table selector-for-some-widget text-break" id="Producto{{$producto->id}}" style="max-width: 19rem; padding: abstract;margin-top: 1.1rem">
                 <h4 class="card-title text-center">{{$producto->nombre}}</h4>
             @if(($producto->estatus==1)&&($producto->stock>0))
-                <img src="{{asset('images/'.$producto->nombre_fisico)}}" class="card-img-top" alt="{{$producto->nombre}}"title="{{$producto->nombre}}" style="height: 200px;" />
+                <img src="{{asset('images/'.$producto->imgNombreFisico)}}" class="card-img-top" alt="{{$producto->nombre}}"title="{{$producto->nombre}}" style="height: 200px;" />
             @else
                 <strong><legend class="text-danger position-absolute" style="transform: rotate(-40deg); z-index: 50">No Disponible</legend></strong>
-                <img src="{{asset('images/'.$producto->nombre_fisico)}}" class="card-img-top w-100" alt="{{$producto->nombre}}"title="{{$producto->nombre}}" style="height:200px;filter: grayscale(1);"/>
+                <img src="{{asset('images/'.$producto->imgNombreFisico)}}" class="card-img-top w-100" alt="{{$producto->nombre}}"title="{{$producto->nombre}}" style="height:200px;filter: grayscale(1);"/>
             @endif
             <div class="card-body " style="min-width: 100%;">                    
                 <div class="contiainer d-inine-flex">

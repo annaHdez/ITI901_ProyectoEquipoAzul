@@ -18,7 +18,8 @@
     
     <!--Icono del sitio web-->
 	<link rel="icon" href="{{asset('icons/log.png')}}" type="image/x-ico" />
-	<link rel="shortcut icon" type="image/x-icon" href="{{asset('icons/log.ico')}}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('icons/log.ico')}}" />
+    
 </head>
 <body>
     <div id="app">
@@ -59,7 +60,7 @@
                                     <a href="{{route('Rol.index')}}" class="nav-link text-white d-inline">Roles</a>
                                 </li>
                                 <li class="nav-item d-inline" style="margin-right: 2rem;">
-                                    <a href="{{route('Producto.index')}}" class="nav-link text-white d-inline">Productos</a>
+                                    <a href="{{route('Productos.index')}}" class="nav-link text-white d-inline">Productos</a>
                                 </li>
                                 <li class="nav-item d-inline" style="margin-right: 2rem;">
                                     <a href="{{route('Categorias.index')}}" class="nav-link text-white d-inline">Categorías</a>

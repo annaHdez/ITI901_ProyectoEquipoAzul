@@ -31,12 +31,12 @@
                 <div class="container">
                     <div class="">
                         <strong><h5>{{Form::label('nombre','Nombre',['class'=>'form text-black'])}}</h5></strong>
-                        {{Form::text('nombre', Request::old('nombre'), ["class"=>"form-control"])}}
+                        {{Form::text('nombre', Request::old('nombre'), ["class"=>"form-control","max"=>"30"])}}
                     </div>
 
                     <strong><h5>{{Form::label('descripcion','Descripción',['class'=>'form text-black'])}}</h5></strong>
                     <div class="input-group" style="width: 80%;">
-                        {{ Form::textArea('descripcion', Request::old('descripcion'),array('class' => 'form-control', 'required'=>true, 'maxlength'=> 200,'placeholder'=>'Breve descripción del calzado', 'rows'=>2)) }}
+                        {{ Form::textArea('descripcion', Request::old('descripcion'),array('class' => 'form-control', 'required'=>true, 'maxlength'=> 200,'placeholder'=>'Breve descripción del calzado', 'rows'=>2,"max"=>"100")) }}
                     </div>
                     
                     <div style="width: 80%">
@@ -57,7 +57,7 @@
                         <strong><h5>{{Form::label('id_categoria','Categoria',['class'=>'form text-black'])}}</h5></strong>
                         <div class="input-group mb-3" style="width: 80%;">
                             <div class="input-group-prepend"><label class="input-group-text" for="inputGroupSelect01">Categoría</label></div><br>
-                            {{ Form::select('id_categoria', $table_categoria, array('class' => 'form-control')) }}
+                            {{ Form::select('id_categoria', $table_categoria, array('class' => 'form-control', 'required'=>true)) }}
                         </div>
 
                         <strong><h5>{{Form::label('estatus','Disponible')}}</h5></strong>

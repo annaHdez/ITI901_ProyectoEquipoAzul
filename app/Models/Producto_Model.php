@@ -11,7 +11,7 @@ class Producto_Model extends Model
     #Tabla a la cual hará referencia
     protected $table    = 'producto';
     #Los campos que llenará de la tabla
-    protected $fillable = ['nombre','descripcion','precio','stock','numeros_disponibles','color','estatus','id_categoria'];
+    protected $fillable = ['nombre','descripcion','precio','stock','estatus','id_categoria'];
     #Referencia local como foráneo
     public function getCategoria()
     {
