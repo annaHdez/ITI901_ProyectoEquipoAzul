@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Detalle_Venta_Model;
+use App\Models\ForCustomer_DetalleVenta_Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
-
+use App\Models\ForCustomer_Detalle_Compras_Model;
 class Detalle_Venta_Controller extends Controller
 {
     /**
@@ -18,7 +19,10 @@ class Detalle_Venta_Controller extends Controller
      */
     public function index()
     {
-        return view('Detalle_Venta.index',[]);
+        $table_DetalleCompras = ForCustomer_DetalleVenta_Model::all();
+        $whereClause = [];
+        array_push($whereClause,["id_user",'!=',0]);
+        return view('Detalle_Venta.index',['table_DetalleCompras'=>$table_DetalleCompras]);
     }
 
     /**

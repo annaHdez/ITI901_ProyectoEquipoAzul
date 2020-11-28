@@ -41,19 +41,18 @@ Route::resource('Detalle_Venta','Detalle_Venta_Controller');
 
 
 //Rutas para el cliente
-Route::resource('Cliente_Detalle_Compras', 'ForCustomer_Detalle_Compra_Controller');
+Route::resource('Cliente_Detalle_Compras', 'ForCustomer_Detalle_Compra_Controler');
 Route::resource('Cliente_Producto'       , 'ForCustomer_Producto_Controller'      );
 Route::resource('Cliente_Usuario'        , 'ForCustomer_User_Controller'          );
+Route::post('/agregarCarrito'            , 'ForCustomer_Producto_Controller@agregarCarrito' )->name('agregarCarrito' );
+Route::post('/confirmarPedido'           , 'ForCustomer_Producto_Controller@confirmarPedido')->name('confirmarPedido');
+Route::post('/vaciarCarrito'             , 'ForCustomer_Producto_Controller@vaciarCarrito'  )->name('vaciarCarrito'  );
+Route::post('/quitarElemento{$id}'       , 'ForCustomer_Producto_Controller@quitarElemento' )->name('quitarElemento' );
+Route::get('/verCarrito'                , 'ForCustomer_Producto_Controller@verCarrito'     )->name('verCarrito');
 
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function () {
-
-    Route::resource('Usuarios', 'UserController');
-    // Route::resource('productos', 'ProductoContoller');
-    Route::resource('cproductos', 'cproductoController');
-    Route::resource('Rol', 'Rol_Controller');
-
     Route::resource('Usuarios',     'UserController'          );
     Route::resource('Productos',    'Producto_Controller'     );
     Route::resource('Categorias',   'Categoria_Controller'    );

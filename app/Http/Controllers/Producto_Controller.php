@@ -160,7 +160,6 @@ class Producto_Controller extends Controller
         $request->session()->flash('message', 'Producto Actualizado');
         return Redirect::to('Productos');
     }
-
     /**
      * Remove the specified resource from storage.
      *

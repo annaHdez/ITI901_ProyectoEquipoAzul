@@ -37,6 +37,7 @@ return array(
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Models\\Categoria_Model' => $baseDir . '/app/Models/Categoria_Model.php',
     'App\\Models\\Detalle_Venta_Model' => $baseDir . '/app/Models/Detalle_Venta_Model.php',
+    'App\\Models\\ForCustomer_DetalleVenta_Model' => $baseDir . '/app/Models/ForCustomer_DetalleVenta_Model.php',
     'App\\Models\\ForCustomer_Detalle_Compras_Model' => $baseDir . '/app/Models/ForCustomer_Detalle_Compras_Model.php',
     'App\\Models\\Index_Model' => $baseDir . '/app/Models/Index_Model.php',
     'App\\Models\\Producto_Model' => $baseDir . '/app/Models/Producto_Model.php',

@@ -1,4 +1,4 @@
-    <footer class="navbar sticky-bottom navbar-expand-sm navbar-dark bg-dark" style="width: 100%; margin-bottom: none; bottom: 0%;">
+<footer class="navbar sticky-bottom navbar-expand-sm navbar-dark bg-dark" style="width: 100%; margin-bottom: none; bottom: 0%;">
         <div class="navbar-brand" style="word-wrap: break-word; display: flex; height: 100px; ">
             <img src="{{asset('images/logo.png')}}" alt="" style="height: 100px; width: 170px;" />
             <div class="collapse navbar-collapse text-wrap">

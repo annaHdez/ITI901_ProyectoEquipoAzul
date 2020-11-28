@@ -39,6 +39,80 @@ class ForCustomer_Producto_Controller extends Controller
         return view('Cliente_Producto.index',['table_productos'=>$table_productos,"table_categoria"=>$table_categoria,"filtro_producto"=>$request->producto_buscar,"filtro_categoria"=>$request->categoria_buscar,"table_limit_productos"=>$table_limit_productos]);
     }
 
+    public function agregarCarrito(Request $request) 
+    {
+        $carrito = $request->session()->get('carrito');
+        if(!$carrito){
+        $carrito = [];
+        }
+        array_push($carrito, [
+        'idProducto' => $request->idProducto,
+        'hoy'        => getdate(),
+        'nombre'     => $request->nombre,
+        'precio'     => $request->precio,
+        'cantidad' => $request->cantidad
+        ] );
+        $request->session()->put('carrito', $carrito);
+        echo var_dump($carrito);
+        //return Redirect::to('Cliente_Producto');
+    }
+    public function confirmarPedido(Request $request)
+    {
+        $carrito = $request->session()->get('carrito');
+        if(!$carrito)
+        {
+            $carrito = [];
+        }
+        else
+        {
+            array_push($carrito, [
+                'idProducto' => $request->idProducto,
+                'hoy'        => getdate(),
+                'nombre'     => $request->nombre,
+                'precio'     => $request->precio,
+                'cantidad'   => $request->cantidad
+            ] );
+        }
+        
+        $request->session()->put('carrito', $carrito);
+        echo var_dump($carrito);
+        return Redirect::to('Cliente_Pedido');
+    }
+    public function vaciarCarrito(Request $request)
+    {
+        $carrito = $request->session()->get('carrito');
+        unset($carrito['idProducto'],$carrito['hoy'],$carrito['nombre'],$carrito['precio'],$carrito['cantidad']);
+        echo var_dump($carrito);
+        //return Redirect::to('Cliente_Producto');
+    }
+    public function quitarElemento(Request $request,$id)
+    {
+
+        $carrito = $request->session()->get('carrito');
+        array_push($carrito, [
+            'idProducto' => $request->idProducto,
+            'hoy'        => getdate(),
+            'nombre'     => $request->nombre,
+            'precio'     => $request->precio,
+            'cantidad'   => $request->cantidad
+        ] );
+        $request->session()->put('carrito', $carrito);
+        return view('Cliente_Pedido.index',['carrito'=>$carrito,'request'=>$request]);
+    }
+
+    public function verCarrito(Request $request)
+    {
+        $carrito = $request->session()->get('carrito');
+        array_push($carrito, [
+            'idProducto' => $request->idProducto,
+            'hoy'        => getdate(),
+            'nombre'     => $request->nombre,
+            'precio'     => $request->precio,
+            'cantidad'   => $request->cantidad
+        ] );
+        $request->session()->put('carrito', $carrito);
+        return view('Cliente_Pedido.index',['carrito'=>$carrito,'request'=>$request]);
+    }
     /**
      * Show the form for creating a new resource.
      *

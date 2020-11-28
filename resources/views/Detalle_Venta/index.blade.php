@@ -35,13 +35,26 @@
     {{HTML::ul($errors->all())}}
     <table class="table table-striped">
         <thead>
-            <th>Id</th>
-            <th>Fecha de Venta</th>
-            <th>Productos Comprados</th>
-            <th>Total</th>
+            <th>Número</th>
+            <th>Fecha de Compra</th>
+            <th>Usuario</th>
+            <th>Producto Comprado</th>
+            <th>Cantidad</th>
+            <th>IVA</th>
+            <th>Total a Pagar</th>
         </thead>
         <tbody>
-            <tr></tr>
+            @foreach ($table_DetalleCompras as $compras)
+                <tr>
+                    <td>{{$compras->id}}</td>
+                    <td>{{$compras->created_at}}</td>
+                    <td>{{$compras->getUser->name}}</td>
+                    <td>{{$compras->getProducto->nombre}}</td>
+                    <td>{{$compras->cantidad}}</td>
+                    <td>{{$compras->iva}}</td>
+                    <td>{{$compras->total_precio}}</td>
+                </tr>
+            @endforeach
         </tbody>
     </table>
 </div>

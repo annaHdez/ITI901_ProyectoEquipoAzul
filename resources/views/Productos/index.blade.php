@@ -57,10 +57,10 @@
     
     @foreach ($modelo_producto as $producto)
     <div class="card-deck d-inline-flex">
-        <div class="card container d-table selector-for-some-widget text-break" id="Producto{{$producto->id}}" style="max-width: 19rem; padding: abstract;margin-top: 1.1rem">
+        <div class="card container d-table selector-for-some-widget text-break" id="Producto{{$producto->id}}" style="max-width: 19rem;min-width:19rem;padding: abstract;margin-top: 1.1rem">
                 <h4 class="card-title text-center">{{$producto->nombre}}</h4>
             @if(($producto->estatus==1)&&($producto->stock>0))
-                <img src="{{asset('images/'.$producto->imgNombreFisico)}}" class="card-img-top" alt="{{$producto->nombre}}"title="{{$producto->nombre}}" style="height: 200px;" />
+                <img src="{{asset('images/'.$producto->imgNombreFisico)}}" class="card-img-top" alt="{{$producto->nombre}}"title="{{$producto->nombre}}" style="height: 200px; min-height:200px;" />
             @else
                 <strong><legend class="text-danger position-absolute" style="transform: rotate(-40deg); z-index: 50">No Disponible</legend></strong>
                 <img src="{{asset('images/'.$producto->imgNombreFisico)}}" class="card-img-top w-100" alt="{{$producto->nombre}}"title="{{$producto->nombre}}" style="height:200px;filter: grayscale(1);"/>

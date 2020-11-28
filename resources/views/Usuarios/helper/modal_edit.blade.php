@@ -23,7 +23,7 @@
                     </div>
                 
                     <!--Aseguramos que siempre exista un super administrador a fin de tener disponibilidad en todo momento de cambios--->
-                    @if(($usuario->id)!=1)
+                    @if(($usuario->id)!=2)
                     <div class="form-group col-md-4">
                         {{ Form::label('rol_id', 'Rol') }}<br>
                         {{ Form::select('rol_id',$table_rol,$usuario->rol_id,array('class' => 'form-control')) }}

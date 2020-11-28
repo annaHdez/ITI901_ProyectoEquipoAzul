@@ -14,7 +14,6 @@
             <hr>
             <legend>Precio</legend>
             ${{$producto->precio}}
-            
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

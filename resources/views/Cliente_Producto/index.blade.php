@@ -39,20 +39,38 @@
         
     </div>
     <hr>
+    <a href="{{route('verCarrito')}}" class="btn btn-info">Ver Carrito</a>
+    {{-- <button type="button btn-info" data-toggle="modal" data-target="#Ver_Carrito" class="btn btn-info d-inline-flex">
+        Ver Carrito
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
+        </svg>
+    </button>
+
+    <div class="modal fade" id="Ver_Carrito" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        @include('Cliente_Producto.helper.modal_carrito')
+    </div> --}}
+    <br>
     @foreach ($table_productos as $producto)
         @if(($producto->estatus==1)&&($producto->stock>0))
         <div class="card-deck d-inline-flex">
-            <div class="card container d-table selector-for-some-widget text-break" id="Producto{{$producto->id}}" style="max-width: 19rem; padding: abstract;margin-top: 1.1rem">
+            <div class="card container d-table selector-for-some-widget text-break" id="Producto{{$producto->id}}" style="max-width: 19rem;min-width:19rem; padding: abstract;margin-top: 1.1rem">
                     <h4 class="card-title text-center">{{$producto->nombre}}</h4>                
-                    <img src="{{asset('images/'.$producto->nombre_fisico)}}" class="card-img-top" alt="{{$producto->nombre}}"title="{{$producto->nombre}}" style="height: 200px;" />
-                <div class="card-body " style="min-width: 100%;">                    
+                    <img src="{{asset('images/'.$producto->imgNombreFisico)}}" class="card-img-top" alt="{{$producto->nombre}}"title="{{$producto->nombre}}" style="height: 200px;min-height:200px;" />
+                <div class="card-body" style="min-width: 100%;">                    
                     <div class="contiainer d-inine-flex">
-                        <button type="button" data-toggle="modal" data-target="#Ver_Producto{{$producto->id}}" class="btn btn-primary d-inline-flex">Ver</button>
+                        <button type="button" data-toggle="modal" data-target="#Ver_Producto{{$producto->id}}" class="btn btn-info d-inline-flex">Ver</button>
                         <div class="modal fade" id="Ver_Producto{{$producto->id}}" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             @include('Cliente_Producto.helper.modal_view')
                         </div>
-    
-                        <button type="button" data-toggle="modal" data-target="#AgregarCarrito_Producto{{$producto->id}}" class="btn btn-success d-inline-flex" onclick="alertify.success('Agregado al carrito');">Agregar a carrito</button>
+                        <br><br>
+                        {{Form::open(['url'=>'agregarCarrito'])}}
+                            {{Form::hidden('idProducto',$producto->id,array('class'=>'form-control col-sm-3'))}}
+                            {{Form::hidden('nombre',$producto->nombre,array('class'=>'form-control col-sm-3'))}}
+                            {{Form::hidden('precio',$producto->precio,array('class'=>'form-control col-sm-3'))}}
+                            {{Form::number('cantidad',1, array('class'=>'form-control d-inline-flex','min'=>'0','max'=>$producto->stock,'step'=>'1','required'=>'true'))}}<br><br>
+                            {{Form::submit('Agregar a carrito',['class'=>'btn btn-primary d-inline-flex'])}}
+                        {{Form::close()}}
                     </div>
                 </div>
             </div>

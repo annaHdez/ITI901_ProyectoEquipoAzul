@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ForCustomer_Detalle_Compras_Model;
+use App\Models\ForCustomer_DetalleVenta_Model;
 
 class ForCustomer_Detalle_Compra_Controler extends Controller
 {
@@ -13,7 +15,10 @@ class ForCustomer_Detalle_Compra_Controler extends Controller
      */
     public function index()
     {
-        //
+        $table_DetalleCompras = ForCustomer_DetalleVenta_Model::all();
+        $whereClause = [];
+        array_push($whereClause,["id_user",'!=',0]);
+        return view('Cliente_Detalle_Compras.index',['table_DetalleCompras'=>$table_DetalleCompras]);
     }
 
     /**
