@@ -27,19 +27,22 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="{{asset('images/2G.jpg')}}" class="d-block w-100" style="height: 80vh;" alt="First slide">
-	</div>
-	<div class="carousel-caption d-none d-md-block">
-						
-						<p>La comodidad esta en tus pies, imagina lo mejor en cada paso.</p>
-					</div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="{{asset('images/1G.jpg')}}" class="d-block w-100" style="height: 80vh;" alt="Second slide">
+		<img class="d-block w-100" src="{{asset('images/2G.jpg')}}" class="d-block w-100" style="height: 80vh;" alt="First slide">
+		<div class="carousel-caption d-none d-md-block">					
+			<p>La comodidad esta en tus pies, imagina lo mejor en cada paso.</p>
+		</div>
 	</div>
 	
-    <div class="carousel-item">
-      <img class="d-block w-100" src="{{asset('images/5G.jpg')}}" class="d-block w-100" style="height: 80vh;" alt="Third slide">
-    </div>
+	@foreach($table_producto as $producto)
+		@if(($producto->estatus==1)&&($producto->stock>0))
+			<div class="carousel-item">
+				<img class="d-block w-100" src="{{asset('images/'.$producto->imgNombreFisico)}}" class="d-block w-100" style="height: 80vh;" alt="Second slide">
+			</div>
+			<div class="carousel-caption d-none d-md-block">					
+				<p>{{$producto->descripcion}}</p>
+			</div>	
+		@endif
+	@endforeach
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -60,9 +63,9 @@
 			<br>
 			<p class="text-justify ">
 			Somos una empresa orgullosamente Mexicana con orígen en la ciudad de León, Guanajuato "Capital Nacional del Calzado".
- MP Shoes es una empresa familiar, que en base a esfuerzo,dedicación, responsabilidad y corazón de todo su personal esta permitiendo
-que el calzado cumpla con la moda a tus pies. Estamos continuamente a la vanguardia en nuestros modelos para ofrecer
- a usted la mejor relación en precio, calidad y moda.
+			MP Shoes es una empresa familiar, que en base a esfuerzo,dedicación, responsabilidad y corazón de todo su personal esta permitiendo
+			que el calzado cumpla con la moda a tus pies. Estamos continuamente a la vanguardia en nuestros modelos para ofrecer
+			a usted la mejor relación en precio, calidad y moda.
 			</p>
 		</div>
 	</div>
@@ -79,110 +82,60 @@ que el calzado cumpla con la moda a tus pies. Estamos continuamente a la vanguar
 	<br>
 
 
-	<!--Carrusel de Restaurantes destacados-->
+	<!--Carrusel de Productos-->
 	<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<!--3 Destacados 1-->
-				<!--Restaurante 1-->
-				<div class="container">
-					<div class="card-deck">
-						<div class="card">
-							<img src="../public/images/15.webp" class="card-img-top"
-								alt="...">
-							<div class="card-body">
-								<h5 class="card-title">Coqquet</h5>
-								<p class="card-text">Modelo- CQ678</p>
-								<p class="card-text">Color- Negro </p>
-								<p class="card-text">Punto- 3 al 5</p>
-								<p class="card-text">$ 160.00</p>
-								
-								<a href="Lista Platillos.html" class="btn btn-primary">Añadir al carrito</a>
+				<img class="d-block w-100" src="{{asset('images/2G.jpg')}}" class="d-block w-80" style="height: 70vh;" alt="First slide">
+				<div class="carousel-caption d-none d-md-block">					
+					<p>La comodidad esta en tus pies, imagina lo mejor en cada paso.</p>
+				</div>
+			</div>
+			@foreach($table_producto as $carrusel)
+				@if(($carrusel->estatus==1)&&($carrusel->stock>1))
+				<div class="carousel-item">
+					<div class="container">
+						<div class="card-deck">
+							<div class="card" style="max-height: 32rem;max-width: 22rem;">
+								<img src="{{asset('images/'.$carrusel->imgNombreFisico)}}" alt="{{$carrusel->nombre}}" class="img-top text-center" style="height: 17rem;width: 21.5rem">
+								<div class="card-body">
+									<h5 class="card-title">{{$carrusel->nombre}}</h5>
+									<p class="card-text"><strong>Categoria:</strong>&nbsp;{{$carrusel->getCategoria->nombre}}</p>
+									<p class="card-text">{{$carrusel->descripcion}}</p>
+									<p class="card-text"><strong>Precio Unitario</strong>&nbsp;$ {{$carrusel->precio}}</p>
+									
+									<button class="btn btn-primary" onclick="alertify.alert('Aviso','Debes de iniciar sesión primero');">Agregar al carrito</button>
+								</div>
 							</div>
-						</div>
-
-						<!--Restaurante 2-->
-						<div class="card">
-							<img src="../public/images/12.webp" class="card-img-top"
-								alt="...">
-							<div class="card-body">
-								<h5 class="card-title">Sandalia primavera</h5>
-								<p class="card-text">Modelo - SP123</p>
-								<p class="card-text">Color- Menta </p>
-								<p class="card-text">Punto- 3 al 6</p>
-								<p class="card-text">$ 250.00</p>
 							
-								<a href="Lista Platillos.html" class="btn btn-primary">Añadir al carrito</a>
-							</div>
-						</div>
-						<!--Restaurante 3-->
-							<div class="card">
-								<img src="../public/images/17.jpg" class="card-img-top"
-									alt="...">
+							<div class="card" style="max-height: 32rem;max-width: 22rem;">
+								<img src="{{asset('images/'.$carrusel->imgNombreFisico)}}" alt="{{$carrusel->nombre}}" class="img-top text-center" style="height: 17rem;width: 21.5rem">
 								<div class="card-body">
-									<h5 class="card-title">Huarache Lazo</h5>
-									<p class="card-text">Modelo- FS456</p>
-									<p class="card-text">Color- Biege</p>
-									<p class="card-text">Punto- 4 al 6</p>
-									<p class="card-text">$ 200.00</p>
+									<h5 class="card-title">{{$carrusel->nombre}}</h5>
+									<p class="card-text"><strong>Categoria:</strong>&nbsp;{{$carrusel->getCategoria->nombre}}</p>
+									<p class="card-text">{{$carrusel->descripcion}}</p>
+									<p class="card-text"><strong>Precio Unitario</strong>&nbsp;$ {{$carrusel->precio}}</p>
 									
-									<a href="Lista Platillos.html" class="btn btn-primary">Añadir al carrito</a>
+									<button class="btn btn-primary" onclick="alertify.alert('Aviso','Debes de iniciar sesión primero');">Agregar al carrito</button>
 								</div>
 							</div>
-
-					</div>
-				</div>
-			</div>
-
-			<div class="carousel-item">
-				<!--3 Destacados 2-->
-				<div class="container">
-					<div class="card-deck">
-						<div class="card">
-							<img src="../public/images/3G11.jpg" class="card-img-top"
-								alt="...">
-							<div class="card-body">
-								<h5 class="card-title">Huarache</h5>
-								<p class="card-text">Modelo- VF4621</p>
-								<p class="card-text">Color- Mostaza</p>
-								<p class="card-text">Punto- 3 al 5</p>
-								<p class="card-text">$ 220.00</p>
-								
-								<a href="Lista Platillos.html" class="btn btn-primary">Añadir al carrito</a>
-							</div>
-						</div>
-
-						<!--Restaurante 2-->
-						<div class="card">
-							<img src="../public/images/18.jpg" class="card-img-top"
-								alt="...">
-							<div class="card-body">
-								<h5 class="card-title">Flats </h5>
-								<p class="card-text">Modelo- FA678</p>
-								<p class="card-text">Punto- 3 al 6</p>
-								<p class="card-text">$ 350.00</p>
-								
-								<a href="Lista Platillos.html" class="btn btn-primary">Añadir al carrito</a>
-							</div>
-						</div>
-						<!--Restaurante 3-->
-							<div class="card">
-								<img src="../public/images/11.jpg"
-									class="card-img-top" alt="...">
+	
+							<div class="card" style="max-height: 32rem;max-width: 22rem;">
+								<img src="{{asset('images/'.$carrusel->imgNombreFisico)}}" alt="{{$carrusel->nombre}}" class="img-top text-center" style="height: 17rem;width: 21.5rem">
 								<div class="card-body">
-									<h5 class="card-title">Alpagatas</h5>
-									<p class="card-text">Modelo- AS9023</p>
-									<p class="card-text">Color- Rosa palo</p>
-									<p class="card-text">Punto- 3 al 8</p>
-									<p class="card-text">$ 600.00</p>
+									<h5 class="card-title">{{$carrusel->nombre}}</h5>
+									<p class="card-text"><strong>Categoria:</strong>&nbsp;{{$carrusel->getCategoria->nombre}}</p>
+									<p class="card-text">{{$carrusel->descripcion}}</p>
+									<p class="card-text"><strong>Precio Unitario</strong>&nbsp;$ {{$carrusel->precio}}</p>
 									
-									<a href="Lista Platillos.html" class="btn btn-primary">Añadir al carrito</a>
+									<button class="btn btn-primary" onclick="alertify.alert('Aviso','Debes de iniciar sesión primero');">Agregar al carrito</button>
 								</div>
 							</div>
-
+						</div>
 					</div>
 				</div>
-			</div>
+				@endif
+			@endforeach
 			
 		</div>
 		<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -206,125 +159,79 @@ que el calzado cumpla con la moda a tus pies. Estamos continuamente a la vanguar
 			<small class="d-flex" style="float: right;">MP Shoes</small>
 		</p>
 	</div>
-	<!--Comida popular-->
+	<!---->
 	<div class="container">
 		<hr class="d-line text-center">
-		<h2 class="d-line text-center">Ofertas </h2>
+		<h2 class="d-line text-center">Nuevos Productos </h2>
 		<hr class="d-line text-center">
 	</div>
 	<!---->
-	<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+
+	<!--Carrusel de Productos-->
+	<div id="carouselExampleControls1" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<!--3 Destacados 1-->
-				<!--Restaurante 1-->
-				<div class="container">
-					<div class="card-deck">
-						<div class="card">
-							<img src="../public/images/slider 1.jpg" class="card-img-top"
-								alt="...">
-							<div class="card-body">
-								<h5 class="card-title">Valerina moño</h5>
-								<p class="card-text">Modelo- VM0023</p>
-									<p class="card-text">Color- Negro, Mostaza, Rosa y Rojo </p>
-									<p class="card-text">Punto- 4 al 5</p>
-									<p class="card-text">$ 110.00</p>
-								
-								<a href="Info_Platillo.html" class="btn btn-primary">Añadir a carrito</a>
-							</div>
-						</div>
-
-						<!--Restaurante 2-->
-						<div class="card">
-							<img src="../public//images/slider 2.jpg" class="card-img-top"
-								alt="...">
-							<div class="card-body">
-								<h5 class="card-title">Valerina Diamante</h5>
-								<p class="card-text">Modelo- VDS489</p>
-									<p class="card-text">Color- Maquillaje,Negro y Plata </p>
-									<p class="card-text">Punto- 4 al 6</p>
-									<p class="card-text">$ 80.00</p>
-									
-								<a href="Info_Platillo.html" class="btn btn-primary">Añadir al carrito</a>
-							</div>
-						</div>
-						 <!--Restaurante 3-->
-							<div class="card">
-								<img src="../public/images/slider 3.jpg" class="card-img-top"
-									alt="...">
-								<div class="card-body">
-									<h5 class="card-title">Huarachin</h5>
-									<p class="card-text">Modelo- HN267</p>
-									<p class="card-text">Color- Nude,Negro, Mostaza y Rosa palo </p>
-									<p class="card-text">Punto- 5</p>
-									<p class="card-text">$ 120.00</p>
-									
-									<a href="Info_Platillo.html" class="btn btn-primary">Añadir a carrito</a>
-								</div>
-							</div>
-
-					</div>
-				</div>
-			</div>								
-			<div class="carousel-item">
-				<!--3 Destacados 3-->
-				<div class="container">
-					<div class="card-deck">
-						<div class="card">
-							<img src="../public/images/slider 4.jpg" class="card-img-top"
-								alt="...">
-							<div class="card-body">
-								<h5 class="card-title">Bordados</h5>
-								<p class="card-text">Modelo- BS4745</p>
-								<p class="card-text">Punto- 3 al 6</p>
-									<p class="card-text">$ 50.00</p>
-									
-								<a href="Info_Platillo.html" class="btn btn-primary">Añadir a carrito</a>
-							</div>
-						</div>
-
-						<!--Restaurante 2-->
-						<div class="card">
-							<img src="../public/images/slider 5.jpg" class="card-img-top" alt="...">
-							<div class="card-body">
-								<h5 class="card-title">Sandalia plataforma</h5>
-								<p class="card-text">Modelo- SP792</p>
-									<p class="card-text">Color- Mostaza </p>
-									<p class="card-text">Punto- 4</p>
-									<p class="card-text">$ 145.00</p>
-									
-								<a href="Info_Platillo.html" class="btn btn-primary">Añadir al carrito</a>
-							</div>
-						</div>
-						< <!--Restaurante 3-->
-							<div class="card">
-								<img src="../public/images/9.jpg" class="card-img-top"
-									alt="...">
-								<div class="card-body">
-									<h5 class="card-title">Sandalia Diamante</h5>
-									<p class="card-text">Modelo- VF4621</p>
-									<p class="card-text">Color- Plata </p>
-									<p class="card-text">Punto- 4 - 5</p>
-									<p class="card-text">$ 100.00</p>
-									
-
-									<a href="Info_Platillo.html" class="btn btn-primary">Añadir al carrito</a>
-								</div>
-							</div>
-
-					</div>
+				<img class="d-block w-100" src="{{asset('images/2G.jpg')}}" class="d-block w-80" style="height: 70vh;" alt="First slide">
+				<div class="carousel-caption d-none d-md-block">					
+					<p>La comodidad esta en tus pies, imagina lo mejor en cada paso.</p>
 				</div>
 			</div>
+			@foreach($table_producto as $carrusel)
+				@if(($carrusel->estatus==1)&&($carrusel->stock>1))
+				<div class="carousel-item">
+					<div class="container">
+						<div class="card-deck">
+							<div class="card" style="max-height: 32rem;max-width: 22rem;">
+								<img src="{{asset('images/'.$carrusel->imgNombreFisico)}}" alt="{{$carrusel->nombre}}" class="img-top text-center" style="height: 17rem;width: 21.5rem">
+								<div class="card-body">
+									<h5 class="card-title">{{$carrusel->nombre}}</h5>
+									<p class="card-text"><strong>Categoria:</strong>&nbsp;{{$carrusel->getCategoria->nombre}}</p>
+									<p class="card-text">{{$carrusel->descripcion}}</p>
+									<p class="card-text"><strong>Precio Unitario</strong>&nbsp;$ {{$carrusel->precio}}</p>
+									
+									<button class="btn btn-primary" onclick="alertify.alert('Aviso','Debes de iniciar sesión primero');">Agregar al carrito</button>
+								</div>
+							</div>
+							
+							<div class="card" style="max-height: 32rem;max-width: 22rem;">
+								<img src="{{asset('images/'.$carrusel->imgNombreFisico)}}" alt="{{$carrusel->nombre}}" class="img-top text-center" style="height: 17rem;width: 21.5rem">
+								<div class="card-body">
+									<h5 class="card-title">{{$carrusel->nombre}}</h5>
+									<p class="card-text"><strong>Categoria:</strong>&nbsp;{{$carrusel->getCategoria->nombre}}</p>
+									<p class="card-text">{{$carrusel->descripcion}}</p>
+									<p class="card-text"><strong>Precio Unitario</strong>&nbsp;$ {{$carrusel->precio}}</p>
+									
+									<button class="btn btn-primary" onclick="alertify.alert('Aviso','Debes de iniciar sesión primero');">Agregar al carrito</button>
+								</div>
+							</div>
+	
+							<div class="card" style="max-height: 32rem;max-width: 22rem;">
+								<img src="{{asset('images/'.$carrusel->imgNombreFisico)}}" alt="{{$carrusel->nombre}}" class="img-top text-center" style="height: 17rem;width: 21.5rem">
+								<div class="card-body">
+									<h5 class="card-title">{{$carrusel->nombre}}</h5>
+									<p class="card-text"><strong>Categoria:</strong>&nbsp;{{$carrusel->getCategoria->nombre}}</p>
+									<p class="card-text">{{$carrusel->descripcion}}</p>
+									<p class="card-text"><strong>Precio Unitario</strong>&nbsp;$ {{$carrusel->precio}}</p>
+									
+									<button class="btn btn-primary" onclick="alertify.alert('Aviso','Debes de iniciar sesión primero');">Agregar al carrito</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				@endif
+			@endforeach
+			
 		</div>
-		<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+		<a class="carousel-control-prev" href="#carouselExampleControls1" role="button" data-slide="prev">
 			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 			<span class="sr-only">Previous</span>
 		</a>
-		<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+		<a class="carousel-control-next" href="#carouselExampleControls1" role="button" data-slide="next">
 			<span class="carousel-control-next-icon" aria-hidden="true"></span>
 			<span class="sr-only">Next</span>
-        </a>
-        @extends('layout.footer.footer')
-	</div>	
+		</a>
+	</div>
+	<!---->
     </body>
 </html>
