@@ -96,7 +96,7 @@
                             <div class="modal-body container text-wrap text-body">
                                 <h3>Siguenos en nuestras redes sociales</h3>
                             <img src="{{asset('images/facebook.png')}}" alt="" style="height: 200px; width: 200px;" />
-                            <img src="{{asset('images/twitter.png')}}" alt="" style="height: 200px; width: 200px;" />
+                            <a href="https://www.facebook.com/joserigoberto.rodriguezmunoz.39"></a>
                                 @include('layout.footer.contactanos')
                                 <a></a>
                             </div>
