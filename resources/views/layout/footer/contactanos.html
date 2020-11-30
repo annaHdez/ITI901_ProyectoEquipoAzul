@@ -1,0 +1,33 @@
+<strong><h1>Formulario de contacto</h1></strong>
+
+<div class="row">
+    <h2>Datos</h2>
+    <div class="form-group col-md-4">
+        {{ Form::label('nombre', 'Nombre del producto') }}
+        {{ Form::text('nombre', Request::old('nombre'),
+           array('class' => 'form-control', 'required'=>true, 'maxlength'=> 100)) }}
+    </div>
+
+    <div class="form-group col-md-4">
+        {{ Form::label('telefono', 'Teléfono') }}
+        {{ Form::text('telefono', Request::old('telefono'),
+           array('class' => 'form-control', 'required'=>true, 'maxlength'=> 10)) }}
+    </div>
+
+    <div class="form-group col-md-4">
+        {{ Form::label('email', 'Correo electrónico') }}
+        {{ Form::email('email', Request::old('email'), array('class' => 'form-control', 'required'=>true)) }}
+    </div>
+
+    <div class="form-group col-md-12">
+        {{ Form::label('comentario', 'Escribe un comentario) }} <br>
+        {{ Form::textArea('comentario', Request::old('comentario'),
+           array('class' => 'form-control', 'required'=>true, 
+           'maxlength'=> 200, 'rows'=>2)) }}
+    </div>
+
+    <div class="col-md-12">
+        {{ Form::submit('Enviar', array('class' => 'btn btn-primary')) }}
+    </div>
+
+</div>

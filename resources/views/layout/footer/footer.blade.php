@@ -16,7 +16,9 @@
                 <button style="padding-left:40px;" type="button" class="btn text-white" data-toggle="modal" data-target="#Terminos_Condiciones">
                     Términos y condiciones
                 </button>
-    
+                <button style="padding-left:40px;" type="button" class="btn text-white" data-toggle="modal" data-target="#Contáctanos">
+                    Contáctanos
+                </button>
                 <!--Acerca de -->
                 <div class="modal fade" id="AcercaDe" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
@@ -80,6 +82,30 @@
                     </div>
                 </div>
                 <!---->
+                <!--Contáctanos -->
+                <div class="modal fade" id="Contactanos" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable ">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-body" id="exampleModalLabel">Contáctanos</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body container text-wrap text-body">
+                                <h3>Siguenos en nuestras redes sociales</h3>
+                            <img src="{{asset('images/facebook.png')}}" alt="" style="height: 200px; width: 200px;" />
+                            <img src="{{asset('images/twitter.png')}}" alt="" style="height: 200px; width: 200px;" />
+                                @include('layout.footer.contactanos')
+                                <a></a>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
