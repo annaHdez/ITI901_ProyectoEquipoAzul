@@ -4,7 +4,7 @@
 <!DOCTYPE html>    
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
-            <!--@if (Route::has('login'))
+            @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
                         <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
@@ -16,7 +16,7 @@
                         @endif
                     @endif
                 </div>
-            @endif-->
+            @endif
 
             
 			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -171,7 +171,7 @@
 	<div id="carouselExampleControls1" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img class="d-block w-100" src="{{asset('images/2G.jpg')}}" class="d-block w-80" style="height: 70vh;" alt="First slide">
+				<img class="d-block w-100" src="{{asset('images/2G.jpg')}}" class="d-block w-80" style="height: 82vh;" alt="First slide">
 				<div class="carousel-caption d-none d-md-block">					
 					<p>La comodidad esta en tus pies, imagina lo mejor en cada paso.</p>
 				</div>
@@ -233,5 +233,7 @@
 		</a>
 	</div>
 	<!---->
+	<br>
+		@include('layout.footer.footer')
     </body>
 </html>

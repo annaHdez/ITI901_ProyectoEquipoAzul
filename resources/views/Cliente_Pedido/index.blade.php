@@ -1,8 +1,11 @@
 @extends('layouts.app')
 @section('content')
-<h3 class="text-center">Compras hechas </h3>
+<h3 class="text-center">Confirmación de carrito</h3>
 <div class="content" style="width: 80%; margin-left: 10%;">
     {{HTML::ul($errors->all())}}
+    {{Form::open(['url'=>'vaciarCarrito'])}}
+        {{ Form::submit('Vaciar Carrito', array('class'=>'btn btn-danger','onclick'=>"return confirm('¿Vaciar Carrito?')")) }}            
+    {{Form::close()}}
     <table class="table table-striped">
         <thead>
             <th>Fecha de Compra</th>
@@ -15,11 +18,12 @@
         <tbody>
             @foreach($carrito as $pedido)
                 <tr>
-                    <td><?php echo var_dump($pedido);?></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <?php echo var_dump($carrito);?>
+                    <td>{{--$carrito->hoy--}}</td>
+                    <td>{{--$carrito->nombre--}}</td>
+                    <td>{{--$carrito->cantidad--}}</td>
+                    <td>{{--$carrito->precio--}}</td>
+                    <td>{{--($carrito->cantidad)*($carrito->precio)--}}</td>
                     <td>
                         {{ Form::open(['url'=>'quitarElemento'])}}
                                 {{ Form::submit('Quitar Elemento', array('class'=>'btn btn-danger','onclick'=>"return confirm('¿Quitar Producto?')",'data-dismiss'=>'modal')) }}            

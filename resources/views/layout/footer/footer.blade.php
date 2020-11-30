@@ -1,22 +1,22 @@
-<footer class="navbar sticky-bottom navbar-expand-sm navbar-dark bg-dark" style="width: 100%; margin-bottom: none; bottom: 0%;">
+<footer class="navbar sticky-bottom navbar-expand-sm navbar-dark bg-dark" style="width: 100%; margin-bottom: none;padding-bottom: 3rem; bottom: 0%;">
         <div class="navbar-brand" style="word-wrap: break-word; display: flex; height: 100px; ">
-            <img src="{{asset('images/logo.png')}}" alt="" style="height: 100px; width: 170px;" />
-            <div class="collapse navbar-collapse text-wrap">
-                <h3 style="padding-left:120px; ">¿Te gusta nuestro servicio?</h3>
+            <img src="{{asset('images/logo.png')}}" alt="" style="height: 100px; width: 170px;padding-left: 1.2rem;" />
+            <div class="collapse navbar-collapse text-wrap d-inline-flex">
+                <h3 style="padding-left:100px; padding-top: 1.5rem;">¿Te gusta nuestro servicio?</h3>
                 <br><br>
             </div>
             <div style="padding-left:120px; padding-top: 60px">
-                <button type="button" class="btn text-white" data-toggle="modal" data-target="#AcercaDe">
+                <button type="button" class="btn text-white d-inline-flex" data-toggle="modal" data-target="#AcercaDe">
                     Acerca de
                 </button>
     
-                <button style="padding-left:40px;" type="button" class="btn text-white" data-toggle="modal" data-target="#Politcas_Privacidad">
+                <button style="padding-left:40px;" type="button" class="btn text-white d-inline-flex" data-toggle="modal" data-target="#Politcas_Privacidad">
                     Políticas de Privacidad
                 </button>
-                <button style="padding-left:40px;" type="button" class="btn text-white" data-toggle="modal" data-target="#Terminos_Condiciones">
+                <button style="padding-left:40px;" type="button" class="btn text-white d-inline-flex" data-toggle="modal" data-target="#Terminos_Condiciones">
                     Términos y condiciones
                 </button>
-                <button style="padding-left:40px;" type="button" class="btn text-white" data-toggle="modal" data-target="#Contáctanos">
+                <button style="padding-left:40px;" type="button" class="btn text-white d-inline-flex" data-toggle="modal" data-target="#Contactanos">
                     Contáctanos
                 </button>
                 <!--Acerca de -->
@@ -88,17 +88,19 @@
                     <div class="modal-dialog modal-dialog-scrollable ">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title text-body" id="exampleModalLabel">Contáctanos</h5>
+                                <h3 class="modal-title text-body" id="exampleModalLabel">Contáctanos</h3>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body container text-wrap text-body">
-                                <h3>Siguenos en nuestras redes sociales</h3>
-                            <img src="{{asset('images/facebook.png')}}" alt="" style="height: 200px; width: 200px;" />
-                            <img src="{{asset('images/twitter.png')}}" alt="" style="height: 200px; width: 200px;" />
-                                @include('layout.footer.contactanos')
-                                <a></a>
+                                <h5>Siguenos en nuestras redes sociales</h5>
+                                <a href="https://www.facebook.com/joserigoberto.rodriguezmunoz.39">
+                                    <img src="{{asset('images/facebook.png')}}" alt="" style="height: 200px; width: 200px;" />
+                                </a>          
+                                <!--img src="{{asset('images/twitter.png')}}" alt="" style="height: 200px; width: 200px;" /-->
+                                <h5>También contamos con correo para contactarnos</h5>
+                                <legend>mpshoes901@gmail.com</legend>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -106,6 +108,7 @@
                         </div>
                     </div>
                 </div>
+                <!---->
             </div>
         </div>
     </footer>

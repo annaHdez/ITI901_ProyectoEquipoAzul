@@ -47,8 +47,8 @@ Route::resource('Cliente_Usuario'        , 'ForCustomer_User_Controller'        
 Route::post('/agregarCarrito'            , 'ForCustomer_Producto_Controller@agregarCarrito' )->name('agregarCarrito' );
 Route::post('/confirmarPedido'           , 'ForCustomer_Producto_Controller@confirmarPedido')->name('confirmarPedido');
 Route::post('/vaciarCarrito'             , 'ForCustomer_Producto_Controller@vaciarCarrito'  )->name('vaciarCarrito'  );
-Route::post('/quitarElemento{$id}'       , 'ForCustomer_Producto_Controller@quitarElemento' )->name('quitarElemento' );
-Route::get('/verCarrito'                , 'ForCustomer_Producto_Controller@verCarrito'      )->name('verCarrito');
+Route::post('/quitarElemento'            , 'ForCustomer_Producto_Controller@quitarElemento' )->name('quitarElemento' );
+Route::get('/verCarrito'                 , 'ForCustomer_Producto_Controller@verCarrito'     )->name('verCarrito');
 
 Auth::routes();
 

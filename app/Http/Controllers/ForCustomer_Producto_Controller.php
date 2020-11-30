@@ -45,16 +45,18 @@ class ForCustomer_Producto_Controller extends Controller
         if(!$carrito){
         $carrito = [];
         }
-        array_push($carrito, [
-        'idProducto' => $request->idProducto,
-        'hoy'        => getdate(),
-        'nombre'     => $request->nombre,
-        'precio'     => $request->precio,
-        'cantidad' => $request->cantidad
-        ] );
+        
+        array_push($carrito,[
+            'idProducto' => $request->idProducto,
+            'hoy'        => '2020-11-26 19:41:23',
+            'nombre'     => $request->nombre,
+            'precio'     => $request->precio,
+            'cantidad'   => $request->cantidad
+        ]);
+
         $request->session()->put('carrito', $carrito);
         echo var_dump($carrito);
-        //return Redirect::to('Cliente_Producto');
+        return Redirect::to('Cliente_Producto');
     }
     public function confirmarPedido(Request $request)
     {
@@ -65,13 +67,13 @@ class ForCustomer_Producto_Controller extends Controller
         }
         else
         {
-            array_push($carrito, [
-                'idProducto' => $request->idProducto,
-                'hoy'        => getdate(),
-                'nombre'     => $request->nombre,
-                'precio'     => $request->precio,
-                'cantidad'   => $request->cantidad
-            ] );
+            $carrito = array(
+                            'idProducto' => $request->idProducto,
+                            'hoy'        => '2020-11-26 19:41:23',
+                            'nombre'     => $request->nombre,
+                            'precio'     => $request->precio,
+                            'cantidad'   => $request->cantidad
+                            );
         }
         
         $request->session()->put('carrito', $carrito);
@@ -83,33 +85,28 @@ class ForCustomer_Producto_Controller extends Controller
         $carrito = $request->session()->get('carrito');
         unset($carrito['idProducto'],$carrito['hoy'],$carrito['nombre'],$carrito['precio'],$carrito['cantidad']);
         echo var_dump($carrito);
-        //return Redirect::to('Cliente_Producto');
+        return view('Cliente_Pedido.index',['carrito'=>$carrito,'request'=>$request]);
     }
-    public function quitarElemento(Request $request,$id)
-    {
-
-        $carrito = $request->session()->get('carrito');
-        array_push($carrito, [
-            'idProducto' => $request->idProducto,
-            'hoy'        => getdate(),
-            'nombre'     => $request->nombre,
-            'precio'     => $request->precio,
-            'cantidad'   => $request->cantidad
-        ] );
+    public function quitarElemento(Request $request)
+    {   
+        //return view('Cliente_Pedido.index',['carrito'=>$carrito,'request'=>$request]);
+        $carrito  = $request->session()->get('carrito');
         $request->session()->put('carrito', $carrito);
+        $producto = Producto_Model::find($request->idProducto);
+        $carrito  = $request->session()->remove($producto);
         return view('Cliente_Pedido.index',['carrito'=>$carrito,'request'=>$request]);
     }
 
     public function verCarrito(Request $request)
     {
         $carrito = $request->session()->get('carrito');
-        array_push($carrito, [
+        $carrito = array(
             'idProducto' => $request->idProducto,
-            'hoy'        => getdate(),
+            'hoy'        => '2020-11-26 19:41:23',
             'nombre'     => $request->nombre,
             'precio'     => $request->precio,
             'cantidad'   => $request->cantidad
-        ] );
+            );
         $request->session()->put('carrito', $carrito);
         return view('Cliente_Pedido.index',['carrito'=>$carrito,'request'=>$request]);
     }
