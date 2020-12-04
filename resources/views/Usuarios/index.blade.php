@@ -28,6 +28,12 @@
                 <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
             </svg>
         </a>
+        <div class="d-inline-flex">
+            {{ Form::open(['url'=>'excel','method'=>'get'])}}
+                {{ Form::submit('Descargar Excel', array('class' => 'btn btn-success')) }}
+                <img src="{{asset('icons/excel-logo.png')}}" alt="" style="width: 2rem;height: 2rem;"/>
+            {{ Form::close() }}
+        </div>
     </div>
     <div class="modal fade" id="Crear_Usuario" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         @include('Usuarios.helper.modal_new')

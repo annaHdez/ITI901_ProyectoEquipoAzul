@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Concerns\FromCollection;
+use App\Exports\DataExcelExport;
 
 class UserController extends Controller
 {
@@ -152,5 +154,14 @@ class UserController extends Controller
         $modelo = UserEloquent::find($id);
         $modelo->delete();
         return Redirect::to('Usuarios');
+    }
+
+    public function excel()
+    {
+        $datos = new DataExcelExport([
+            ['Id de Usuario','Nombre'        ,'Correo'                ,'Fecha de Registro'  ,'Rol'],
+            [4              ,'Rafael Vázquez','rafa.vz.rrf3@gmail.com','2020-11-26 19:39:07', 1   ]
+        ]);
+        return \Excel::download($datos,'usuarios.xlsx');
     }
 }

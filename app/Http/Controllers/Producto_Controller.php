@@ -9,6 +9,7 @@ use App\Models\Categoria_Model;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Illuminate\Support\Facades\Redirect;
+use App\Exports\DataExcelExport;
 
 class Producto_Controller extends Controller
 {
@@ -171,5 +172,13 @@ class Producto_Controller extends Controller
         $modelo = Producto_Model::find($id);
         $modelo->delete();
         return Redirect::to('Productos');
+    }
+    public function excel()
+    {
+        $datos = new DataExcelExport([
+            ['Id de Producto','Nombre'        ,'stock','Precio'             ,'estatus','Fecha de Registro'  ,'Fecha de Actualización','Descripción'],
+            [4              ,'Tenis Cafés'    ,22     ,'2020-11-26 19:39:07', 1       ,'2020-11-26 19:41:23','2020-11-26 19:41:23'   ,'Hhahahaa'   ]
+        ]);
+        return \Excel::download($datos,'productos.xlsx');
     }
 }

@@ -17,7 +17,7 @@
     @include('layouts.html.alertify')
     
     <!--Icono del sitio web-->
-	<link rel="icon" href="{{asset('icons/log.png')}}" type="image/x-ico" />
+	<link rel="icon" href="{{asset('icons/log.ico')}}" type="image/x-icon" />
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('icons/log.ico')}}" />
     
 </head>

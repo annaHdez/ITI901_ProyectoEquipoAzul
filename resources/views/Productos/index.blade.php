@@ -52,7 +52,12 @@
 <div class="modal fade" id="Crear_Producto" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     @include('Productos.helper.modal_new')
 </div>
-
+<div class="d-inline-flex">
+    {{ Form::open(['url'=>'excelProducto','method'=>'get'])}}
+        {{ Form::submit('Descargar Excel', array('class' => 'btn btn-success')) }}
+        <img src="{{asset('icons/excel-logo.png')}}" alt="" style="width: 2rem;height: 2rem;"/>
+    {{ Form::close() }}
+</div>
 <div class="container">
     
     @foreach ($modelo_producto as $producto)

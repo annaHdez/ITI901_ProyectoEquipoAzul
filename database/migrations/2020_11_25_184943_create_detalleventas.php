@@ -21,6 +21,7 @@ class CreateDetalleventas extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->integer('cantidad');
+            $table->decimal('subtotal',13,2);
             $table->decimal('iva',13,2);
             $table->decimal('total_precio',13,2);
         });
