@@ -41,14 +41,16 @@ Route::resource('Detalle_Venta','Detalle_Venta_Controller');
 
 
 //Rutas para el cliente
-Route::resource('Cliente_Detalle_Compras', 'ForCustomer_Detalle_Compra_Controler');
-Route::resource('Cliente_Producto'       , 'ForCustomer_Producto_Controller'      );
-Route::resource('Cliente_Usuario'        , 'ForCustomer_User_Controller'          );
+Route::resource('Cliente_Detalle_Compras', 'ForCustomer_Detalle_Compra_Controler'           );
+Route::resource('Cliente_Producto'       , 'ForCustomer_Producto_Controller'                );
+Route::resource('Cliente_Usuario'        , 'ForCustomer_User_Controller'                    );
+Route::resource('Cliente_Pedido'         , 'ForCustomer_User_Controller'                    );
+Route::post('/seguirComprando'           , 'ForCustomer_Producto_Controller@seguirComprando')->name('seguirComprando');
 Route::post('/agregarCarrito'            , 'ForCustomer_Producto_Controller@agregarCarrito' )->name('agregarCarrito' );
 Route::post('/confirmarPedido'           , 'ForCustomer_Producto_Controller@confirmarPedido')->name('confirmarPedido');
 Route::post('/vaciarCarrito'             , 'ForCustomer_Producto_Controller@vaciarCarrito'  )->name('vaciarCarrito'  );
 Route::post('/quitarElemento'            , 'ForCustomer_Producto_Controller@quitarElemento' )->name('quitarElemento' );
-Route::get('/verCarrito'                 , 'ForCustomer_Producto_Controller@verCarrito'     )->name('verCarrito');
+Route::get('/verCarrito'                 , 'ForCustomer_Producto_Controller@verCarrito'     )->name('verCarrito'     );
 
 Auth::routes();
 

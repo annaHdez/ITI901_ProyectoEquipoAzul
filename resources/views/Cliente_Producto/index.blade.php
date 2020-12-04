@@ -40,16 +40,6 @@
     </div>
     <hr>
     <a href="{{route('verCarrito')}}" class="btn btn-info">Ver Carrito</a>
-    {{-- <button type="button btn-info" data-toggle="modal" data-target="#Ver_Carrito" class="btn btn-info d-inline-flex">
-        Ver Carrito
-        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
-        </svg>
-    </button>
-
-    <div class="modal fade" id="Ver_Carrito" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        @include('Cliente_Producto.helper.modal_carrito')
-    </div> --}}
     <br>
     @foreach ($table_productos as $producto)
         @if(($producto->estatus==1)&&($producto->stock>0))
@@ -64,7 +54,7 @@
                             @include('Cliente_Producto.helper.modal_view')
                         </div>
                         <br><br>
-                        {{Form::open(['url'=>'agregarCarrito'])}}
+                        {{Form::open(['url'=>'agregarCarrito','method'=>'post'])}}
                             {{Form::hidden('idProducto',$producto->id,array('class'=>'form-control col-sm-3'))}}
                             {{Form::hidden('nombre',$producto->nombre,array('class'=>'form-control col-sm-3'))}}
                             {{Form::hidden('precio',$producto->precio,array('class'=>'form-control col-sm-3'))}}
