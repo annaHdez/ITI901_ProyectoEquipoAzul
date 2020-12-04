@@ -192,6 +192,8 @@ class ForCustomer_Producto_Controller extends Controller
             $subtotal_carrito = doubleval(0.00);
             $iva_carrito      = doubleval(0.00);
             $total_carrito    = doubleval(0.00);
+
+            echo "alertify.error('Error message')";
         }
         else
         {

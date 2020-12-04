@@ -22,6 +22,7 @@
                         <td>{{$compras->getProducto->nombre}}</td>
                         <td>{{$compras->cantidad}}</td>
                         <td>{{$compras->iva}}</td>
+                        
                         <td>{{$compras->total_precio}}</td>
                     </tr>
                 @endif
