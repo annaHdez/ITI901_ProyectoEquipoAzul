@@ -54,10 +54,13 @@
                             @include('Cliente_Producto.helper.modal_view')
                         </div>
                         <br><br>
+                        <?php $user = intval(Auth::user()->id);?>
                         {{Form::open(['url'=>'agregarCarrito','method'=>'post'])}}
+                            {{Form::hidden('id_user',$user,array('class'=>'form-control col-sm-3'))}}
                             {{Form::hidden('idProducto',$producto->id,array('class'=>'form-control col-sm-3'))}}
                             {{Form::hidden('nombre',$producto->nombre,array('class'=>'form-control col-sm-3'))}}
                             {{Form::hidden('precio',$producto->precio,array('class'=>'form-control col-sm-3'))}}
+                            {{Form::hidden('stock',$producto->stock,array('class'=>'form-control col-sm-3'))}}
                             {{Form::number('cantidad',1, array('class'=>'form-control d-inline-flex','min'=>'0','max'=>$producto->stock,'step'=>'1','required'=>'true'))}}<br><br>
                             {{Form::submit('Agregar a carrito',['class'=>'btn btn-primary d-inline-flex'])}}
                         {{Form::close()}}

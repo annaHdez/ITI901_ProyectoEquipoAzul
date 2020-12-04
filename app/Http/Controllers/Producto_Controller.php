@@ -175,10 +175,22 @@ class Producto_Controller extends Controller
     }
     public function excel()
     {
-        $datos = new DataExcelExport([
+        $modelo_producto = Producto_Model::all();
+        foreach($modelo_producto as $producto)
+        {
+            $datos = new DataExcelExport([
+                ['Id de Producto','Nombre'           ,'stock'           ,'Precio'           ,'estatus'           ,'Fecha de Registro'    ,'Fecha de Actualización','Descripción'         ],
+                [$producto["id"] ,$producto["nombre"],$producto["stock"],$producto["precio"],$producto["estatus"],$producto["created_at"],$producto["updated_at"],$producto["descripcion"]],
+            ]);
+        }
+        /*$datos = new DataExcelExport([
+            ['Id de Producto','Nombre'           ,'stock'           ,'Precio'           ,'estatus'           ,'Fecha de Registro'    ,'Fecha de Actualización','Descripción'         ],
+            [$modelo_producto["id"] ,$modelo_producto["nombre"],$modelo_producto["stock"],$modelo_producto["precio"],$modelo_producto["estatus"],$modelo_producto["created_at"],$modelo_producto["updated_at"],$modelo_producto["descripcion"]],
+        ]);*/
+        /*$datos = new DataExcelExport([
             ['Id de Producto','Nombre'        ,'stock','Precio'             ,'estatus','Fecha de Registro'  ,'Fecha de Actualización','Descripción'],
             [4              ,'Tenis Cafés'    ,22     ,'2020-11-26 19:39:07', 1       ,'2020-11-26 19:41:23','2020-11-26 19:41:23'   ,'Hhahahaa'   ]
-        ]);
+        ]);*/
         return \Excel::download($datos,'productos.xlsx');
     }
 }

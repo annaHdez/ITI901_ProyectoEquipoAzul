@@ -38,6 +38,7 @@ class ForCustomer_Producto_Controller extends Controller
         $table_productos       = Producto_Model::orderBy('nombre')->where($whereClause)->get();
         $table_limit_productos = Producto_Model::orderBy('nombre')->skip(1)->take(2)->get();
         $carrito = array([
+            'id_user'    => '',
             'idProducto' => '',
             'hoy'        => '',
             'nombre'     => '',
@@ -45,6 +46,7 @@ class ForCustomer_Producto_Controller extends Controller
             'cantidad'   => '',
             'subtotal'   => ''
         ]);
+        $id_user          = intval($request->id_user);
         $idProducto       = intval(0); 
         $subtotal_carrito = doubleval(0.00);
         $iva_carrito      = doubleval(0.00);
@@ -61,9 +63,12 @@ class ForCustomer_Producto_Controller extends Controller
         $min  = date("i");
         $seg  = date("s");
         $hoy  = $anio.":".$mes.":".$dia." ".$hora.":".$min.":".$seg;
-        $carrito = $request->session()->get('carrito');
+        $carrito    = $request->session()->get('carrito');
+        $id_user    = intval($request->id_user);
+        
         if(!$carrito){
             $carrito = array([
+                'id_user'    => $id_user,
                 'idProducto' => '',
                 'hoy'        => '',
                 'nombre'     => '',
@@ -82,8 +87,10 @@ class ForCustomer_Producto_Controller extends Controller
             $nombre     = strval($request->nombre);
             $precio     = doubleval($request->precio);
             $cantidad   = intval($request->cantidad);
+            $stock      = intval($request->stock);
             $subtotal   = intval($request->cantidad)*doubleval($request->precio);
             array_push($carrito,[
+                'id_user'    => $id_user,
                 'idProducto' => $idProducto,
                 'hoy'        => $hoy,
                 'nombre'     => strval($nombre),
@@ -115,7 +122,7 @@ class ForCustomer_Producto_Controller extends Controller
         $table_productos       = Producto_Model::orderBy('nombre')->where($whereClause)->get();
         $table_limit_productos = Producto_Model::orderBy('nombre')->skip(1)->take(2)->get();
         //echo var_dump($carrito);
-        return view('Cliente_Pedido.index',['table_productos'=>$table_productos,"table_categoria"=>$table_categoria,"filtro_producto"=>$request->producto_buscar,"filtro_categoria"=>$request->categoria_buscar,"table_limit_productos"=>$table_limit_productos,'carrito'=>$carrito,'subtotal_carrito'=>$subtotal_carrito,'iva_carrito'=>$iva_carrito,'total_carrito'=>$total_carrito,'idProducto_carrito'=>$idProducto]);
+        return view('Cliente_Pedido.index',['table_productos'=>$table_productos,"table_categoria"=>$table_categoria,"filtro_producto"=>$request->producto_buscar,"filtro_categoria"=>$request->categoria_buscar,"table_limit_productos"=>$table_limit_productos,'carrito'=>$carrito,'cantidad'=>$cantidad,'subtotal_carrito'=>$subtotal_carrito,'iva_carrito'=>$iva_carrito,'total_carrito'=>$total_carrito,'idProducto_carrito'=>$idProducto,'id_user'=>$id_user,'stock'=>$stock,'nombre'=>$nombre]);
         //return Redirect::to('Cliente_Producto');
     }
     public function verCarrito(Request $request)
@@ -128,9 +135,11 @@ class ForCustomer_Producto_Controller extends Controller
         $seg  = date("s");
         $hoy  = $anio.":".$mes.":".$dia." ".$hora.":".$min.":".$seg;
         $carrito = $request->session()->get('carrito');
+        $id_user    = intval($request->id_user);
         if($carrito==NULL)
         {
             $carrito = array([
+                'id_user'    => intval($id_user),
                 'idProducto' => '',
                 'hoy'        => '',
                 'nombre'     => '',
@@ -151,6 +160,7 @@ class ForCustomer_Producto_Controller extends Controller
             $cantidad   = intval($request->cantidad);
             $subtotal = intval($request->cantidad)*doubleval($request->precio);
             $carrito = array([
+                'id_user'    => $id_user,
                 'idProducto' => $idProducto,
                 'hoy'        => $hoy,
                 'nombre'     => strval($nombre),
@@ -166,7 +176,7 @@ class ForCustomer_Producto_Controller extends Controller
         
         $request->session()->put('carrito', $carrito);
         //var_dump($carrito);
-        return view('Cliente_Pedido.index',['carrito'=>$carrito,'request'=>$request,'subtotal_carrito'=>$subtotal_carrito,'iva_carrito'=>$iva_carrito,'total_carrito'=>$total_carrito,'idProducto_carrito'=>$idProducto]);
+        return view('Cliente_Pedido.index',['carrito'=>$carrito,'request'=>$request,'subtotal_carrito'=>$subtotal_carrito,'iva_carrito'=>$iva_carrito,'total_carrito'=>$total_carrito,'idProducto_carrito'=>$idProducto,'id_user'=>$id_user]);
     }
     public function confirmarPedido(Request $request)
     {
@@ -178,9 +188,11 @@ class ForCustomer_Producto_Controller extends Controller
         $seg  = date("s");
         $hoy  = $anio.":".$mes.":".$dia." ".$hora.":".$min.":".$seg;
         $carrito = $request->session()->get('carrito');
+        $id_user    = intval($request->id_user);
         if($carrito==NULL)
         {
             $carrito = array([
+                'id_user'    => $id_user,
                 'idProducto' => '',
                 'hoy'        => '',
                 'nombre'     => '',
@@ -193,7 +205,7 @@ class ForCustomer_Producto_Controller extends Controller
             $iva_carrito      = doubleval(0.00);
             $total_carrito    = doubleval(0.00);
 
-            echo "alertify.error('Error message')";
+            echo "alertify.error('No se ha seleccionado ningún artículo')";
         }
         else
         {
@@ -202,8 +214,10 @@ class ForCustomer_Producto_Controller extends Controller
             $precio     = doubleval($request->precio);
             $cantidad   = intval($request->cantidad);
             $subtotal   = intval($request->cantidad)*doubleval($request->precio);
-
+            $stock      = intval($request->stock);
+            $new_stock  = intval($stock-$cantidad);
             $carrito = array([
+                'id_user'    => $id_user,
                 'idProducto' => $idProducto,
                 'hoy'        => $hoy,
                 'nombre'     => strval($nombre),
@@ -217,13 +231,17 @@ class ForCustomer_Producto_Controller extends Controller
         }
         
         $request->session()->put('carrito', $carrito);
-        return view('home',['subtotal_carrito'=>$subtotal_carrito,'iva_carrito'=>$iva_carrito,'total_carrito'=>$total_carrito,'idProducto_carrito'=>$idProducto]);
+        DB::statement("UPDATE producto SET stock='$new_stock' WHERE id='$idProducto'");
+        DB::statement("INSERT INTO detalleventas (created_at,producto_id,user_id,cantidad,subtotal,iva,total_precio) VALUES('$hoy','$idProducto','$id_user','$cantidad','$subtotal_carrito','$iva_carrito','$total_carrito')");
+        return view('home',['subtotal_carrito'=>$subtotal_carrito,'iva_carrito'=>$iva_carrito,'total_carrito'=>$total_carrito,'idProducto_carrito'=>$idProducto,'id_user'=>$id_user]);
     }
     public function vaciarCarrito(Request $request)
     {
         $carrito = $request->session()->get('carrito');
+        $id_user    = intval($request->id_user);
         //unset($carrito['idProducto'],$carrito['hoy'],$carrito['nombre'],$carrito['precio'],$carrito['cantidad']);
         $carrito = array([
+            'id_user'    => $id_user,
             'idProducto' => '',
             'hoy'        => '',
             'nombre'     => '',
@@ -236,17 +254,18 @@ class ForCustomer_Producto_Controller extends Controller
         $iva_carrito      = doubleval(0.00);
         $total_carrito    = doubleval(0.00);
         //echo var_dump($carrito);
-        return view('Cliente_Pedido.index',['carrito'=>$carrito,'request'=>$request,'subtotal_carrito'=>$subtotal_carrito,'iva_carrito'=>$iva_carrito,'total_carrito'=>$total_carrito,'idProducto_carrito'=>$idProducto]);
+        return view('Cliente_Pedido.index',['carrito'=>$carrito,'request'=>$request,'subtotal_carrito'=>$subtotal_carrito,'iva_carrito'=>$iva_carrito,'total_carrito'=>$total_carrito,'idProducto_carrito'=>$idProducto,'id_user'=>$id_user]);
     }
     public function quitarElemento(Request $request,$id)
     {   
         $carrito          = $request->session()->get('carrito');
+        $id_user          = intval($request->id_user);
         $producto         = Producto_Model::find($id);
         $request->session()->put('carrito', $carrito);
         $carrito          = $request->session()->remove($producto);
         $request->session()->put('carrito', $carrito);
         $idProducto       = intval(0); 
-        return view('Cliente_Pedido.index',['carrito'=>$carrito,'request'=>$request,'idProducto_carrito'=>$idProducto]);
+        return view('Cliente_Pedido.index',['carrito'=>$carrito,'request'=>$request,'idProducto_carrito'=>$idProducto,'id_user'=>$id_user]);
     }
     public function seguirComprando(Request $request)
     {
@@ -258,9 +277,11 @@ class ForCustomer_Producto_Controller extends Controller
         $seg  = date("s");
         $hoy  = $anio.":".$mes.":".$dia." ".$hora.":".$min.":".$seg;
         $carrito = $request->session()->get('carrito');
+        $id_user    = intval($request->id_user);
         if($carrito==NULL)
         {
             $carrito = array([
+                'id_user'    => $id_user,
                 'idProducto' => '',
                 'hoy'        => '',
                 'nombre'     => '',
@@ -282,6 +303,7 @@ class ForCustomer_Producto_Controller extends Controller
             $subtotal   = intval($request->cantidad)*doubleval($request->precio);
             $subtotal = intval($request->cantidad)*doubleval($request->precio);
             $carrito = array([
+                'id_user'    => $id_user,
                 'idProducto' => $idProducto,
                 'hoy'        => $hoy,
                 'nombre'     => strval($nombre),
@@ -312,7 +334,7 @@ class ForCustomer_Producto_Controller extends Controller
         $table_productos       = Producto_Model::orderBy('nombre')->where($whereClause)->get();
         $table_limit_productos = Producto_Model::orderBy('nombre')->skip(1)->take(2)->get();
         //echo var_dump($carrito);
-        return view('Cliente_Producto.index',['table_productos'=>$table_productos,"table_categoria"=>$table_categoria,"filtro_producto"=>$request->producto_buscar,"filtro_categoria"=>$request->categoria_buscar,"table_limit_productos"=>$table_limit_productos,'carrito'=>$carrito,'subtotal_carrito'=>$subtotal_carrito,'iva_carrito'=>$iva_carrito,'total_carrito'=>$total_carrito,'idProducto_carrito'=>$idProducto]);
+        return view('Cliente_Producto.index',['table_productos'=>$table_productos,"table_categoria"=>$table_categoria,"filtro_producto"=>$request->producto_buscar,"filtro_categoria"=>$request->categoria_buscar,"table_limit_productos"=>$table_limit_productos,'carrito'=>$carrito,'subtotal_carrito'=>$subtotal_carrito,'iva_carrito'=>$iva_carrito,'total_carrito'=>$total_carrito,'idProducto_carrito'=>$idProducto,'id_user'=>$id_user]);
         //return Redirect::to('Cliente_Producto');
     }
 

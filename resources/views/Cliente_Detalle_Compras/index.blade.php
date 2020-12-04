@@ -9,6 +9,7 @@
             <th>Fecha de Compra</th>
             <th>Producto Comprado</th>
             <th>Cantidad</th>
+            <th>Subtotal</th>
             <th>IVA</th>
             <th>Total a Pagar</th>
         </thead>
@@ -21,8 +22,8 @@
                         <td>{{$compras->created_at}}</td>
                         <td>{{$compras->getProducto->nombre}}</td>
                         <td>{{$compras->cantidad}}</td>
+                        <td>{{$compras->subtotal}}</td>
                         <td>{{$compras->iva}}</td>
-                        
                         <td>{{$compras->total_precio}}</td>
                     </tr>
                 @endif
