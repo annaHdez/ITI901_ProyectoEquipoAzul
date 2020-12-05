@@ -90,4 +90,13 @@ class Detalle_Venta_Controller extends Controller
     {
         //
     }
+    public function excel()
+    {
+        $datos = new DataExcelExport([
+            ['Id de Producto','Nombre'        ,'Usuario','Cantidad'             ,'Subtotal','IVA'  ,'Total'],
+            [4              ,'Tenis Cafés'    ,'Rafael Vázquez', 180     , 180, 16    , 196  ]
+        ]);
+        return \Excel::download($datos,'detalleVentas.xlsx');
+    
+    }
 }

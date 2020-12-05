@@ -86,4 +86,14 @@ class ForCustomer_Detalle_Compra_Controler extends Controller
     {
         //
     }
+    public function excel()
+    {
+        $datos = new DataExcelExport([
+            ['Id de Usuario','Nombre'        ,'Producto', 'Cantidad', 'IVA','Fecha '  ,'Total a pagar'],
+            [4              ,'Rafael Vázquez','Tenis Cafés', 180, 16, '2020-11-26 19:39:07', 196 ]
+        ]);
+        return \Excel::download($datos,'detalleCompras.xlsx');
+    }
 }
+
+
