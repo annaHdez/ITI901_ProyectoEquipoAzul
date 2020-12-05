@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
 use App\Models\Rol_Model;
+use Maatwebsite\Excel\Concerns\FromCollection;
+use App\Exports\DataExcelExport;
 
 class Rol_Controller extends Controller
 {
@@ -129,5 +131,14 @@ class Rol_Controller extends Controller
         $modelo = Rol_Model::find($id);
         $modelo->delete();
         return Redirect::to('Rol');
+    }
+
+    public function excel()
+    {
+        $datos = new DataExcelExport([
+            ['Nombre','Estatus'],
+            ['RAFA', '1']
+        ]);
+        return \Excel::download($datos,'roles.xlsx');
     }
 }

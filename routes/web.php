@@ -55,6 +55,9 @@ Route::get('/verCarrito'                 , 'ForCustomer_Producto_Controller@verC
 Route::get('/excel'        ,'UserController@excel'     )->name('excel');
 Route::get('/excelProducto','Producto_Controller@excel')->name('excel');
 
+Route::get('/excel','Rol_Controller@excel')->name('excel');
+
+
 
 Auth::routes();
 
