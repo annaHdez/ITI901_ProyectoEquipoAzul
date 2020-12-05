@@ -70,7 +70,7 @@
                                 </div>
                                 <!--Boton de borrar-->
                                 <!--Evita que el administrador principal sea borrado-->
-                                @if(($usuario->id)!=0)
+                                @if(($usuario->id)!=1)
                                 <div class="d-inline-flex">
                                     {{ Form::open(array('url' => route('Usuarios.destroy', $usuario->id), 'class' => 'pull-right')) }}
                                     {{ Form::hidden('_method', 'DELETE') }}
